@@ -1,0 +1,384 @@
+\magnification\magstephalf
+\baselineskip14pt
+\parindent 20pt
+\parskip5pt
+\def\display#1:#2:#3\par{\par\hangindent #1 \noindent
+	\hbox to #1{\hfill #2 \hskip .1em}\ignorespaces#3\par}
+\def\disleft#1:#2:#3\par{\par\hangindent#1\noindent
+	 \hbox to #1{#2 \hfill \hskip .1em}\ignorespaces#3\par}
+\def\proof{\medskip\noindent{\bf Proof.\quad}}
+
+\centerline{{\bf Bipermutations}\qquad (Notes to myself, 16 June 1996)}
+
+\bigskip
+A permutation (or perm for short) can be thought of as a total order on
+$n$~objects called $1,2,\ldots,n$. Here I~define a {\it bipermutation\/}
+(or~biperm) of order~$n$ to be a near-total partial order on $2n$~objects
+called $1,1',2,2',\ldots,n,n'$. It is a partial order~$\prec$ with $k'\prec
+k$ for $1\leq k\leq n$, and the following additional properties:
+
+\smallskip
+\display 30pt:(i):
+The elements $1,2,\ldots,n$ are totally ordered.
+
+\display 30pt:(ii):
+We have $j'\prec k'$ if and only if $j\prec k$.
+
+\display 30pt:(iii):
+The elements $j'$ and $k$ are comparable if $j<k$.
+
+\noindent
+Notice that we have two total orders, $<$ and $\prec$, on
+$\{1,2,\ldots,n\}$ in this definition.
+
+I'm not sure I like the word ``bipermutation,'' but I do like the concept:
+Every biperm is equivalent to a region of the ``Shi arrangement''
+[J.-Y.Shi, {\sl Lecture Notes in Mathematics\/ \bf 1179} (1986); 
+R.~P. Stanley, {\sl Proc.\ Nat.\ Acad.\ Sci.\ \bf 93} (1996), 2620--2625],
+where $j\prec k$ corresponds to the inequality $x_j<x_k$ and $j'\prec k$
+corresponds to $x_j-1<x_k$. I~have simply abstracted the concept a little
+bit and changed the notation, so that I~might see better what is going~on.
+
+Every biperm is specified uniquely by an $n\times n$ matrix of 0s and~1s,
+with 0s on the diagonal:
+$$a_{ij}=\cases{[i\prec j]\,,&if $i<j$;\cr 
+\noalign{\smallskip}
+0\,,&if $i=j$;\cr
+\noalign{\smallskip}
+[i\prec j']\,,&if $i>j$.\cr}$$
+For example, when $n=4$ the matrix is
+$$\pmatrix{0&[1\succ 2]&[1\succ 3]&[1\succ 4]\cr
+\noalign{\smallskip}
+[2\succ 1']&0&[2\succ 3]&[2\succ 4]\cr
+\noalign{\smallskip}
+[3\succ 1']&[3\succ 2']&0&[3\succ 4]\cr
+\noalign{\smallskip}
+[4\succ 1']&[4\succ 2']&[4\succ 3']&0\cr}\,.$$
+In a pinch, I might write
+$$a_{ij}=\bigl[i\prec j^{[i>j]}\bigr]$$
+although I admit that this is not a beautiful notation.
+
+We cannot have $a_{ij}=a_{ji}=1$, because (if $i<j$) this would mean
+$i\prec j\prec i'$. We can have $a_{ij}=a_{ji}=0$. There are, on the other
+hand, exactly $n!$~biperms such that $a_{ij}+a_{ji}=1$ for all $i\neq j$.
+There are also exactly $n!$~biperms with $a_{ij}=0$ for all $i>j$.
+The number of biperms with $a_{ij}=0$ for all $i<j$ turns out to be the
+Catalan number ${2n\choose n}\,{1\over n+1}$.
+
+It may be helpful to list the 16 matrices that define biperms of order~3
+(see Figure~1).
+
+\topinsert{$$\matrix{%
+&&011\cr
+&&000\cr
+&&000\cr
+\noalign{\smallskip}
+&011&&011\cr
+&001&&000\cr
+&000&&010\cr
+\noalign{\smallskip}
+&&010\cr
+&&000\cr
+&&000\cr
+\noalign{\smallskip}
+&001&&010\cr
+&001&&000\cr
+&000&&010\cr
+\noalign{\smallskip}
+001&&000&&010\cr
+101&&000&&000\cr
+000&&000&&110\cr
+\noalign{\smallskip}
+&000&&000\cr
+&001&&000\cr
+&000&&100\cr
+\noalign{\smallskip}
+000&&000&&000\cr
+101&&100&&000\cr
+000&&100&&110\cr
+\noalign{\smallskip}
+&000&&000\cr
+&101&&100\cr
+&100&&110\cr
+\noalign{\medskip}
+\multispan5\hfil Figure 1\hfil\cr
+}$$}
+\endinsert
+
+
+The main purpose of this note is to prove a surprising fact discovered
+by Igor Pak: The matrices are characterized by their row sums
+$$a_i=\sum_ja_{ij}\,.$$
+Moreover, there is a biperm with row sums $(a_1,\ldots,a_n)$ if and only if
+$(a_1,\ldots,a_n)$ is a {\it parking function\/} in the sense of Konheim
+and Weiss [exercise 6.4--29].
+
+Before I get into the proof, I want to mention some tantalizing
+corollaries, which I~don't have time to explore further: First, there are
+some nice bijections between parking functions and labeled free trees on
+$n+1$ vertices [exercise 6.4--31]. This implies bijections between biperms
+and trees. Second, the matrices are also characterized by their column sums
+$$\overline{a}_j=\sum_i a_{ij}\,.$$
+For we can reverse the rows and columns of~$A$, obtaining say
+$$\pmatrix{0&[4\prec 3']&[4\prec 2']&[4\prec 1']\cr
+\noalign{\smallskip}
+[3\prec 4]&0&[3\prec 2']&[3\prec 1']\cr
+\noalign{\smallskip}
+[2\prec 4]&[2\prec 3]&0&[2\prec 1']\cr
+\noalign{\smallskip}
+[1\prec 4]&[1\prec 3]&[1\prec 2]&0\cr}$$
+whose row sums are $(a_4,a_3,a_2,a_1)$ and column sums are
+$(\overline{a}_4,\overline{a}_3,\overline{a}_2,\overline{a}_1)$.
+The transpose of this matrix~is
+$$\pmatrix{0&[4'\succ 3']&[4'\succ 2']&[4'\succ 1']\cr
+\noalign{\smallskip}
+[3'\succ 4]&0&[3'\succ 2']&[3'\succ 1']\cr
+\noalign{\smallskip}
+[2'\succ 4]&[2'\succ 3]&0&[2'\succ 1']\cr
+\noalign{\smallskip}
+[1'\succ 4]&[1'\succ 3]&[1'\succ 2]&0\cr}$$
+and it defines a biperm when we interchange $j\leftrightarrow j'$,
+$< \leftrightarrow >$, and $\prec \leftrightarrow\succ$. Call this the {\it
+dual\/} biperm. The rule defines the {\it dual of a labeled free tree}.
+Also the dual of the ordered tree that corresponds bijectively to each
+matrix that is zero above the diagonal. Clearly a rich territory to
+explore!
+(In Shi clothing, duality maps $x_j$ to $-x_{n+1-j}$.)
+
+OK, now for the proof itself. Everything hinges on the following
+
+\proclaim Lemma. If $a_{ij}=1$ then $a_i>a_j$.\
+
+\proof
+Suppose $a_{ij}=1$; hence $a_{ji}=0$. I claim $a_{jk}\leq a_{ik}$
+for all~$k$. For if $a_{jk}=1$ and $a_{jk}=0$ and $k\neq i$ we have
+$$j\prec k^{[j>k]}\qquad{\rm and}\qquad k^{[i>k]}\prec i\qquad{\rm and}
+\qquad i\prec j^{[i>j]}\,.$$
+There are six cases, depending on the relative order of $i$, $j$, $k$; all
+six lead to a contradiction:
+$$\vcenter{\halign{$#$\hfil\qquad&$#$\hfil\cr
+(i<j<k)&j\prec k\prec i\prec j\cr
+(i<k<j)&j\prec k'\prec k\prec i\prec j\cr
+(j<i<k)&j\prec k\prec i\prec j'\prec j\cr
+(j<k<i)&j'\prec k'\prec i\prec j'\cr
+(k<i<j)&j\prec k'\prec i\prec j\cr
+(k<j<i)&j\prec k'\prec i\prec j'\prec j\,.\cr}}$$
+(I suppose there is a more elegant proof, but I've laid out the full set of
+possibilities in hopes of boiling them down later.) The lemma follows since
+$a_{jj}<a_{ij}$.
+
+The lemma places severe restrictions on matrices that can have given row
+sums, because it forces lots of zeros. For example, there must be some $i$
+with $a_i=0$; otherwise we could construct an infinite decreasing chain
+$a_i>a_j>a_k>\cdots\;$. Moreover, the sequence $(a_1,\ldots,a_n)$ must be a
+parking function; otherwise there would be some $i$ with fewer than $a_i$
+other elements~$j$ having $a_i>a_j$, contradicting the lemma.
+
+To complete the proof, I need to show that every parking function defines
+exactly one matrix. A~random example will help fix the ideas: Consider the
+parking function
+$$(2,0,3,0,4,8,1,5,4)$$
+that we get by decreasing the digits of $\pi$ by 1. The lemma tells us that
+the matrix has the following form:
+$$\matrix{0&[1\prec 2]&0&[1\prec 4&0&0&[1\prec 7]&0&0&a_1=2\cr
+\noalign{\smallskip}
+0&0&0&0&0&0&0&0&0&a_2=0\cr
+\noalign{\smallskip}
+[3\prec 1']&[3\prec 2']&0&[3\prec 4]&0&0&[3\prec 7]&0&0&a_3=3\cr
+\noalign{\smallskip}
+0&0&0&0&0&0&0&0&0&a_4=0\cr
+\noalign{\smallskip}
+[5\prec 1']&[5\prec 2']&[5\prec 3']&[5\prec 4']&0&0&[5\prec 7]&0&0&a_5=4\cr
+\noalign{\smallskip}
+[[6\prec 1']&[6\prec 2']&[6\prec 3']&[6\prec 4']&[6\prec 5']&0&[6\prec 7]%
+&[6\prec 8]&[6\prec 9]&a_6=8\cr
+\noalign{\smallskip}
+0&[7\prec 2']&0&[7\prec 4']&0&0&0&0&0&a_7=1\cr
+\noalign{\smallskip}
+[8\prec 1']&[8\prec 2']&[8\prec 3']&[8\prec 4']&[8\prec 5']&0&[8\prec 7']%
+&0&[8\prec 9]&a_8=5\cr
+\noalign{\smallskip}
+[9\prec 1']&[9\prec 2']&[9\prec 3']&[9\prec 4']&0&0&[9\prec
+7']&0&0&a_9=4\cr
+}$$
+Let's permute rows and columns so that the row sums are increasing:
+$$\matrix{0&0&0&0&0&0&0&0&0&a_2=0\cr
+\noalign{\smallskip}
+0&0&0&0&0&0&0&0&0&a_4=0\cr
+\noalign{\smallskip}
+[7\prec 4']&[7\prec 2']&0&0&0&0&0&0&0&a_7=1\cr
+\noalign{\smallskip}
+[1\prec 4]&[1\prec 2]&[1\prec 7]&0&0&0&0&0&0&a_1=2\cr
+\noalign{\smallskip}
+[3\prec 4]&[3\prec 2']&[3\prec 7]&[3\prec 1']&0&0&0&0&0&a_3=3\cr
+\noalign{\smallskip}
+[5\prec 4']&[5\prec 2']&[5\prec 7]&[5\prec 1']&[5\prec
+3']&0&0&0&0&a_5=4\cr
+\noalign{\smallskip}
+[9\prec 4']&[9\prec 2']&[9\prec 7']&[9\prec 1']&[9\prec 3']&0&0&0&0&a_9=4\cr
+\noalign{\smallskip}
+[8\prec 4']&[8\prec 2']&[8\prec 7']&[8\prec 1']&[8\prec 3']&[8\prec 5']%
+&[8\prec 9]&0&0&a_8=5\cr
+\noalign{\smallskip}
+[6\prec 4']&[6\prec 2']&[6\prec 7]&[6\prec 1']&[6\prec 3']&[6\prec 5']%
+&[6\prec 9]&[6\prec 8]&0&a_6=8\cr}$$
+This matrix is always lower triangular.
+
+Our example is a bit too easy because $a_6=8$ fully defines the bottom row;
+the same configuration would have been obtained for $a_6\leq \{5,6,7,8\}$.
+
+But let's work from the top down, instead of bottom up, because that's
+where forced moves can be found in general. The top two rows give us
+$[2\prec 4]=0$ and $[4\prec 2']=0$, hence
+$$2\succ 4\succ 2'\succ 4'\,.$$
+It is now clear that $[7\prec 4']\leq [7\prec 2']$; since $a_7=1$ we must
+have $[7\prec 4']=0$, $[7\prec 2']=1$, and
+$$2\succ 4\succ 2'\succ 7\succ 4'\succ 7'\,.$$
+The first three rows of the matrix are now determined.
+
+Moving to the next row, we see that $[1\prec 7]\leq [1\prec 4]\leq [1\prec
+2]$, hence we must set $[1\prec 7]=0$, $[1\prec 4]=[1\prec 2]=1$. The most
+general partial order defined by the first four rows is no longer total:
+$$2\succ 4\succ \{1,2'\}\succ 7\succ 4'\succ 1'\succ 7'\,.$$
+But it gives us enough information to insert 3 and $3'$ in their proper
+places:
+$$2\succ 4\succ \{1,2'\}\succ 7\succ \{3,4'\}\succ 1'\succ 7'\succ 3'\,.$$
+Next comes 5,
+$$2\succ 4\succ \{1,2'\}\succ 7\succ \{3,4'\}\succ 1'\succ \{5,7'\}\succ
+3'\succ 5'\,,$$
+then 9 (which must be $\prec 5$ since $a_5=a_9$):
+$$2\succ 4\succ \{2,3'\}\succ 7\succ \{3,4'\}\succ 1'\succ\{5,7'\}\succ
+9\succ 3'\succ 5'\succ 9'\,.$$
+We must now put 8 between 9 and $3'$, and 6 gets inserted near the end:
+$$2\succ 4\succ\{1,2'\}\succ 7\succ\{3,4'\}\succ 1'\succ\{5,7'\}\succ
+9\succ 8\succ 3'\succ 5'\succ\{6,9'\succ 8'\}\succ 6'\,.$$
+This is the unique biperm that has the stated parking function for its row
+sums.
+
+The most general partial order got a little more complicated than a total
+order in the last step, since 6 is incomparable with $9'$ and~$8'$, while
+$5'\succ 6\succ 6'$ and $5'\succ 9'\succ 8'\succ 6'$. More complicated
+possibilities can also arise; for example,
+$$\vcenter{\halign{\hfil$#$\hfil\qquad&\hfil$#$\hfil\qquad&\hfil$#$\hfil\qquad%
+&\hfil$#$\hfil\qquad\qquad&\hfil$#$\hfil\cr
+0&1&1&1&a_1=3\cr
+\noalign{\smallskip}
+0&0&0&1&a_2=1\cr
+\noalign{\smallskip}
+0&0&0&1&a_3=2\cr
+\noalign{\smallskip}
+0&0&0&0&a_4=0\cr}}$$
+corresponds to the partial order $4\succ 2\succ 3\succ 2'\succ 3'\succ 1'$
+with side chains $4\succ 4'\succ 2'$ and $3\succ 1\succ 1'$. But the only
+partial orders we must deal with are refinements of the ``ladder'' defined
+by (i) and~(ii), subject to the further condition of~(iii). Basically this
+means we have a perm $b_1\succ\cdots\succ b_n$ with additional relations 
+$b_1\succ b'_1,\ldots,b_n\succ b'_n$, $b'_1\succ\cdots\succ b'_n$,
+ and, for each~$j$, we know
+$c_j=\max\{\,k\mid b'_j\prec b_k\ {\rm and}\ b_j\leq b_k\}$. 
+If $b_j\leq b_k$ we have $b_k\prec b'_j$ iff $k>c_j$. Clearly $c_j\geq j$. 
+
+Well, I think I'm more than ready now to prove that the construction works
+in general, not just in a few random examples. First the rows and columns
+are permuted into lower triangular form as explained earlier. We just need
+to carry out the inductive step.
+
+So suppose we've found $b_1\succ \cdots\succ b_m$ as just explained, and we
+want to increase~$m$ by~1. It turns out that we don't need the
+$(c_1,\ldots,c_n)$ machinery. We want to insert element~$\beta$ whose row
+sum~$\alpha$ is greater than or equal to the row sums of $b_1,\ldots,b_m$.
+
+Let $L=\{\,k\mid b_k<\beta\,\}$ and $R=\{\,k\mid b_k>\beta\,\}$. We have
+already decided that $b_k\succ\beta$ for all $k\in L$, and $b_k\succ\beta'$
+for all $k\in R$. The elements $X=\{\,b'_k\mid k\in L\,\}\cup\{\,b_k\mid
+k\in R\,\}$ are mutually comparable, so they form a totally ordered chain,
+say
+$$x_1\succ x_2\succ\cdots\succ x_m\,.$$
+We now define $[\beta\prec x_i]=[i\leq\alpha]$; this is the only way to
+make the new row sum equal to~$\alpha$.
+
+To complete the proof, we must show that the new matrix entries are
+compatible with the old, in the sense that they define a partial ordering.
+This means we have not introduced any cycles; if we have, there will be a
+cycle of length~3, or of the form $\beta\prec y\prec
+z\prec\beta'\prec\beta$. I~will prove  that such cycles are impossible.
+
+First note that we cannot have the situation
+$$b_k\prec x_i\,,\quad k\in L\,,\quad{\rm and}\quad i>\alpha\,.\eqno(\ast)$$
+For if we did, consider the numbers $x_l$ for $1\leq l\leq i$: If $x_l=b_j$
+for some $j\in R$, we have $b_j>\beta>b_k$ and $b_j\succeq x_i\succ b_k$.
+Otherwise $x_l=b'_j$ for some $j\in L$, and we have $b_j\succ b'_j\succeq
+x_i\succ b_k$. It follows that the row sum of $b_k$ is $\geq i>\alpha$,
+a~contradiction.
+
+Suppose now that there's a new cycle of the form $\beta\prec
+b^{\epsilon}_k\prec b_j^{\delta}\prec\beta$, where $\epsilon$ and $\delta$
+stand for optional primes. We have $b_j\prec\beta$ when $j\in L$, hence
+$b_j^{\delta}=x_i$ for some $i>\alpha$. If $b_k^{\epsilon}=x_l$ for
+some~$l$, we have $l\leq\alpha$ since $\beta\prec x_l$, but $l>\alpha$
+since $x_l\prec x_i$; contradiction. So we must have $\beta\prec b_k\prec
+x_i\prec\beta$ where $k\in L$. This contradicts $(\ast)$. 
+
+Or maybe the new cycle has the form $\beta'\prec b_k^{\epsilon}\prec
+b_j^{\delta}\prec\beta'$. We have $b_j\succ\beta'$ when $j\in R$, so the
+form is $\beta'\prec b_k^{\epsilon}\prec b'_j\prec\beta'$; by the previous
+paragraph we can assume it is $\beta'\prec b_k\prec b'_j\prec\beta'$. We
+have $b'_j\succ\beta'$ when $j\in L$, hence $j\in R$ and $b_j=x_i$ for some
+$i>\alpha$. Also $k\in R$, otherwise we wouldn't be comparing $\beta'$
+to~$b_k$. If $1\leq t\leq i$ and $x_t=b_l$ or~$b'_l$, we have $b_l\succeq
+x_t\succeq b_j$, hence $l\leq j$, hence $b_k\prec b'_j\preceq b'_l\prec
+b_l$. The row sum of $b_k$ exceeds~$\alpha$; contradiction.
+
+The new cycle can't be $\beta\prec b_k\prec\beta'\prec\beta$ where $k\in
+R$, since $b_k\succ\beta'$. It can't be $\beta\prec
+b'_k\prec\beta'\prec\beta$ where $k\in L$, since $b_k\succ\beta$. The only
+remaining possibility is $\beta\prec b_k^{\epsilon}\prec
+b'_j\prec\beta'\prec\beta$. Here $j\in R$, so $b_j=x_i$ for some
+$i>\alpha$. We don't have $\beta\prec b_k\prec b'_j\prec b_j$ with $k\in
+L$, because of $(\ast)$. Hence $b_k^{\epsilon}=x_l$ for some $l\leq\alpha$.
+Hence $b_k^{\epsilon}\succ b_j$. Hence the cycle is $\beta\prec b'_k\prec
+b'_j\prec\beta'\prec\beta$ with $k\in L$. Oops, no, that
+contradicts~$(\ast)$. 
+
+\noindent 
+Q.E.D.
+
+\medskip
+Stanley showed me a preprint of a paper (presented at the Wilf symposium)
+that generalizes to tripermutations and higher cases. For example,
+a~triperm of order~$n$ is a partial order on $3n$~objects
+$1,1',1'',2,2',2'',\ldots,n,n',n''$ such that $k''\prec k'\prec k$ for
+all~$k$ and
+
+
+\smallskip
+\display 30pt:(i):
+The elements $1,2,\ldots,n$ are totally ordered.
+
+\display 30pt:(ii):
+We have $j'\prec k'$ if and only if $j\prec k$.
+
+\display 30pt:(iii):
+We have $j''\prec k''$ if and only if $j\prec k$.
+
+\display 30pt:(iv):
+We have $j''\prec k'$ if and only if $j'\prec k$.
+
+\display 30pt:(v):
+The elements $j$ and $k'$ are always comparable.
+
+\display 30pt:(vi):
+The elements $j$ and $k''$ are comparable if $j<k$.
+
+The associated matrix has entries
+$$a_{ij}=\cases{[i\prec j]+[i\prec j']\,,&if $i<j$;\cr
+\noalign{\smallskip}
+0\,,&if $i=j$;\cr
+\noalign{\smallskip}
+[i\prec j']+[i\prec j'']\,,&if $i>j$.\cr}$$
+Again it is characterized by its row sums. There is a bijection to free
+trees with two colors of edges; $(2n+1)^{n-1}$ such trees exist. The
+generalized parking functions correspond to parking pairs of cars (not
+necessarily contiguous) starting at one of $2n$ given addresses.
+
+\bye

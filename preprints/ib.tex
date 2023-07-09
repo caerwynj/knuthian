@@ -1,0 +1,257 @@
+\magnification\magstep1
+\baselineskip14pt
+
+\centerline{{\bf An Interesting Bijection} (rough notes, 10 May 1995
+and 12 May 1995)}
+\bigskip
+If $\pi=\pi_1\ldots\pi_t$ is a perm ($=$ permutation) of $\{1,\ldots,t\}$, say
+that its {\sl back index\/} is the sum of all~$k$ that appear to the right of
+$k+1$. (This is the so-called major index or MacMahon index
+of the perm that takes
+$\pi_1\rightarrow 1,\ldots,\pi_t\rightarrow t$.) 
+
+Let $\Pi$ be the set of all perms $\pi$ of $\{1,\ldots,t\}$.
+
+\proclaim Theorem. There is a bijection of $\Pi$ onto itself such that
+$f(\pi)_i<f(\pi)_{i+1}$ iff $\pi_i<\pi_{i+1}$, 
+$f(\pi)_i=t$ iff $\pi_i=t$, 
+and the number of inversions
+of~$\pi$ is the back index of $f(\pi)$.
+
+[Note, 12 May: I discovered last night that this result is ``well known'';
+see the Postscript at the end. But my independent proof is completely different
+and may have new points of interest.]
+
+First I construct a handy family of bijections from partitions to partitions.
+Let $(\delta_1,\ldots,\delta_m)$, $(\epsilon_1,\ldots,\epsilon_n)$ be arbitrary
+vectors of~0s and~1s. The following functions $A_{mn}$ and~$B_{mn}$ are
+bijections of the set~$P_{mn}$ of all partitions 
+$$\{\,(p_m,\ldots,p_1)\,\vert\,n\geq p_m\geq \cdots\geq p_1\geq 0\,\}$$ 
+onto itself. 
+$$\eqalign{%
+A_{mn}(p_m,\ldots,p_1)&=\left\{\vcenter{\halign{#\hfil&#\hfil\quad&#\hfil\cr
+if $p_m=n$ &then $(n,B_{(m-1)n}\bigl(p_{m-1},\ldots,p_1)\bigr)$\cr
+&else $A_{m(n-1)}(p_m,\ldots,p_1)$,&if $\epsilon_n=0$;\cr
+\noalign{\smallskip}
+if $p_m=n$ &then $(B_{(m-1)n}\bigl(p_{m-1},\ldots,p_1),0\bigr)$\cr
+&else $1+A_{m(n-1)}(p_m,\ldots,p_1)$,&if $\epsilon_n=1$;\cr}}\right.\cr
+\noalign{\medskip}
+B_{mn}(p_m,\ldots,p_1)&=\left\{\vcenter{\halign{#\hfil&#\hfil\quad&#\hfil\cr
+if $p_m=n$ &then $(B_{(m-1)n}\bigl(p_{m-1},\ldots,p_1),0\bigr)$\cr
+&else $1+A_{m(n-1)}(p_m,\ldots,p_1)$,&if $\delta_m=0$;\cr
+\noalign{\smallskip}
+if $p_m=n$ &then $(n,B_{(m-1)n}\bigl(p_{m-1},\ldots,p_1)\bigr)$\cr
+&else $A_{m(n-1)}(p_m,\ldots,p_1)$,&if $\delta_m=1$.\cr}}\right.\cr}
+$$
+Here $1+A_{m(n-1)}(p_m,\ldots,p_1)$ means that we add 1 to each element of
+$A_{m(n-1)}(p_m,\ldots,p_1)$. 
+The value of $\epsilon_0$ is immaterial when we perform~$A_{m0}$, because
+$p_m=\cdots =p_1=0$ in that case. The value of~$A_{0n}$ and $B_{0n}$ is the
+empty partition.
+
+For example, suppose $m=4$, $n=7$, and $(p_4,p_3,p_2,p_1)=(6,6,5,2)$, and
+assume that 
+$(\delta_1,\ldots,\delta_4;\epsilon_1,\ldots,\epsilon_7)=
+(0,1,0,0;0,1,1,0,0,0,1)$. Then we find $A_{47}=1+A_{46}=1+(6,B_{36})
+=1+(6,B_{26},0)=1+(6,A_{25},0)=1+(6,5,B_{15},0)=1+(6,5,1+A_{14},0)=
+1+(6,5,1+A_{13},0)=1+(6,5,2+A_{12},0)=1+(6,5,2,0)=(7,6,3,1)$. All steps are
+invertible: If $A_{47}(p_4,p_3,p_2,p_1)=(7,6,3,1)$
+ we discover first that $p_4\neq 7$, then $p_4=6$, etc.
+
+Now I want to analyze the partitions produced by $A_{mn}$, to understand their
+sum. Let the partition conjugate to $(p_m,\ldots,p_1)$ be $(\tilde{p}_n,\ldots,
+\tilde{p}_1)$, where $m\geq\tilde{p}_n\geq \ldots\geq \tilde{p}_1\geq 0$. It is
+well known that
+$$\{p_j+j\}\cup\{m+n+1-\tilde{p}_k-k\}=\{1,\ldots,m+n\}\,.$$
+Thus in particular $p_m=n$ iff $\tilde{p}_1>0$. Let's define
+$$\eqalign{{\rm score}(p_m,\ldots,p_1)&=
+\prod_{j=1}^m\,\{\,p_j+j\,\vert \,p_j\neq p_{j+1}\;{\rm or}\;\delta_j=1\}\cr
+\noalign{\smallskip}
+&\quad\null+\prod_{k=1}^n\,\{\,m+n+1-\tilde{p}_k-k\,\vert\,
+\tilde{p}_k=\tilde{p}_{k-1}\;{\rm and}\;\epsilon_k=1\}\,.\cr}$$
+The score can be understood by drawing a path from (0,0) to $(m,n)$, numbering
+the segments from~1 to $m+n$, and counting the number of the $j\/$th horizontal
+segment if either $\delta_j=1$ or the next segment is not horizontal; also
+counting the number of the $k\/$th vertical segment if $\epsilon_k=1$ and the
+next segment (if any) is also vertical. The formula for score assumes that
+$p_m\neq p_{m+1}$ and $\tilde{p}_1=\tilde{p}_0$. Another function, score$'$, is
+the same except that we assume $p_m=p_{m+1}$ and $\tilde{p}_1\neq\tilde{p}_0$. 
+
+\proclaim
+Lemma. $A_{mn}(p_m,\ldots,p_1)$ is a partition of ${\rm score}(p_m,\ldots,p_1)
+-(\delta_1+\cdots+(m-1)\delta_{m-1}+m+\epsilon_1+\cdots+n\epsilon_n)$;
+$B_{mn}(p_m,\ldots,p_1)$ is a partition of ${\rm score}'(p_m,\ldots,p_1)
+-(\delta_1+\cdots +m\delta_m+\epsilon_1+\cdots+(n-1)\epsilon_{n-1})$.
+
+The proof is by induction on $m+n$. For example, $A_{47}(6,6,5,2)=(7,6,3,1)$ is
+a partition of $7+6+3+1=17$ when the $\delta$'s and~$\epsilon$'s are set as
+above. The score of $(6,6,5,2)$ is
+$10+9\delta_3+7+3+\epsilon_1+4\epsilon_3+5\epsilon_4+11\epsilon_7=35$, and
+$\delta_1+\cdots+3\delta_3+\epsilon_1+\cdots+7\epsilon_7=18$, and $35-18=17$.
+
+Incidentally, I find this quite amazing. Each of the ${m+n\choose n}$
+partitions has a score that is a linear function of 
+ the~$\delta$'s and~$\epsilon$'s.
+The lemma shows that, for all $2^{m+n}$ choices of~$\delta$'s
+and~$\epsilon$'s, the generating function for scores is a Gaussian coefficient
+multiplied by a power of~$z$. This is not trivial even in a small case like
+$m=2$ and $n=3$. 
+
+Now we are ready to prove the theorem. Given a perm $\pi$ as described earlier,
+let $m=q-1$ and $n=t-q$; thus
+$$\pi=\lambda_1\ldots\lambda_n\,t\,\rho_1\ldots\rho_m$$
+where $\lambda_1\ldots\lambda_n\,\rho_1\ldots\rho_m$ is a perm of
+$\{1,\ldots,t-1\}$. Let $\lambda'_1\ldots\lambda_n'$ be the perm of
+$\{1,\ldots,n\}$ having elements in the same relative order as
+$\lambda_1\ldots\lambda_n$, and let $\rho'_1\ldots\rho'_m$ be the analogous
+perm of $\{1,\ldots,m\}$. By induction there are perms
+$f(\lambda')=\lambda_1''\ldots\lambda_n''$ and
+$f(\rho')=\rho_1''\ldots\rho''_m$ whose back indexes agree with the number of
+inversions of $\lambda_1\ldots\lambda_n$ and $\rho_1\ldots\rho_m$,
+respectively.
+
+The number of inversions of $\pi$ is ${\rm inv}(\lambda_1'\ldots\lambda'_n)
++{\rm inv}(\rho'_1\ldots,\rho'_m)+m$, plus the ``cross inversions'' which
+depend only on the set $\{\lambda_1,\ldots,\lambda_n\}$. For example, if
+$t-1=10$ and $\{\lambda_1,\lambda_2,\lambda_3\}=\{2,3,7\}$, the cross
+inversions are $\{21,31,71,74,75,76\}$.
+
+We will map $\pi$ into
+$f(\pi)=\pi'''=\lambda_1'''\ldots\lambda_n'''\,t\,\rho_1'''\ldots\rho_m'''$, 
+where $\lambda_1'''\ldots\lambda_n'''$ and $\rho_1'''\ldots\rho_m'''$
+have the same relative order as $\lambda_1''\ldots\lambda''_n$ and
+$\rho''_1\ldots\rho''_m$. To
+complete the proof we must show that as $\{\lambda_1,\ldots,\lambda_n\}$ runs
+through 
+ all ${m+n\choose n}$ subsets of $\{1,\ldots,m+n\}$, the multiset of
+inversions of~$\pi$ equals the  multiset of back indexes of
+$f(\pi)$ as $\{\lambda_1''',\ldots,\lambda_n'''\}$ runs through those subsets.
+And we want a bijection to prove it. Such a bijection can be regarded as a
+bijection between partitions, not subsets; and guess what? We've already
+constructed exactly the bijection we need!
+
+An example will help fix the ideas. Suppose
+$$\pi=6\;2\;1\;9\;4\;5\;11\;12\;8\;3\;7\;10\,.$$
+Then $\lambda'_1\ldots\lambda'_7=5\,2\,1\,6\,3\,4\,7$ has 7 inversions, and we
+may take $\lambda_1''\ldots\lambda''_7=5\,4\,1\,6\,2\,3\,7$. Similarly
+$\rho_1'\ldots\rho_4'=3\,1\,2\,4$ has 2~inversions, and we may take
+$\rho''=\rho'$. The total number of inversions in~$\pi$ is $7+2+4$ plus the
+cross inversions. The back index of $f(\pi)$ turns out to be the score of a
+partition: We construct a path from $(0,0)$ to $(4,7)$, putting the number~$l$
+on the left or right
+ according as the $l\/$th segment of the path is vertical or
+horizontal. Let $(\epsilon_1,\ldots,\epsilon_n)$ be the characteristic vector
+of entries where $\lambda_1''\ldots\lambda''_n$ contributes to its back index;
+here it is $(0,0,1,1,0,0,0)$ because the back index is $3+4$. In general the
+back index of $\lambda_1''\ldots\lambda_n''$ will be $\epsilon_1+2\epsilon_2
++\cdots+n\epsilon_n$ (and $\epsilon_n$ will always be zero). Define
+$(\delta_1,\ldots,\delta_m)$ similarly from $\rho_1''\ldots\rho_m''$; in our
+example it is $(0,1,0,0)$. The back index of $f(\pi)$  is the sum of segment
+numbers on the path, as follows: The $k\/$th vertical segment number is
+selected iff $\epsilon_k=1$ and the next segment is also vertical (this means
+$l$ and $l+1$ are both on the left and $l+1$ appears to the left of~$l$). The
+$j\/$th~horizontal segment number is selected iff $\delta_j=1$ or the next
+segment is vertical or $j=m$ $\bigl($this 
+means $l$ is on the right and $l+1$ appears 
+to its left in $f(\pi)\bigr)$. This is precisely the way we defined the score
+of the partition corresponding to this path.
+
+Now we proved in the lemma that the scores run through all numbers
+$\epsilon_1+\cdots+n\epsilon_n+\delta_1+\cdots+(m-1)\delta_{m-1}+m+(\hbox{areas
+under paths})$ as we run through all paths. This is ${\rm inv}(\lambda'')+
+{\rm inv}(\rho'')+m+(\hbox{areas above paths})={\rm inv}(\pi''')$ as we run
+through all paths. So we use our bijection to decide which $\pi'''$ to choose.
+
+In our example the cross inversions are $5+2+2+1$, because 3 is inverted by
+$\{4,5,6,9,11\}$ and 7 by $\{9,11\}$ and 8 by $\{9,11\}$ and~10 by~$\{11\}$.
+ Thus we seek that partition for
+which $A_{47}(p_4,p_3,p_2,p_1)=(5,2,2,1)$. Running the previous bijection path
+in reverse, we see that $(p_4,p_3,p_2,p_1)=(5,4,0,0)$. So the path we seek goes
+horizontal, horizontal, vertical, \dots , vertical and
+$$f(\pi)=8\,6\,3\,10\,4\,5\,11\,12\,7\,1\,2\,9\,.$$
+Indeed, $\pi$ has $7+2+4+10=23$ inversions and the back index of $f(\pi)$ is
+$2+5+7+9=23$.
+
+\medskip\noindent
+{\bf Postscript}, May 12.
+I just read papers by Foata (1977) and Foata and Sch\"utzenberger (1978) which
+establish the theorem by a much simpler bijection. Their bijection~$g$ has the
+properties that $i$ occurs to the left of $i+1$ in $g(\pi)$ iff $i$ occurs to
+the left of $i+1$ in~$\pi$, and $g(\pi)_t=\pi_t$, and the number of inversions
+of~$\pi$ is the major index of $g(\pi)$; so it has exactly the properties
+proved for mine but on the inverse permutations.
+
+Their idea is amazingly simple, and described already by Foata in 1968 to prove
+a weaker result: If $\pi_1<\pi_t$, write $\pi=a_1\alpha_1\ldots
+a_k\alpha_k\pi_t$ where $a_1,\ldots,a_k<\pi_t$ and all elements of
+$\alpha_1,\ldots,\alpha_k$ are $>\pi_t$. Then let $\pi'=\alpha_1a_1\ldots
+\alpha_k a_k$. The number of inversions of~$\pi'$ is the number of inversions
+of~$\pi$, since $\alpha_ja_j$ has $\vert\alpha_j\vert$ more inversions than
+$a_j\alpha_j$, but we lose $\vert\alpha_j\vert$ inversions of~$\pi_t$, for
+each~$j$. On the other hand if $\pi_1>\pi_t$ we write $\pi$ as before but with
+$a_1,\ldots,a_k>\pi_t$ and all elements of $\alpha_1,\ldots\alpha_k<\pi_t$.
+Then $\pi'$ has exactly $t-1$ fewer inversions than~$\pi$, because we lose
+$\vert\alpha_j\vert$ in each block and one more for~$a_j$. Therefore if
+$g(\pi)=g(\pi')\pi_t$, the major index of $g(\pi)$ is the number of inversions
+in~$\pi_t$. And the operations we have performed preserve the relative position
+of all neighboring pairs of values~$i$ and~$i+1$.
+
+Is their bijection the same as mine, in the sense that
+$f(\pi)=g(\pi^{-1})^{-1}$? Let's apply $g$ to the inverse of
+$6\,2\,1\,9\,4\,5\,11\,12\,8\,3\,7\,10$:
+$$\vcenter{\halign{\hfil#\quad&\hfil#\quad&\hfil#\quad&\hfil#\quad
+&\hfil#\quad&\hfil#\quad&\hfil#\quad&\hfil#\quad
+&\hfil#\quad&\hfil#\quad&\hfil#\quad&\hfil#\cr
+3&2&10&5&6&1&11&9&4&12&7&8\cr
+3&10&2&5&6&11&9&1&12&4&7\cr
+10&3&2&5&11&9&6&12&1&4\cr
+3&2&10&5&11&9&6&1&12\cr
+3&2&10&5&11&9&6&1\cr
+3&2&10&5&11&9&6\cr
+3&10&2&11&9&5\cr
+10&3&11&9&2\cr
+10&3&11&9\cr
+3&10&11\cr
+3&10\cr
+3\cr}}$$
+Thus $g(\pi^{-1})=3\;10\;11\;9\;2\;5\;6\;1\;12\;4\;7\;8$
+and $g(\pi^{-1})=8\;5\;1\;10\;6\;7\;11\;12\;4\;2\;3\;9$.
+
+The back index is $3+4+7+9=23$, as claimed, but it's not the same as $f(\pi)$.
+Nor does the order-preserving reduction of $8\;5\;1\;10\;6\;7\;11$ to
+$5\;2\;1\;6\;3\;4\;7$ have a back index equal to the inversions of
+$\lambda'_1\ldots\lambda'_7$; it's back index is $1+4$, not~7.
+
+Turning this around, let's compare $\pi^{-1}$ to $f(\pi)^{-1}$: The latter is
+$$10\;11\;3\;5\;6\;2\;9\;1\;12\;4\;7\;8\,.$$
+Let $h(\pi)=f(\pi^{-1})^{-1}$ be the dual of ``my'' bijection. Then $h$ has
+the following nice property in addition to those claimed for~$g$: Let
+$\lambda(\pi)$ be the subword of~$\pi$ consisting of all letters less
+than the final letter~$\pi_t$, and let $\rho(\pi)$ be the subword of all
+letters greater than~$\pi_t$. Then
+$$h\bigl(\lambda(\pi)\bigr)=\lambda\bigl(h(\pi)\bigr)\,,\qquad
+h\bigl(\rho(\pi)\bigr)=\rho\bigl(h(\pi)\bigr)\,.$$
+For example, $h(3\;2\;5\;6\;1\;4\;7)=3\;5\;6\;2\;1\;4\;7$ and
+$h(10\;11\;9\;12)=10\;11\;9\;12$. Here I~do not require $\pi$ to be a perm of
+$\{1,\ldots,t\}$, only an interval, because inversions and major index and the
+other conditions are independent of the interval being permuted.
+This property implies the ``irise'' property about $i$ and $i+1$, on an
+interval, so I~don't even need to restrict the set to be an interval.
+
+\bigskip
+\noindent{\bf References:}
+
+Dominique Foata, {\sl PAMS\/ \bf 19} (1968), 236--240.
+
+Dominique Foata, {\sl Higher Combinatorics\/} (1977), 27--49.
+
+Dominique Foata and M. P.
+Sch\"utzenberger, {\sl Math.\ Nachr.\ \bf 83} (1978), 143--159.
+
+Adriano Garsia and Ira Gessel, {\sl Adv.\ Math.\ \bf 31} (1979), 288--305.
+
+
+
+\bye
+
+

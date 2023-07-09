@@ -1,0 +1,285 @@
+%!PS
+%%BoundingBox: 3 -3 803 163 
+%%HiResBoundingBox: 3.99902 -2.00012 802.00012 162.00012 
+%%Creator: MetaPost 0.901
+%%CreationDate: 2008.09.19:1138
+%%Pages: 1
+%%BeginProlog
+%%EndProlog
+%%Page: 1 1
+ 0 4.00024 dtransform truncate idtransform setlinewidth pop [] 0 setdash
+ 1 setlinecap 1 setlinejoin 10 setmiterlimit
+newpath 120 113.99963 moveto
+120 87.99988 lineto
+120 83.58154 116.41846 80 112.00012 80 curveto
+87.99988 80 lineto
+72.00012 80 lineto
+47.99988 80 lineto
+32.00012 80 lineto
+5.99915 80 lineto stroke
+ 0.95 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 120 113.99963 moveto
+120 87.99988 lineto
+120 83.58154 116.41846 80 112.00012 80 curveto
+87.99988 80 lineto
+72.00012 80 lineto
+47.99988 80 lineto
+32.00012 80 lineto
+5.99915 80 lineto stroke
+ 0 setgray 0 4.00024 dtransform truncate idtransform setlinewidth pop
+newpath 200 113.99963 moveto
+200 87.99988 lineto
+200 83.58154 196.41846 80 192.00012 80 curveto
+167.99988 80 lineto
+152.00012 80 lineto
+127.99988 80 lineto
+123.58154 80 120 76.41846 120 72.00012 curveto
+120 45.99915 lineto stroke
+ 0.52 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 200 113.99963 moveto
+200 87.99988 lineto
+200 83.58154 196.41846 80 192.00012 80 curveto
+167.99988 80 lineto
+152.00012 80 lineto
+127.99988 80 lineto
+123.58154 80 120 76.41846 120 72.00012 curveto
+120 45.99915 lineto stroke
+ 0 setgray 0 4.00024 dtransform truncate idtransform setlinewidth pop
+newpath 273.99963 40 moveto
+247.99988 40 lineto
+243.58154 40 240 43.58154 240 47.99988 curveto
+240 72.00012 lineto
+240 76.41846 236.41846 80 232.00012 80 curveto
+207.99988 80 lineto
+203.58154 80 200 76.41846 200 72.00012 curveto
+200 45.99915 lineto stroke
+ 0.59 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 273.99963 40 moveto
+247.99988 40 lineto
+243.58154 40 240 43.58154 240 47.99988 curveto
+240 72.00012 lineto
+240 76.41846 236.41846 80 232.00012 80 curveto
+207.99988 80 lineto
+203.58154 80 200 76.41846 200 72.00012 curveto
+200 45.99915 lineto stroke
+ 0 setgray 0 4.00024 dtransform truncate idtransform setlinewidth pop
+newpath 313.99963 120 moveto
+287.99988 120 lineto
+272.00012 120 lineto
+247.99988 120 lineto
+243.58154 120 240 116.41846 240 112.00012 curveto
+240 87.99988 lineto
+240 83.58154 243.58154 80 247.99988 80 curveto
+274.00085 80 lineto stroke
+ 0.89 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 313.99963 120 moveto
+287.99988 120 lineto
+272.00012 120 lineto
+247.99988 120 lineto
+243.58154 120 240 116.41846 240 112.00012 curveto
+240 87.99988 lineto
+240 83.58154 243.58154 80 247.99988 80 curveto
+274.00085 80 lineto stroke
+ 0 setgray 0 4.00024 dtransform truncate idtransform setlinewidth pop
+newpath 286.00037 40 moveto
+312.00012 40 lineto
+327.99988 40 lineto
+352.00012 40 lineto
+356.41846 40 360 43.58154 360 47.99988 curveto
+360 72.00012 lineto
+360 87.99988 lineto
+360 114.00085 lineto stroke
+ 0.76 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 286.00037 40 moveto
+312.00012 40 lineto
+327.99988 40 lineto
+352.00012 40 lineto
+356.41846 40 360 43.58154 360 47.99988 curveto
+360 72.00012 lineto
+360 87.99988 lineto
+360 114.00085 lineto stroke
+ 0 setgray 0 4.00024 dtransform truncate idtransform setlinewidth pop
+newpath 366.00037 80 moveto
+392.00012 80 lineto
+396.41846 80 400 83.58154 400 87.99988 curveto
+400 112.00012 lineto
+400 116.41846 396.41846 120 392.00012 120 curveto
+367.99988 120 lineto
+352.00012 120 lineto
+325.99915 120 lineto stroke
+ 0.89 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 366.00037 80 moveto
+392.00012 80 lineto
+396.41846 80 400 83.58154 400 87.99988 curveto
+400 112.00012 lineto
+400 116.41846 396.41846 120 392.00012 120 curveto
+367.99988 120 lineto
+352.00012 120 lineto
+325.99915 120 lineto stroke
+ 0 setgray 0 4.00024 dtransform truncate idtransform setlinewidth pop
+newpath 440 46.00037 moveto
+440 72.00012 lineto
+440 76.41846 436.41846 80 432.00012 80 curveto
+407.99988 80 lineto
+403.58154 80 400 76.41846 400 72.00012 curveto
+400 47.99988 lineto
+400 43.58154 396.41846 40 392.00012 40 curveto
+365.99915 40 lineto stroke
+ 0.59 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 440 46.00037 moveto
+440 72.00012 lineto
+440 76.41846 436.41846 80 432.00012 80 curveto
+407.99988 80 lineto
+403.58154 80 400 76.41846 400 72.00012 curveto
+400 47.99988 lineto
+400 43.58154 396.41846 40 392.00012 40 curveto
+365.99915 40 lineto stroke
+ 0 setgray 0 4.00024 dtransform truncate idtransform setlinewidth pop
+newpath 447.99988 80 moveto
+472.00012 80 lineto
+476.41846 80 480 83.58154 480 87.99988 curveto
+480 112.00012 lineto
+480 116.41846 476.41846 120 472.00012 120 curveto
+447.99988 120 lineto
+443.58154 120 440 116.41846 440 112.00012 curveto
+440 87.99988 lineto
+440 83.58154 443.58154 80 447.99988 80 curveto closepath stroke
+ 0.24 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 447.99988 80 moveto
+472.00012 80 lineto
+476.41846 80 480 83.58154 480 87.99988 curveto
+480 112.00012 lineto
+480 116.41846 476.41846 120 472.00012 120 curveto
+447.99988 120 lineto
+443.58154 120 440 116.41846 440 112.00012 curveto
+440 87.99988 lineto
+440 83.58154 443.58154 80 447.99988 80 curveto closepath stroke
+ 0 setgray 0 4.00024 dtransform truncate idtransform setlinewidth pop
+newpath 446.00037 40 moveto
+472.00012 40 lineto
+476.41846 40 480 43.58154 480 47.99988 curveto
+480 72.00012 lineto
+480 76.41846 483.58154 80 487.99988 80 curveto
+512.00012 80 lineto
+516.41846 80 520 83.58154 520 87.99988 curveto
+520 114.00085 lineto stroke
+ 0.97 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 446.00037 40 moveto
+472.00012 40 lineto
+476.41846 40 480 43.58154 480 47.99988 curveto
+480 72.00012 lineto
+480 76.41846 483.58154 80 487.99988 80 curveto
+512.00012 80 lineto
+516.41846 80 520 83.58154 520 87.99988 curveto
+520 114.00085 lineto stroke
+ 0 setgray 0 4.00024 dtransform truncate idtransform setlinewidth pop
+newpath 600 46.00037 moveto
+600 72.00012 lineto
+600 76.41846 596.41846 80 592.00012 80 curveto
+567.99988 80 lineto
+552.00012 80 lineto
+527.99988 80 lineto
+523.58154 80 520 76.41846 520 72.00012 curveto
+520 45.99915 lineto stroke
+ 0.71 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 600 46.00037 moveto
+600 72.00012 lineto
+600 76.41846 596.41846 80 592.00012 80 curveto
+567.99988 80 lineto
+552.00012 80 lineto
+527.99988 80 lineto
+523.58154 80 520 76.41846 520 72.00012 curveto
+520 45.99915 lineto stroke
+ 0 setgray 0 4.00024 dtransform truncate idtransform setlinewidth pop
+newpath 680 46.00037 moveto
+680 72.00012 lineto
+680 76.41846 676.41846 80 672.00012 80 curveto
+647.99988 80 lineto
+632.00012 80 lineto
+607.99988 80 lineto
+603.58154 80 600 83.58154 600 87.99988 curveto
+600 114.00085 lineto stroke
+ 0.52 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 680 46.00037 moveto
+680 72.00012 lineto
+680 76.41846 676.41846 80 672.00012 80 curveto
+647.99988 80 lineto
+632.00012 80 lineto
+607.99988 80 lineto
+603.58154 80 600 83.58154 600 87.99988 curveto
+600 114.00085 lineto stroke
+ 0 setgray 0 4.00024 dtransform truncate idtransform setlinewidth pop
+newpath 793.99963 0 moveto
+767.99988 0 lineto
+763.58154 0 760 3.58154 760 7.99988 curveto
+760 32.00012 lineto
+760 36.41846 756.41846 40 752.00012 40 curveto
+727.99988 40 lineto
+712.00012 40 lineto
+685.99915 40 lineto stroke
+ 0.85 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 793.99963 0 moveto
+767.99988 0 lineto
+763.58154 0 760 3.58154 760 7.99988 curveto
+760 32.00012 lineto
+760 36.41846 756.41846 40 752.00012 40 curveto
+727.99988 40 lineto
+712.00012 40 lineto
+685.99915 40 lineto stroke
+ 0 setgray 0 4.00024 dtransform truncate idtransform setlinewidth pop
+newpath 793.99963 80 moveto
+767.99988 80 lineto
+752.00012 80 lineto
+727.99988 80 lineto
+712.00012 80 lineto
+687.99988 80 lineto
+683.58154 80 680 83.58154 680 87.99988 curveto
+680 114.00085 lineto stroke
+ 0.95 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 793.99963 80 moveto
+767.99988 80 lineto
+752.00012 80 lineto
+727.99988 80 lineto
+712.00012 80 lineto
+687.99988 80 lineto
+683.58154 80 680 83.58154 680 87.99988 curveto
+680 114.00085 lineto stroke
+ 0 setgray 0 4.00024 dtransform truncate idtransform setlinewidth pop
+newpath 686.00037 120 moveto
+712.00012 120 lineto
+727.99988 120 lineto
+752.00012 120 lineto
+756.41846 120 760 123.58154 760 127.99988 curveto
+760 152.00012 lineto
+760 156.41846 763.58154 160 767.99988 160 curveto
+794.00085 160 lineto stroke
+ 0.85 setgray 0 3.00398 dtransform truncate idtransform setlinewidth pop
+newpath 686.00037 120 moveto
+712.00012 120 lineto
+727.99988 120 lineto
+752.00012 120 lineto
+756.41846 120 760 123.58154 760 127.99988 curveto
+760 152.00012 lineto
+760 156.41846 763.58154 160 767.99988 160 curveto
+794.00085 160 lineto stroke
+ 0 setgray 4.00024 0 dtransform exch truncate exch idtransform pop setlinewidth
+newpath 800 6.00037 moveto
+800 32.00012 lineto
+800 47.99988 lineto
+800 72.00012 lineto
+800 87.99988 lineto
+800 112.00012 lineto
+800 127.99988 lineto
+800 154.00085 lineto stroke
+ 0.35 setgray 3.00398
+ 0 dtransform exch truncate exch idtransform pop setlinewidth
+newpath 800 6.00037 moveto
+800 32.00012 lineto
+800 47.99988 lineto
+800 72.00012 lineto
+800 87.99988 lineto
+800 112.00012 lineto
+800 127.99988 lineto
+800 154.00085 lineto stroke
+showpage
+%%EOF

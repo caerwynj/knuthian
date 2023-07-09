@@ -1,0 +1,27 @@
+</sys/mkconfig
+
+
+%.dvi: %.tex
+	tex $stem.tex
+
+%.c: %.w
+	ctangle $stem.c
+
+%.tex: %.w
+	cweave $stem.w
+
+%.$O: %.c
+	$CC $CFLAGS $stem.c
+
+
+LIB=libgb.a
+
+OFILES=\
+	gb_flip.$O\
+	gb_graph.$O\
+	gb_io.$O\
+	gb_sort.$O\
+
+
+$LIB: $OFILES
+	$AR $ARFLAGS libga.a $OFILES

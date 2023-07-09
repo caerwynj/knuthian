@@ -1,0 +1,130 @@
+\magnification\magstep1
+\baselineskip14pt
+\parskip3pt
+\def\relv{\,\vert\,}
+
+\centerline{\bf Non-attacking Kings on a Chessboard}
+\smallskip
+\line{\hfill (rough notes---February 1994)}
+\bigskip
+
+\noindent
+How many ways can $mn$ kings be placed on a $2m\times 2n$ chessboard? Divide
+the board into $mn$ ``quads'' of size $2\times 2$; 
+there will be one king in each quad. Any
+solution can be described by two vectors  $(x_1,\ldots,x_m)$ and $(y_1,\ldots,
+y_n)$, where $0\leq x_j\leq n$ and $0\leq y_k\leq m$ and the king in quad
+$(j,k)$
+is in the upper half iff $x_j< k$, in the right half iff $y_k< j$. For
+example, when $m=5$ and $n=3$, the vectors $(x_1,\ldots,x_5)=(2,3,0,1,2)$ and
+$(y_1,y_2,y_3)=(1,0,4)$ describe the configuration
+
+$$\vbox{\offinterlineskip
+\halign{\smash{\lower.6ex\hbox{#}}\quad
+&&#&\hbox to12pt{\hfil#\hfil}\cr
+%&#&\hbox to12pt{\hfil#\hfil}%
+%&#&\hbox to12pt{\hfil#\hfil}%
+%&#&\hbox to12pt{\hfil#\hfil}%
+%&#&\hbox to12pt{\hfil#\hfil}%
+%&#&\hbox to12pt{\hfil#\hfil}%
+%&#&\hbox to12pt{\hfil#\hfil}\cr
+3&\multispan{21}\hrulefill\cr
+\omit\strut&\vrule&x&\vrule&&\vrule&&\vrule&&\vrule&x&\vrule&&\vrule&x&\vrule%
+&&\vrule&&\vrule&x&\vrule\cr
+&\multispan{21}\hrulefill\cr
+\omit\strut&\vrule&&\vrule&&\vrule&x&\vrule&&\vrule&&\vrule&&\vrule&&\vrule%
+&&\vrule&&\vrule&&\vrule\cr
+2&\multispan{21}\hrulefill\cr
+\omit\strut&\vrule&&\vrule&&\vrule&&\vrule&&\vrule&&\vrule&x&\vrule&&\vrule%
+&x&\vrule&&\vrule&&\vrule&&\cr
+&\multispan{21}\hrulefill\cr
+\omit\strut&\vrule&&\vrule&x&\vrule&&\vrule&x&\vrule&&\vrule&&\vrule&&\vrule%
+&&\vrule&&\vrule&x&\vrule&&\cr
+1&\multispan{21}\hrulefill\cr
+\omit\strut&\vrule&&\vrule&&\vrule&&\vrule&&\vrule&&\vrule&x&\vrule&&\vrule%
+&&\vrule&&\vrule&&\vrule\cr
+&\multispan{21}\hrulefill\cr
+\omit\strut&\vrule&x&\vrule&&\vrule&&\vrule&x&\vrule&&\vrule&&\vrule&&\vrule%
+&x&\vrule&&\vrule&x&\vrule\cr
+0&\multispan{21}\hrulefill\cr
+\noalign{\medskip}
+\omit\strut&\hidewidth0\hidewidth&&&&\hidewidth1\hidewidth%
+&&&&\hidewidth2\hidewidth&&&&\hidewidth3\hidewidth%
+&&&&\hidewidth4\hidewidth&&&&\hidewidth5\hidewidth\cr
+}}$$
+
+\noindent
+This representation gives an obvious upper bound $(m+1)^n(n+1)^m$ on the number
+of solutions.
+
+We need to add further constraints so that kings in diagonally adjacent quads
+do not attack each other. The forbidden combinations are
+$$\eqalignno{&(x_j<k<x_{j+1}\quad\hbox{and}\quad y_k<j<y_{k+1})&(\ast)\cr
+\noalign{\smallskip}
+\hbox{or}\quad
+&(x_j>k>x_{j+1}\quad\hbox{and}\quad y_k>j>y_{k+1})\cr}$$
+for all pairs $(j,k)$ with $1\leq j<m$, $1\leq k<n$.
+
+Consider, for example, the case $m=2$. Then we want to consider all
+$(x_1,x_2)$, $(y_1,\ldots,y_n)$ where $0\leq x_j\leq n$ and $0\leq y_k\leq 2$,
+subject to the condition that $(y_k,y_{k+1})=(0,2)$ implies $k\leq x_1$ or
+$k\geq x_2$, while $(y_k,y_{k+1})=(2,0)$ implies $k\geq x_1$ or $k\leq x_2$. If
+$\vert x_1-x_2\vert=r$, the number of choices for $(y_1,\ldots,y_n)$  is
+readily seen to be the Fibonacci number~$F_{2r+2}$ times $3^{n-r}$. Therefore
+the number of solutions is 
+$$(n+1)3^n+2\sum_{r=1}^n(n+1-r)F_{2r+2}3^{n-r}
+=(17n-109)3^n+110F_{2n+2}-42F_{2n}\sim 17n3^n\,.$$
+
+The conditions $(\ast)$ are fairly ``clean,'' so there might be a decent way to
+set up a generating function for the number of solutions. I~have not seen how
+to do that, however. One approach, suggested by Karl Fabel in the book {\sl
+Schach und Zahl}, page~52, is to associate quad~$(j,k)$ with the expression
+$$f(j,k)=a_{j-1,k}b_{j,k-1}c_{j-1,k-1}
++a_{j,k}b_{j,k-1}c_{j,k-1}+a_{j,k}b_{j,k}c_{j,k}+a_{j-1,k}b_{j,k}c_{j-1,k}$$
+and to compute the product
+$\prod_{j=1}^m\prod_{k=1}^nf(j,k)\;{\rm modulo}\;\bigcup_{j=0}^m
+\bigcup_{k=n}^n\{a^2_{jk},b^2_{jk},c^2_{jk}\}$.
+Each term $f(j,k)$ represents the four positions of a king; $a_{jk}$~represents
+a horizontal edge, $b_{jk}$~a~vertical edge, and $c_{jk}$ a~diagonal edge, in
+the conflict graph. Setting $a^2_{jk}$ to~0 removes terms where kings are
+horizontally adjacent, etc. After all terms with quadratic factors are removed,
+we can set the~$a$'s, $b$'s, and~$c$'s to~1; this gives the number of
+solutions.
+
+Fabel used that approach to compute the solution for $m=n=4$ by factoring into
+subboards. We can split the product into parts, reduce each part, then set
+variables to~1 when they do not correspond to edges that join different
+factors. However, the calculation still appears to be nontrivial.
+
+The best way I can think of to compute the number of solutions is a dynamic
+programming approach that uses $(m+1)2^m$ states. We essentially compute the
+number of directed paths in a graph with $(m+1)(n+1)2^m$ vertices $(a,b,S)$,
+where $0\leq a\leq m$, $0\leq b\leq n$, and $S\subseteq\{1,\ldots,m\}$. There
+is a directed arc from $(a,b,S)$ to $(a',b+1,T)$ where $S\subseteq T$, subject
+to another restriction specified below. Each directed path $(0,0,\emptyset)
+\rightarrow (a_1,1,S_1)\rightarrow\cdots\rightarrow(a_n,n,S_n)$ defines 
+$(x_1,\ldots,x_m)$ and $(y_1,\ldots,y_n)$ by the rule
+$$x_j=\max\{\,k\leq n\relv j\notin S_k\,\}\,;\quad y_k=a_k\,.$$
+For example, our example vectors $(2,3,0,1,2)$ and $(1,0,4)$ correspond to a
+3-step path with $S_1=\{3\}$, $S_2=\{3,4\}$, $S_3=\{1,3,4,5\}$. The extra
+condition we need in order to rule out~$(\ast)$, is: If $a<j<a'$ and $j\in S$
+then $j+1\in T$; if  $a>j>a'$ and $j+1\in S$ then $j\in T$. This restriction on
+arcs $(a,b,S)\rightarrow (a',b+1,T)$ holds for all values of~$b$. Shortcuts are
+possible; for example, when we're halfway done, we can essentially finish up in
+one more step, by symmetry.
+
+The algebraic method with factoring is related to this dynamic programming
+approach, but it is harder to do the storage allocation. It does help us see
+how to find solutions that have $90^{\circ}$ rotational symmetry on square
+boards.
+
+I see no decent way to estimate the asymptotic number of solutions when 
+$m=n$ and $n\rightarrow\infty$.
+A~lower bound can be obtained by choosing $x_{t+1},\ldots,x_n$ arbitrarily,
+setting $x_1=\cdots =x_t=x_{t+1}$, and choosing $y_1,\ldots,y_n\leq t$.
+This gives $n^{n-t}t^n$ ways to satisfy~$(\ast)$, and if we choose $t=n/\ln n$
+we have at least $n^{2n}/(e\ln n)^n$ solutions. The logarithm of the true
+number of solutions when $m=n$ is therefore $2n\ln n+O(n\log\log n)$. It would
+be nice to estimate the logarithm to~$o(1)$.
+
+\bye

@@ -1,0 +1,477 @@
+%Combinatorial matrices
+\magnification\magstep1
+\parskip3pt
+\parindent20pt
+\baselineskip14pt
+
+\def\pfbox
+  {\hbox{\hskip 3pt\lower2pt\vbox{\hrule
+  \hbox to 7pt{\vrule height 5pt\hfill\vrule}
+  \hrule}}\hskip3pt}
+
+
+\centerline{\bf Combinatorial Matrices}
+\medskip
+\line{\hfill DEK notes Nov 1991 Institut Mittag-Leffler}
+%\line{\hfill revised January 1993}
+\line{\hfill revised December 1996}
+\bigskip
+Exercises 1.2.3--36, 39, 42 of {\sl Fundamental Algorithms\/} discuss
+the determinants and inverses of matrices of the form
+$$\pmatrix{a&b&b&\ldots&b\cr
+b&a&b&\ldots&b\cr
+b&b&a&\ldots&b\cr
+\vdots&\vdots&\vdots&&\vdots\cr
+b&b&b&\ldots&a\cr}
+= J+(a-b)I\,,\eqno(0.1)$$
+which I called ``combinatorial matrices'' because they arise for
+example in the study of block designs. Those matrices are the special
+case $t=1$ of what I~now believe are properly called combinatorial
+matrices of type $(m,t)$.
+
+In general, a {\it combinatorial matrix of type\/} $(m,t)$ has
+$n={m\choose t}$ rows and columns indexed by the $t$-element subsets
+of an $m$-element set~$S$. The value in row~$U$ and column~$V$ should
+depend only on the cardinality $\vert U\cap V\vert$. We can assume
+without loss of generality that $m\geq 2t$, because subsets of
+cardinality~$t$ are isomorphic (under complementation) to subsets of
+cardinality $m-t$.
+
+A general combinatorial matrix of type $(m,t)$ has at most $t+1$
+distinct entries, because two $t$-sets can intersect in $0,1,\ldots,t$
+elements. For example, the general matrices when $t=2$ and $m=4$
+or~5 are
+$$\vcenter{\halign{%
+\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\cr
+&12&13&14&23&24&34\cr
+\noalign{\smallskip}
+12&a&b&b&b&b&c\cr
+13&b&a&b&b&c&b\cr
+14&b&b&a&c&b&b\cr
+23&b&b&c&a&b&b\cr
+24&b&c&b&b&a&b\cr
+34&c&b&b&b&b&a\cr
+}}
+\qquad\quad
+\vcenter{\halign{%
+\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\enspace
+&\hfil$#$\hfil\cr
+&12&13&14&15&23&24&25&34&35&45\cr
+\noalign{\smallskip}
+12&a&b&b&b&b&b&b&c&c&c\cr
+13&b&a&b&b&b&c&c&b&b&c\cr
+14&b&b&a&b&c&b&c&b&c&b\cr
+15&b&b&b&a&c&c&b&c&b&b\cr
+23&b&b&c&c&a&b&b&b&b&c\cr
+24&b&c&b&c&b&a&b&b&c&b\cr
+25&b&c&c&b&b&b&a&c&b&b\cr
+34&c&b&b&c&b&b&c&a&b&b\cr
+35&c&b&c&b&b&c&b&b&a&b\cr
+45&c&c&b&b&c&b&b&b&b&a\cr
+}}$$
+
+\medskip\noindent
+{\bf 1. Basic combinatorial matrices.}\quad
+Let $J_{m,t,q}$ be the combinatorial matrix of type $(m,t)$ having~1
+in row~$u$ and column~$v$ when $\vert u\cap v\vert=q$, and 0 elsewhere.
+When $(m,t)$ is understood, we write simply~$J_q$ for $J_{m,t,q}$.
+Thus the general combinatorial matrix of type $(m,t)$~is
+$$a_0J_0+a_1J_1+\cdots+a_tJ_t\,.\eqno(1.1)$$
+Clearly $J_t=I$ and $J_0+J_1+\cdots+J_t=J$.
+
+\proclaim
+Lemma. Combinatorial matrices of type $(m,t)$ are closed under
+multiplication.
+
+\noindent
+{\bf Proof.}\quad
+It suffices to show that $J_pJ_q$ is a combinatorial matrix of type
+$(m,t)$. And if $\vert u\cap v\vert=r$ we have
+$$\eqalignno{(J_pJ_q)_{uv}&=\sum_w[\,\vert u\cap w\vert=p\ {\rm and}\
+\vert v\cap w\vert =q]\cr
+\noalign{\smallskip}
+&=\sum_k{r\choose k}{t-r\choose p-k}{t-r\choose q-k}{m-2t+r\choose
+t-p-q+k} = c_{pqr}&(1.2)\cr}$$
+where $k$ represents $\vert u\cap v\cap w\vert$, hence
+$$J_pJ_q=c_{pq0}J_0+c_{pq1}J_1+\cdots+c_{pqt}J_t\,.\eqno(1.3)$$
+For example, when $t=1$ we have $J_0J_0=(m-2)J_0+(m-1)J_1$; $J_1=I$.
+When $t=2$ the multiplication table is
+$$\eqalignno{J_0J_0&={m-4\choose 2}J_0+{m-3\choose 2}J_1+{m-2\choose
+2}J_2\,;\cr
+\noalign{\smallskip}
+J_0J_1&=2(m-4)J_0+(m-3)J_1\,;&(1.4)\cr
+\noalign{\smallskip}
+J_1J_0&=4J_0+(m-2)J_1+2(m-2)J_2\,.\cr}$$
+One can check that $(J_0+J_1+J_2)^2={m\choose 2}$.
+
+\medskip\noindent
+{\bf 2. Basic $(m,t)$ sets.}\quad
+We call the integers $\{a_1,a_2,\ldots,a_t\}$ an $(m,t)$-set if 
+$$1\leq a_1<a_2<\cdots<a_t\leq m\,,\eqno(2.1)$$
+and a {\it basic\/} $(m,t)$-set if in addition
+$$a_k\geq 2k\quad\hbox{for}\quad 1\leq k\leq t\,.\eqno(2.2)$$
+For example, the basic (6,3) sets are 246, 256, 346, 356, 456
+[omitting braces \& commas].
+
+\proclaim
+Lemma. There are exactly ${m\choose t}-{m\choose t-1}$ basic $(m,t)$
+sets, when $m\geq 2t-1>0$.
+
+\noindent
+{\bf Proof.}\quad
+By induction on $t$, the result being clear when $t=1$. For fixed
+$t>1$, the proof is by induction on~$m$, the result being clear when
+$m=2t-1$. If $m\geq 2t$ and $t>1$, the basic $(m,t)$ sets not
+containing~$m$ are basic $(m-1,t)$ sets; those containing~$m$ are
+obtained by appending~$m$ to basic $(m-1,t-1)$ sets. Hence the total
+number~is
+$${m-1\choose t}-{m-1\choose t-1}+{m-1\choose t-1}-{m-1\choose
+t-2}={m\choose t}-{m\choose t-1}\,.\ \pfbox$$
+
+\noindent
+{\bf Alternative proof.}\quad
+We can show that there are exactly ${m\choose t-1}$ nonbasic $(m,t)$
+sets by exhibiting a one-to-one correspondence between arbitrary
+$(m,t-1)$ sets and nonbasic $(m,t)$ sets. Given $1\leq a_1<a_2<\cdots
+<a_{t-1}\leq m$, let $j$ be maximum such that $j=0$ or $a_j\leq 2j+1$.
+The corresponding nonbasic set is
+$\{1,\ldots,2j+1\}\setminus\{a_1,\ldots,a_j\} \cup
+\{a_{j+1},\ldots,a_{t-1}\}$. 
+
+\medskip\noindent
+{\bf 3. A linear covering relation.}\quad
+We say set $u$ covers set $v$ if $u\supseteq v$ and $\vert
+u\vert=\vert v\vert+1$. Let's denote this relation by $u\succ v$.
+
+Consider the system of equations
+$$\sum_{u\succ v}x_u=y_v\eqno(3.1)$$
+where $x_u$ is defined for all $t$-element subsets $u$ of
+$\{1,\ldots,m\}$ and $y_v$ is defined for all $(t-1)$-element subsets.
+If the values of~$y_v$ are given, this is a system of ${m\choose t-1}$
+equations in ${m\choose t}$ unknown variables~$x_u$. The following
+lemma asserts that the variables~$x_u$ for basic $(m,t)$ sets are
+independent.
+
+\proclaim
+Lemma. Given values of $y_v$ for all $(m,t-1)$ sets~$v$ and of $x_u$
+for all basic $(m,t)$ sets~$u$, we can solve system (3.1) for the
+remaining $(m,t)$-sets~$x_u$, when $m\geq 2t-1>0$.
+
+\noindent
+{\bf Proof.}\quad
+Again we use induction on $t$, the result being obvious when $t=1$. 
+
+Suppose $m=2t-1$. Then there are no basic $(m,t)$ sets, and (3.1) has
+as many~$x$'s as~$y$'s. Fix any $(m,t)$ set~$w$ and consider the sum
+$$a_0\sum_{\vert w\cap v\vert=0}y_v+a_1\sum_{\vert w\cap
+v\vert=1}y_v+\cdots +a_{t-1}\sum_{\vert w\cap v\vert
+=t-1}y_v\,.\eqno(3.2)$$
+If $\vert u\cap w\vert=q$, the coefficient of $x_u$ in (3.2) is
+$$q\,a_{q-1}+(t-q)a_q\,,\eqno(3.3)$$
+because $u$ covers $q$ sets $v$ that have $q-1$ elements in common
+with~$w$ and $t-q$ sets~$v$ that have $q$~elements in common.
+Furthermore $q>0$, because $m<2t$. We can choose $a_0,\ldots,a_{t-1}$
+so that (3.3) vanishes for $1\leq q<t$ and equals~1 for $q=t$. Then
+(3.2) gives the value of~$x_w$. Indeed, the solution is
+$$a_k=(-1)^{t-k-1}(t-k)^{-1}{t\choose k}^{-1}\,,\quad 0\leq
+k<t\,.\eqno(3.4)$$
+Now if $m\geq 2t$ we use induction on $m$. There are ${m-1\choose
+t-2}$ equations of (3.1) in which $m\in v$; these involve only~$x_u$
+in which $m\in u$. There are ${m-1\choose t-1}-{m-1\choose t-2}$ basic
+$(m,t)$ sets of that kind, so we can use induction  to find~$x_u$ for
+all~$u$ containing~$m$. The remaining ${m-1\choose t-1}$ equations of
+(3.1) now allow us to determine the remaining~$x_u$, again by
+induction. (We transpose the term in which $u=v\cup\{m\}$ to the
+right-hand side, combining it with~$y_v$.)\ \pfbox
+
+\medskip\noindent
+{\bf 4. Eigenvectors.}\quad
+Let's say that the set of values $x_u$ for $(m,s)$ sets~$u$ is an
+$(m,s)$ {\it kernel system\/} if (3.1) is satisfied with $y_v=0$ for
+all $(m,s-1)$ sets~$v$.
+
+\proclaim
+Lemma. If $\{x_u\}$ is any $(m,s)$ kernel system and if $w$ is any
+$(m,t)$-set, for $t\geq s$, then
+$$\sum_{\vert u\cap w\vert=q}x_u=(-1)^{s-q}{s\choose
+q}z_w\,,\eqno(4.1)$$
+where
+$$z_w=\sum_{u\subseteq w}x_u\,.\eqno(4.2)$$
+
+\noindent
+{\bf Proof.}\quad
+Equation (4.1) surely holds for $q=s$. And an argument like our
+derivation of (3.3) shows that
+$$\sum_{\vert v\cap w\vert=q}y_v=(q+1)\sum_{\vert u\cap
+w\vert=q+1}x_u+(s-q)\sum_{\vert u\cap w\vert=q}x_u\,.\eqno(4.3)$$
+The left side of (4.3) is zero in a kernel system, hence (4.1) follows
+by induction on $s-q$.\ \pfbox
+
+\proclaim
+Corollary. If $\{x_u\}$ is an $(m,s)$ kernel system and if we
+define~$z_w$ by equation (4.2) for all $(m,t)$ sets~$w$, where $t\geq
+s$, then $z$ is an eigenvector for any combinatorial matrix of type
+$(m,t)$. 
+
+\noindent
+{\bf Proof.}\quad
+It suffices to show that $z$ is an eigenvector for~$J_q$, where
+$0\leq q\leq t$. Component~$w$ of the vector~$J_qz$ is
+$$\eqalignno{\sum_{\vert w\cap v\vert=q}z_v
+&=\sum_{\vert w\cap v\vert=q}\;\sum_{u\subseteq v}x_u\cr
+\noalign{\smallskip}
+&=\sum_r\;\sum_{\vert u\cap w\vert=r}x_u\sum_{v\supseteq u}[\,\vert
+w\cap v\vert=q]\cr
+\noalign{\smallskip}
+&=\sum_r\;\sum_{\vert u\cap w\vert=r}x_u{t-r\choose
+q-r}{m-t-s+r\choose t-q-s+r}\cr
+\noalign{\smallskip}
+&=\sum_r\,(-1)^{s-r}{s\choose r}{t-r\choose q-r}{m-t-s+r\choose
+t-q-s+r}z_w\,.\ \pfbox&(4.4)\cr}$$
+The coefficient of $z_w$ is the eigenvalue, which does not appear to
+simplify. (It is the $s$\/th difference of a polynomial in~$r$ of
+degree $(t-q)+(m-2t+q)=m-t$.)
+When $q=0$ it~is
+$$(-1)^s{m-t-s\choose t-s}\,;\eqno(4.5)$$
+when $q=1$ it can be written
+$$(-1)^s\left((t-s){m-t-s\choose t-s-1}-s{m-t-s\choose
+t-s}\right)\,;\eqno(4.6)$$ 
+when $t=s$ it reduces to the term for $r=q$,
+$$(-1)^{t-q}{t\choose q}\,.\eqno(4.7)$$
+
+\medskip\noindent
+{\bf 5. Eigenvalues.}\quad
+The all-ones vector is clearly an eigenvector of~$J_q$, with
+eigenvalue
+$${t\choose q}{m-t\choose t-q}\,.\eqno(5.1)$$
+This is the coefficient of $z_w$ in (4.4) when $s=0$.
+The other ${m\choose t}-1$ eigenvalues are all obtained by the
+construction of the previous section when $s>0$:
+
+\proclaim
+Theorem. The coefficient of $z_w$ in (4.4) occurs as an eigenvalue
+of~$J_q$ exactly
+$${m\choose s}-{m\choose s-1}\eqno(5.2)$$
+times.
+
+[Summing this over $1\leq s\leq t$ gives ${m\choose t}-{m\choose 0}$,
+as desired.]
+
+\medskip\noindent
+{\bf Proof.}\quad
+The eigenvectors for different values of $s$ are orthogonal, because
+they give different eigenvalues when $q=0$ by (4.5). 
+(When $m=2t$ we need to consider also the case $q=1$.)
+Therefore we must
+show only that (5.2) linearly independent eigenvectors~$z$ are
+constructed by the method of Corollary~4.
+
+We know (5.2) is the number of basic $(m,s)$ sets, by Lemma~2. Lemma~3
+tells us that there is an $(m,s)$ kernel system with $x_u=1$ for any
+desired basic $(m,s)$ set and $x_u=0$ for all the other basic sets;
+thus we have (5.2) linearly independent $(m,s)$ kernel systems.\
+
+It remains to show that linearly independent kernel systems lead
+to linearly independent eigenvectors~$z$. For this it suffices to show
+that we can calculate each~$x_u$ from the values of~$z_w$, if the
+linear system (4.2) holds.
+
+Consider the expression
+$$a_0\sum_{\vert w\cap u\vert=0}z_w+a_1\sum_{\vert w\cap
+u\vert=1}z_w+\cdots +a_s\sum_{\vert w\cap u\vert=s}z_w\,.\eqno(5.3)$$
+The coefficient of $x_v$, if $\vert u\cap v\vert=q$, is
+$$\sum_ra_r{s-q\choose r-q}{m-2s+q\choose t-r}\,.\eqno(5.4)$$
+We can therefore choose $a_s,a_{s-1},\ldots,a_0$ so that (5.4) is~1
+when $q=s$ and~0 when $q<s$. Then (5.3) reduces to~$x_u$.\ \pfbox
+
+\medskip\noindent
+{\bf 6. Integer kernels.}\quad
+When the eigenvectors $z$ are actually computed according to the
+method implicit in the proofs above, a~surprising simplification
+occurs. We are told to construct $(m,s)$ kernel systems by setting
+$x_u=1$ for some basic $(m,s)$ set~$u$, and $x_u=0$ for all other
+basic~$u$; then we are supposed to invert the linear system (3.1) to
+obtain the values of~$x_u$ for nonbasic~$u$. This inversion, as we
+have described~it, involves the coefficients~$a_k$ in (3.4), which are
+never integers when $t>1$. The surprising fact is that the final
+values~$x_u$ all turn out to be integers. (The reader may wish to try
+the case $m=6$, $t=3$, in order to appreciate the surprise.)
+
+\proclaim
+Lemma.  
+If $x_u$ is an integer for all basic~$u$ in an $(m,s)$ kernel system,
+it is an integer for all $(m,s)$ sets~$u$.
+
+\noindent
+{\bf Proof.}\quad
+It suffices to exhibit, for each basic $(m,s)$ set~$v$, an $(m,s)$
+kernel system with integer coefficients such that $x_v=1$ and $x_u=0$
+for all basic sets~$u$ that are greater than~$v$ in some total
+ordering of the $(m,s)$ sets.
+
+Let the elements of $v$ be $\{a_1,\ldots,a_s\}$, where
+$$1\leq a_1<a_2<\cdots <a_s\leq m\eqno(6.1)$$
+and $a_k\geq 2k$ for $1\leq k\leq s$, and let the elements of the
+complementary set $\{1,\ldots,m\}\setminus u$ be 
+$$1\leq b_1<b_2<\cdots <b_{m-s}\leq m\,.\eqno(6.2)$$
+Then we have
+$$b_k<a_k\quad{\rm for}\quad 1\leq k\leq s\,.\eqno(6.3)$$
+Indeed, this property characterizes basic sets---it is {\it
+equivalent\/} to the condition $a_k\geq 2k$ when $m\geq 2s$.
+
+Now consider all sets that contain either $a_k$ or~$b_k$, for $1\leq
+k\leq s$, and no other elements. If $u$ is such a set, let
+$x_u=(-1)^l$ where $l$ is the number of~$b$'s. Let $x_u=0$ for all
+other~$u$. This rule defines an $(m,s)$ kernel system. For if $v$ is
+any $(m,s-1)$ set, containing both $a_k$ and~$b_k$ for some~$k$, it is
+covered by no sets~$u$ with $x_u\neq 0$, hence (3.1) surely holds with
+$y_v=0$. And if $v$ contains no pairs $\{a_k,b_k\}$, there is at least
+one~$k$ such that $v$ contains neither $a_k$ nor~$b_k$; this $k$ is
+unique if $v\subseteq \{a_1,\ldots,a_s,b_1,\ldots,b_s\}$. The only
+sets~$u$ that cover~$v$ and have $x_u\neq 0$ are $v\cup\{a_k\}$ and
+$v\cup\{b_k\}$, and these~$x_u$ have opposite signs.
+
+This completes the proof, because we can use, e.g., lexicographic
+order on $(a_1,\ldots,a_s)$ to totally order the $(m,s)$ sets in the
+requisite fashion. \  \pfbox
+
+\medskip
+As an example of the construction in this lemma, here is an easy way
+to find the (8,3) kernel system in which $x_{468}=1$ and $x_u=0$ for
+all other basic~$u$. We start with
+$$468-168-248-346+128+136+234-123\,,\eqno(6.4)$$
+which is a shorthand for $x_{468}=1$, $x_{168}=-1,\ldots,x_{123}=-1$,
+and all other $x_u=0$; this is the kernel system described above when
+$\{a_1,\ldots,a_s\}=\{4,6,8\}$, since
+$\{b_1,\ldots,b_{m-s}\}=\{1,2,3,5,7\}$. The basic sets with nonzero
+coefficients are 468, 248, and 346, so we want to eliminate 248 and
+346. Adding
+$$248-148-238-245+138+145+235-135$$
+and
+$$346-146-236-345+126+145+235-125$$
+yields
+$$\eqalignno{468&-345-245-238-236+2\cdot 235+234-168-148\cr
+&\null-146+2\cdot 145+138+136-135+128+126-125-123\,.&(6.5)\cr}$$
+Incidentally, this system has $x_{235}=x_{145}=2$, illustrating the
+fact that nonzero coefficients of the fully diagonalized systems need
+not be~$\pm 1$. But if we stick to a triangularized (not diagonalized)
+set of coefficients, we can avoid large coefficients in general:
+
+\proclaim
+Theorem. A combinatorial matrix of type $(m,t)$ has ${m\choose t}$
+linearly independent eigenvectors whose components are all $0$, $+1$ or
+$-1$. 
+
+\noindent
+{\bf Proof.}\quad
+For $0\leq s\leq t$ we obtain ${m\choose s}-{m\choose s-1}$
+eigenvectors as in Corollary~4 and Theorem~5, using kernel systems
+with $2^s$~nonzero coefficients as in (6.4). The values of~$z_w$,
+defined by (4.2), will then be 0 or~$\pm 1$. For we have $z_w=0$
+unless $w$ contains either $a_k$ or~$b_k$ for $1\leq k\leq s$, where
+$\{a_1,\ldots,a_s\}$ and $\{b_1,\ldots,b_{m-s}\}$ are the
+complementary sets in the proof above; also $z_w=0$ if both $a_k$
+and~$b_k$ appear in~$w$, for some~$k$, because terms $x_u$ with
+opposite signs will cancel out. Otherwise $z_w=(-1)^l$, where $l=\vert
+w\cap\{b_1,\ldots,b_s\}\vert$. \ \pfbox
+
+\medskip\noindent
+{\bf 7. Examples.}\quad
+The eigenvalues and a set of orthogonal eigenvectors for the two
+combinatorial matrices in the introduction can now be read off from
+these constructions. The $6\times 6$ matrix of type $(4,2)$ has the
+following eigenvectors~$z$:
+
+$$\vcenter{\halign{%
+\hfil$#$\quad
+&\hfil$#$\quad&\hfil$#$\quad&\hfil$#$\quad&\hfil$#$\quad
+&\hfil$#$\qquad\quad
+&\hfil$#$\hfil\qquad\quad
+&\hfil#\hfil\quad&#\hfil\cr
+z_{12}&z_{13}&z_{14}&z_{23}&z_{24}&z_{34}&s&basic set&eigenvalue\cr
+\noalign{\smallskip}
+1&1&1&1&1&1&0&$\emptyset$&$a+4b+c$\cr
+0&-1&-1&1&1&0&1&$\{2\}$&$a-c$\cr
+-1&0&-1&1&0&1&1&$\{3\}$&$a-c$\cr
+-1&-1&0&0&1&1&1&$\{4\}$&$a-c$\cr
+0&1&-1&-1&1&0&2&$\{2,4\}$&$a-2b+c$\cr
+1&0&-1&-1&0&1&2&$\{3,4\}$&$a-2b+c$\cr}}$$
+
+And for type $(5,2)$ we have
+$$\vcenter{\halign{%
+\hfil$#$\quad
+&\hfil$#$\quad&\hfil$#$\quad&\hfil$#$\quad&\hfil$#$\quad
+&\hfil$#$\quad&\hfil$#$\quad&\hfil$#$\quad&\hfil$#$\quad
+&\hfil$#$\qquad\quad
+&\hfil$#$\hfil\qquad\quad
+&\hfil#\hfil\quad&#\hfil\cr
+z_{12}&z_{13}&z_{14}&z_{15}&z_{23}&z_{24}&z_{25}%
+&z_{34}&z_{35}&z_{45}&s&basic set&eigenvalue\cr
+\noalign{\smallskip}
+1&1&1&1&1&1&1&1&1&1&0&$\emptyset$&$a+6b+3c$\cr
+0&-1&-1&-1&1&1&1&0&0&0&1&$\{2\}$&$a+b-2c$\cr
+-1&0&-1&-1&1&0&0&1&1&0&1&$\{3\}$&$a+b-2c$\cr
+-1&-1&0&-1&0&1&0&1&0&1&1&$\{4\}$&$a+b-2c$\cr
+-1&-1&-1&0&0&0&1&0&1&1&1&$\{5\}$&$a+b-2c$\cr
+0&1&-1&0&-1&1&0&0&0&0&2&$\{2,4\}$&$a-2b+c$\cr
+0&1&0&-1&-1&0&1&0&0&0&2&$\{2,5\}$&$a-2b+c$\cr
+1&0&-1&0&-1&0&0&1&0&0&2&$\{3,4\}$&$a-2b+c$\cr
+1&0&0&-1&-1&0&0&0&1&0&2&$\{3,5\}$&$a-2b+c$\cr
+1&0&0&-1&0&-1&0&0&0&1&2&$\{4,5\}$&$a-2b+c$\cr}}$$
+
+\medskip\noindent
+{\bf 8. Remarks.}\quad
+Lov\'asz 
+[{\sl IEEE Trans\/ \bf IT-25} (1979), p.~6]
+says that it is ``well known'' that the system (4.2) can be solved for
+the~$x$'s (if equality holds for all~$w$ of fixed cardinality~$t$),
+ but he does not give a reference.
+I~imagine I~will find all this e.g.\ in papers of Gill Williamson when
+I~get around to studying them, and probably the whole construction is
+also generalized to arbitrary partial ordered sets (or at least
+distributive lattices) instead of the $n$-cube. However, this special
+case is interesting enough in itself to deserve a study of the
+eigenvalues in fairly explicit form as shown above. 
+Lov\'asz presented only the
+case $q=0$, but I'm sure he would not be surprised to hear that the
+eigenvectors for that case work also for general~$q$. I~would be
+pleased to see a reference to any prior work in which the determinant
+of matrices like those in the introduction was shown to have a simple
+form. 
+
+Herb Wilf points out that Eqs.~(1.2) and (1.3) imply immediately the
+identity $J_pJ_q=J_qJ_p$; hence combinatorial matrices of the same
+type are commutative. This guarantees the existence of linearly
+independent eigenvectors common to all of $J_0$, $J_1$,~\dots, and it
+may simplify the computations of Section~4.
+
+I thank Howard Karloff for correcting an error in my original
+statement of the theorem. He has pointed out that it is sometimes
+impossible to find a complete set of eigenvectors that are mutually
+orthogonal unless we use components outside the set $\{-1,0,1\}$.
+
+Postscript: Richard Stanley tells me that much of above follows from
+the theory of association schemes, in particular the Johnson
+scheme. His paper, ``Variations on differential posets,'' in {\sl
+Invariant Theory and Tableaux}, edited by Dennis Stanton, {\sl IMA
+Volumes in Mathematics and Its Applications\/ \bf19} (1990), 145--165,
+is also closely connected, because a Boolean algebra is a sequentially
+differential poset. I have not yet had time to follow up on these
+leads and explore the situation further.
+
+\bye

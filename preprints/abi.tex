@@ -1,0 +1,110 @@
+\magnification\magstep1
+\def\display#1:#2:#3\par{\par\hangindent #1 \noindent
+	\hbox to #1{\hfill #2 \hskip .1em}\ignorespaces#3\par}
+\def\disleft#1:#2:#3\par{\par\hangindent#1\noindent
+	 \hbox to #1{#2 \hfill \hskip .1em}\ignorespaces#3\par}
+\baselineskip14pt
+\parskip3pt
+
+\centerline{\bf A Bilinear Identity}
+\bigskip
+\centerline{Donald E. Knuth}
+\bigskip\bigskip
+If $\langle x_0,x_1,x_2,\ldots\,\rangle$ and $\langle
+y_0,y_1,y_2,\ldots\,\rangle$ are arbitrary sequences, and if $\zeta$
+is any complex number except $0,-1,-2,\ldots,$ then
+$$
+\sum_{n\geq 0}x_ny_n
+=\sum_{n\geq 0}(\zeta{+}2n)\biggl(\sum_{m\geq
+0}\,{x_{m+n}\over 
+m!\,\Gamma(\zeta{+}m{+}2n{+}1)}\biggr)\biggl(\sum_{k=0}^n\,
+{(-1)^{n-k}y_k\Gamma(\zeta{+}k{+}n)\over (n-k)!}\biggr)\,.\eqno(1)$$
+This identity is to be interpreted formally, in the sense that each
+product~$x_qy_r$ appears a~finite number of times on each side of the
+equation and the coefficients agree.
+
+Indeed, the coefficient of~$x_qy_r$ on the right is
+$$\sum\,{(-1)^{n-k}(\zeta+2n)\Gamma(\zeta+k+n)\over
+m!\,\Gamma(\zeta+m+2n+1)(n-k)!}\,,\eqno(2)$$
+summed over all $m\geq 0$ and $0\leq k\leq n$ such that $m+n=q$ and
+$k=r$. If $q<r$, the sum is~0; if $q=r$, it is~1. Suppose $q-r=p$,
+where $p$ is a positive integer. Then (2) can be written
+$$\eqalign{{1\over p!}\,\sum_{j=0}^p\,&{p\choose
+j}\,{(-1)^j(\zeta+2r+2j)\Gamma(\zeta +2r+j)\over
+\Gamma(\zeta+2r+p+j+1)}\cr
+\noalign{\smallskip}
+&={2\over p!}\,\sum_{j=0}^p\,{p\choose 
+j}\,{(-1)^j\Gamma(\zeta+2r+j+1)\over\Gamma(\zeta+2r+p+j+1)}-
+{\zeta+2r\over p!}\,\sum_{j=0}^p\,{p\choose
+j}\,{(-1)^j\Gamma(\zeta+2r+j)\over \Gamma(\zeta+2r+p+j+1)}\cr
+\noalign{\smallskip}
+&={2\over p!}\;{(-p)^{\underline{p}}\,
+\Gamma(\zeta+2r+1)\over\Gamma(\zeta+2r+2p+1)}-
+{\zeta+2r\over p!}\;{(-p-1)^{\underline{p}}\,
+\Gamma(\zeta+2r)\over \Gamma(\zeta+2r+2p+1)}\,,\cr}$$
+where $x^{\underline{p}}$ denotes $x(x-1)\,\ldots\,(x-p+1)$. This
+vanishes, because we have
+$(-p-1)^{\underline{p}}=(-2p)(-p-1)^{\underline{p-1}}
+=2(-p)^{\underline{p}}$ when $p>0$. 
+
+If we replace $x_n$ by $x_n\zeta^n\!/e^n$ and $y_n$ by $y_ne^n\!/\zeta^n$,
+then let $\zeta\rightarrow\infty$, identity~(1) takes the simpler form
+$$\sum_{n\geq 0}x_ny_n=\sum_{n\geq 0}\biggl(\sum_{m\geq
+0}\,{x_{m+n}\over m!}\biggr)\biggl(\sum_{k=0}^n\,{(-1)^{n-k}\,y_k\over
+(n-k)!}\biggr)\,,\eqno(3)$$
+which of course is easy to verify directly.
+
+Identity (1) has many important special cases. For example, if we set
+$$\eqalign{x_n&={(a_1)_n\,\ldots\,(a_p)_n\,(e_1)_n\,\ldots\,(e_t)_n\over
+(b_1)_n\,\ldots\,(b_q)_n\,(f_1)_n\,\ldots\,(f_r)_n}\,z^n\,,\cr
+\noalign{\medskip}
+y_n&={(b_1)_n\,\ldots\,(b_q)_n\,(c_1)_n\,\ldots\,(c_r)_n\over
+(a_1)_n\,\ldots\,(a_p)_n\,(d_1)_n\,\ldots\,(d_r)_n}\,{w^n\over
+n!}\,,\cr}$$
+where $(a)_n=a^{\overline{n}}=a(a+1)\,\ldots\,(a+n-1)$, we obtain a
+general expansion for hypergeometric functions in terms of
+hypergeometrics:
+$$\eqalignno{%
+_{r+t}F_{s+u}&\left(\left.{c_1,\ldots,c_r,\,e_1,\ldots,e_t\atop
+d_1,\ldots,d_s,\,f_1,\ldots,f_u}\right\vert zw\right)\cr
+\noalign{\smallskip}
+&=\sum_{n\geq 0}\,
+{(a_1)_n\,\ldots\,(a_p)_n\,(e_1)_n\,\ldots\,(e_t)_n(-z)^n\over
+(b_1)_n\,\ldots\,(b_q)_n\,(f_1)_n\,\ldots\,(f_r)_n(\zeta+n)_n\,n!}\,
+f_n(z)g_n(w)\,,&(4)\cr}$$
+\vskip-20pt
+$$\eqalignno{f_n(z)
+&=\;_{p+t}F_{q+u+1}\left(\left.{n+a_1,\ldots,n+a_p,\,n+e_1,\ldots,n+e_t\atop
+n+b_1,\ldots,n+b_q,\,n+f_1,\ldots,n+f_u,\,2n+\zeta+1}
+\right\vert z\right)\,,&(5)\cr
+\noalign{\medskip}
+g_n(z)
+&=\;_{q+r+2}F_{p+s}\left(\left.{-n,n+\zeta,b_1,\ldots,b_q,\,c_1,\ldots,c_r\atop
+a_1,\ldots,a_p,\,d_1,\ldots,d_s}\right\vert w\right)\,.&(6)\cr
+}$$
+This identity was first discovered by Fields and Wimp [1, Eq.~(3.4)],
+who derived it in a rather complicated way involving repeated 
+sums and integral
+transforms. Several nontrivial applications appear in~[1] and in~[2,
+sections 1.3.6 and 7.6].
+
+\bigskip
+\disleft 20pt:[1]:
+Jerry L. Fields and Jet Wimp, ``Expansions of hypergeometric functions
+in hypergeometric functions,'' {\sl Mathematics of Computation\/ \bf
+5} (1961), 390--395.
+
+\smallskip
+\disleft 20pt:[2]:
+Yudell L. Luke, {\sl Integrals of Bessel Functions\/} (New York:
+McGraw-Hill, 1962).
+
+\bigskip\noindent
+{\sl Computer Science Department, Stanford University}
+
+\bye
+
+
+
+
+

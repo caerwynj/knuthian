@@ -1,0 +1,2453 @@
+% This page defines the format for Vitas
+
+\font\tentt=cmtt10
+\font\sltt=cmsltt10
+\let\mainfont=\tenrm
+
+\font\tenssb=cmssbx10
+\font\twelvess=cmss10 at 12pt
+\font\eightrm=cmr8
+\font\eightsl=cmsl8
+\def\sc{\eightrm}
+
+\font\rus=lhwnr10
+\font\grk=ygr10
+
+\def\TeX{T\hbox{\hskip-.1667em\lower.424ex\hbox{E}\hskip-.125em X}}
+\font\logo=manfnt % font used for the METAFONT logo
+\def\MF{{\logo META}\-{\logo FONT}\spacefactor1000\relax}
+\def\slMF{{\logo 89:;}\-{\logo <=>:}} % slanted version
+\let\,=\thinspace
+\chardef\_=`\_
+
+\def\og#1{\leavevmode\smash{\vtop{% crude approximation of Polish ogonek
+  \baselineskip0pt\lineskip0pt\lineskiplimit0pt
+  \ialign{##\crcr\relax#1\cr
+    \hidewidth\kern.2em
+    \dimen0=.0040ex \multiply\dimen0\fontdimen1\font
+    \kern-.0156\dimen0`\hidewidth\cr}}}}
+
+\def\p #1.{\vskip 3pt plus 2pt minus 1pt
+ \noindent\hbox to 20pt{\hss\bf#1. }\hangindent 20pt\ignorespaces}
+
+\outer\def\finishpage{\par\vfill\eject}
+
+\def\\{\par\hangindent 20pt\noindent\ignorespaces}
+
+\outer\def\sectionbegin #1. #2{\vskip 0pt plus 400pt\penalty-100
+ \vskip 12pt plus -394pt minus 4pt
+ \noindent\tenssb\hbox to 0pt{\hss#1. }#2
+ \par\penalty10000\vskip 3pt plus 2pt minus 1pt\rm}
+
+\def\pat#1 {\par\noindent
+ \hbox to 40pt{\hss #1\hskip 5pt}\hangindent 40pt\ignorespaces}
+
+\def\yskip {\vskip 3pt plus 2pt minus 1pt}
+\def\yyskip {\penalty-100\vskip 6pt plus 4pt minus 2pt}
+\def\xskip {\hskip 7pt plus 3pt minus 4pt}
+
+\def\star{\hbox to 0pt{\hss *}}
+
+\hyphenation{Pas-a-dena}
+
+\newdimen\unicodeptsize \unicodeptsize=10pt
+
+\begingroup
+\catcode`@=11 % we will define two private macro names
+
+\gdef\Uni#1:#2:#3:#4:#5<#6>% ems:cols:rows:-hoff:rows+voff<hexbitmap>
+ {\leavevmode \hbox to#1\unicodeptsize
+    {\special{" 0 0 moveto currentpoint translate
+                \unic@deptsize \unic@deptsize scale #2 #3 true
+                [24 0 0 -24 #4 #5] {<#6>} imagemask}\hss}}
+
+{\catcode`p=12\catcode`t=12\gdef\uni@ff#1pt{#1}}
+\gdef\unic@deptsize{\expandafter\uni@ff\the\unicodeptsize\space}
+
+\endgroup
+
+\def\today{\ifcase\month\or
+  January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi
+  \space\number\day, \number\year}
+
+%%%%%
+
+\line{\twelvess CURRICULUM VIT\kern-1.5pt\AE\hfill\eightrm\today}
+\vskip 10pt
+
+\sectionbegin 1. {Biographical and Personal Information}
+\\Donald E. Knuth, born January 10, 1938, Milwaukee, Wisconsin; U. S. citizen.
+\\Chinese name 
+\Uni1.08:24:24:-1:20% Unicode char "9ad8
+<002000001800000806ffffff00000002004003ffe00300e00300c00300c003ffc00300c02000043ffffe30000e31008c31ffcc3181cc31818c31818c31ff8c31818c30007c300018>%
+\thinspace \Uni1.08:24:24:-1:20% Unicode char "5fb7
+<1c038018030018030631ffff30060067860446fffe86ccce0ccccc0ccccc18cccc18fffc38c00c38001878fffc58040098030818398618b18318b00b19b0081b300c1b3ffc181ff8>%
+\thinspace \Uni1.08:24:24:-1:20% Unicode char "7eb3
+<0601c00e01800c018018018018218231bfff61b187433186ff3186c631860c318618334630332663b6367e341660380600300600300603b0061e3006f03006c0300600303e00300c>%
+\ (pronounced G\=ao D\'en\`a or Ko Tokuno).
+\\Married to Nancy Jill Carter
+[\Uni1.08:24:24:-1:20% Unicode char "9ad8
+<002000001800000806ffffff00000002004003ffe00300e00300c00300c003ffc00300c02000043ffffe30000e31008c31ffcc3181cc31818c31818c31ff8c31818c30007c300018>%
+\thinspace \Uni1.08:24:24:-1:20% Unicode char "7cbe
+<1c038018030018031818fffc9b0300db03307a7ff87c03001a0306ffffff1800003840083c7ffc3e601c7b60185b7ff8986018986018187ff81860181860181860181860f8186030>%
+\thinspace \Uni1.08:24:24:-1:20% Unicode char "862d
+<018180018186ffffff018180418182ffe7ffe0e7077fc3fe60c3067fdbfe60db0667ffc660180662184663ffe6635ae6633cc663ffc6633cc6607b0660d9e66318466c181e60180c>%
+] (b.\ July 15, 1939), June 24, 1961.
+\\Children: John Martin (b.\ July 21, 1965),
+ Jennifer Sierra (b.\ December 12, 1966).
+
+\sectionbegin 2. {Academic History}
+\\Case Institute of Technology, September 1956--June 1960; B.S., summa cum
+laude, June, 1960; M.S. (by special vote of the faculty), June 1960.
+\\California Institute of Technology, September 1960--June 1963; Ph.D.\ in
+Math\-e\-ma\-tics, June 1963.
+ Thesis: ``Finite Semifields and Projective Planes.''
+
+\sectionbegin 3. {Employment Record}
+\\Consultant, Burroughs Corp., Pasadena, California, 1960--1968.
+\\Assistant Professor of Mathematics, California Institute of Technology,
+1963--1966.
+\\Associate Professor of Mathematics, California Institute of Technology,
+1966--1968.
+\\Professor of Computer Science, Stanford University, 1968--.
+\\Staff Mathematician, Institute for Defense Analyses---Communications Research
+Division, 1968--1969.
+\\Guest Professor of Mathematics, University of Oslo, 1972--1973.
+\\Professor of Electrical Engineering (by courtesy),
+ Stanford University, 1977--.
+\\Fletcher Jones Professor of Computer Science,
+ Stanford University, 1977--1989.
+\\Professor of The Art of Computer Programming,
+ Stanford University, 1990--1992.
+\\Professor of The Art of Computer Programming, Emeritus,
+ Stanford University, 1993--.
+\\Visiting Professor in Computer Science, University of Oxford, 2002--2006.
+
+\sectionbegin 4. {Professional Societies}
+\\American Guild of Organists, 1965--.
+\\American Mathematical Society, 1961--.
+\\\indent Committee on Composition Technology, 1978--1981.
+\\Association for Computing Machinery, 1959--.
+\\\indent Chairman, subcommittee on ALGOL, 1963--1964.
+\\\indent General technical achievement awards subcommittee, 1975--1979.
+\\\indent National Lecturer, 1966--1967.
+\\\indent Visiting Scientist, 1966--1967.
+\\Mathematical Association of America, 1959--.
+\\Society for Industrial and Applied Mathematics, 1965--.
+
+\sectionbegin 5. {Publications}
+\\(see attached list)
+
+\sectionbegin 6. {Patents}
+\pat 3422405 (with R. E. Packard)\xskip Digital computers having an indirect
+ field length operation. January 14, 1969.
+\yskip
+\pat 3454929 (with D. P. Hynes)\xskip Computer Edit System. July 8, 1969.
+\yskip
+\pat 3548174 Random number generator.  December 15, 1970.
+\yskip
+\pat 3626167 (with L. R. Guck, L. G. Hanson)\xskip Scaling and number base
+ converting method and apparatus.  December 7, 1971.
+\yskip
+\pat 5305118 (with Stephen N. Schiller)\xskip Methods of controlling dot size
+ in digital halftoning with multi-cell threshold arrays. April 19, 1994.
+ European patent 96108227.8-2202, July 17, 1996.
+
+\sectionbegin 7. {Principal Invited Lectures Given}
+\\ACM National Convention, Syracuse, 1962.
+\\NATO Summer School, Denmark, 1967.
+\\Britannica Scholar, Chicago, 1968.
+\\International Symposium on Teaching of Programming, Newcastle-Upon-Tyne,
+ 1970.
+\\International Congress of Mathematicians, Nice, 1970.
+\\IFIP Congress, Ljubljana, 1971.
+\\International Congress on Logic, Methodology, and Philosophy of Science,
+Bucharest, 1971.
+\\Mathematical Association of America, San Francisco, 1974.
+\\The Computer Science Lecture, Carnegie-Mellon University, 1974.
+\\ACM National Convention, San Diego, 1974.
+\\Symposium on Computational Systems, Monterrey, Mexico, 1975.
+\\Chaire Aisenstadt, Montr\'eal, 1975.
+\\American Association for the Advancement of Science, Boston, 1976; see
+ paper P82 below.
+\\Gibbs Lecture (American Mathematical Society), Atlanta, 1978; see
+ paper P91 below.
+\\Gillies Lectures, University of Illinois, 1979.
+\\Hitchcock Professor, University of California, 1979.   
+\\Ritt Lecturer, Columbia University, 1980.  
+\\International Colloquium on Automata, Languages, and Programming,
+ Epidaurus, Greece, 1985; see paper Q82 below.
+\\4th SIAM Conference on Discrete Mathematics, San Francisco, 1988.
+\\IFIP Congress, San Francisco, 1989 (keynote address); see paper P138 below.
+\\Organick Memorial Lectures, University of Utah, 1990.
+\\Donegall Lecturer in Mathematics, Trinity College, Dublin, 1992.
+\\International Symposium on Teaching of Programming, Newcastle-Upon-Tyne
+ (25th Anniversary Year), 1992.
+\\Weizmann Memorial Lectures, Weizmann Institute of Science, 1992.
+\\ACM--SIAM Symposium on Discrete Algorithms, Austin, 1993.
+\\ATypI Congress, San Francisco, 1994.
+\\Unicode Conference, San Jos\'e, 1995.
+\\Commemorative lecture for Fiftieth Anniversary of Mathematisch Centrum,
+ Amsterdam, 1996.
+\\Commemorative lecture for Kyoto Prize, Kyoto, 1996.
+\\SIAM Annual Meeting, Stanford, 1997.
+\\God and Computer Lectures, MIT, 1999.
+\\Pascal Lectures, University of Waterloo, 2000.
+\\Strachey Lecture, Oxford University, 2001.
+
+\sectionbegin 8. {Editorial Boards}
+\\ACM Transactions on Algorithms, 2004--.
+\\Acta Informatica, 1970--1979.
+\\Advances in Mathematics, 1971--1979.
+\\Applied Mathematics Letters, 1987--.
+\\Communications of the ACM, 1966.
+\\Combinatorica, 1985--.
+\\Computers and Mathematics with Applications, 1973--1979.
+\\Discrete Applied Mathematics, 1979.
+\\Discrete and Computational Geometry, 1986--.
+\\Discrete Mathematics, 1970--1978.
+\\Electronic Journal of Combinatorics, 1994--.
+\\Fibonacci Quarterly, 1964--1979.
+\\Historia Mathematica, 1972--1979.
+\\Human-Computer Interaction, 1985--1995.
+\\IEEE Transactions on Software Engineering, 1975--1979.
+\\Information Processing Letters, 1970--1979.
+\\Japan Journal of Industrial and Applied Mathematics, 1997--.
+\\Journal of Algorithms, 1979--2004.
+\\Journal of Computer and Information Sciences, 1969--1979.
+\\Journal of Computer and System Sciences, 1969--.
+\\Journal of Computer Science and Technology, 1989--.
+\\Journal of Experimental Algorithmics, 1996--.
+\\Journal of Graph Algorithms and Applications, 1996--.
+\\Journal of Graph Theory, 1975--1979.
+\\Journal of the ACM, 1964--1967.
+\\Journal on Statistical Planning and Inference, 1975--1979.
+\\Mathematica Journal, 1990--.
+\\The Mathematical Intelligencer, 1978--1979.
+\\Random Structures \& Algorithms, 1990--.
+\\SIAM Journal on Computing, 1973--1979.
+\\Software --- Practice and Experience, 1979--.
+\\Structured Programming, 1989--1993; Software Concepts and Tools, 1994--2000.
+\\Theory of Computing, 2004--.
+\\Utilitas Mathematica, 1970--1972.
+\finishpage
+
+\sectionbegin 9. {Honors and Awards}
+\\Member, Pi Delta Epsilon, 1958--.
+\\Member, Tau Beta Pi, 1958--.
+\\Member, Blue Key, 1959--.
+\\Case Honor Key, 1959.
+\\Member, Sigma Xi, 1960--.
+\\Woodrow Wilson Fellow, 1960.
+\\National Science Foundation Fellow, 1960.
+\\Grace Murray Hopper Award (first recipient), Association for
+ Computing Ma\-chin\-ery, 1971. ($\$$1000)
+\\Guggenheim Fellow, 1972--1973.
+\\Fellow, American Academy of Arts and Sciences (Class I, Section 5), 1973--.
+\\Alan M. Turing Award, Association for Computing Machinery, 1974.  ($\$$1000)
+\\Member, National Academy of Sciences (Class III, Section 33), 1975--.
+\\Lester R. Ford Award, Mathematical Association of America, 1975.  ($\$$100, 
+ for paper P63.)
+\\California Institute of Technology Distinguished Alumni Award, 1978.
+\\National Medal of Science, 1979.
+\\W. Wallace McDowell Award, IEEE Computer Society, 1980.  ($\$$1000)
+\\Doctor of Science, honoris causa, Case Western Reserve University, 1980. % 1
+\\Distinguished Fellow, The British Computer Society, 1980.
+\\Priestley Award, Dickinson College, 1981. ($\$$1000)
+\\Member, National Academy of Engineering, 1981--.
+\\Honorary member, IEEE, 1982--.
+\\IEEE Computer Pioneer Award (charter recipient), 1982.
+\\Doctor of Science, honoris causa, Luther College, 1985. % 2
+\\Doctor of Science, honoris causa, Lawrence University, 1985. % 3
+\\Golden Plate Award, American Academy of Achievement, 1985.
+\\ACM SIGCSE Award, 1986. (\$500)
+\\Doctor of Science, honoris causa, Muhlenberg College, 1986. % 4
+\\Doctor of Science, honoris causa, University of Pennsylvania, 1986. % 5
+\\Docteur honoris causa, University of Paris--Sud (Orsay), 1986. % 6
+\\ACM Software Systems Award, 1986.
+\\Doctor of Science, honoris causa, University of Rochester, 1986. % 7
+\\Steele Prize for Expository Writing, American Mathematical
+ Society, 1986. (\$4000)
+\\Doctor of Science, honoris causa, State University of New York at Stony
+ Brook, 1987. % 8
+\\The New York Academy of Sciences Award, 1987. (\$5000)
+\\Benjamin Franklin Medal, Franklin Institute, Philadelphia, 1988.
+\\Doctor of Science, honoris causa, Valparaiso University, 1988. % 9
+\\Doctor of Science, honoris causa, University of Oxford, 1988. % 10
+\\Doctor of Science, honoris causa, Brown University, 1988. % 11
+\\Doctor of Science, honoris causa, Grinnell College, 1989. % 12
+\\J. D. Warnier Prize, 1989. (\$3000)
+\\Gold Medal Award, Case Alumni Association, 1990.
+\\Doctor of Science, honoris causa, Dartmouth College, 1990. % 13
+\\Doctor of Science, honoris causa, Concordia University, Montr\'eal,
+ 1991. % 14
+\\Honorory Doctor of Technology, Royal Institute of Technology,
+ Stockholm, 1991. % 15
+\\Associ\'e \'Etranger, l'Acad\'emie des Sciences, Paris, 1992--.
+\\Poch\"etny\u\i\ Doktor [{\rus Poche0tnyi0 Doktor}],
+ Saint Petersburg University, 1992. % 16 (awarded in 1992, received in 1994)
+\\Doctor of Science, honoris causa, Adelphi University, 1993. % 17
+\\Utenlandsk medlem, Det Norske Videnskaps-Akademi, 1993--.
+\\Lester R. Ford Award, Mathematical Association of America, 1993.  (\$250, 
+ for paper P137.)
+\\Docteur honoris causa, University of Marne-la-Vall\'ee, 1993. % 18
+\\Best New Book: Computer Science, Association of American Publishers, 1994.
+ [Awarded for {\sl The Stanford GraphBase}.]
+\\ACM Fellow (charter recipient), 1994.
+\\Adelsk\"old Medal, Royal Swedish Academy of Sciences, 1994.
+\\IEEE John von Neumann Medal, 1995. (\$10,000)
+\\Harvey Prize, Technion, 1995. (\$35,000)
+\\Doctor Scienti{\ae} Mathematic{\ae}, honoris causa, Masaryk University,
+ Brno, 1996. % 19
+\\Memorial Medal, Mathematics and Physics Faculty, Charles University, Prague,
+ 1996.
+\\Cum Deo Award (charter recipient), Milwaukee Lutheran High School, 1996.
+\\Kyoto Prize for Advanced Technology, Inamori Foundation, 1996.
+ (\setbox0=\hbox{Y}\rlap{\raise.3ex\hbox to\wd0{\hss\fiverm=\hss}}\box0
+ 50,000,000)
+\\Doctor of Science, honoris causa, Duke University, 1998. % 20
+\\Doctor of Science, honoris causa, St.\ Andrews University,
+ Scotland, 1998. % 21
+\\Korrespondierendes Mitglied der Mathematisch-naturwissenschaftlichen Klasse,
+ Bayerische Akademie der Wissenschaften, 1998--.
+\\Fellow of The Computer Museum, 1998--.
+\\Doctor of Letters, honoris causa, University of Waterloo, Canada, 2000. % 22
+\\Minor planet ``(21656) Knuth''
+ [\kern.1em{\tt http:/\kern-.1em/%
+ sunkl.asu.cas.cz/\char`~asteroid/planetky/21656/eng.htm}]
+ named in 2001.
+\\Epitimos Didaktor [{\grk Ep'itimos Did'aktwr}], % honorary doctor
+ Athens University of Economics and Business, 2001. % 23
+\\Doctor of Science, honoris causa, Eberhard Karls Universit\"at T\"ubingen,
+ 2001. % 24
+\\Doctor Philosophi\ae\ honoris causa, Universitetet i Oslo, 2002. % 25
+\\Doctor honoris causa in de Wetenschappen, Universiteit Antwerpen, 2003. % 26
+\\Foreign member, Royal Society of London for
+ Improving Natural Knowledge, 2003.
+\\Doctor of Science, honoris causa, Harvard University, 2003. % 27
+% "font of digital ingenuity, icon of algorithmic invention, whose
+%  artful efforts have programmed the course of a powerful modern science"(!)
+\\Epitimos Didaktor [{\grk Ep'itimos Did'aktwr}], % honorary doctor
+ University of Macedonia, 2003. % 28
+\\Doctor of Science, honoris causa, Universit\'e de Montr\'eal, 2004. % 29
+\\Honorary Fellow, Magdalen College, Oxford University, 2005--.
+\\Honorary Doctor, National Academy of Sciences,
+ Republic of Armenia, 2005. % not counted with the academic doctorates
+\\Doktor der Wissenschaften, honoris causa, Eidgen\"ossische Technische
+ Hochschule Z\"urich, 2005. % 30
+\\Honorary Doctor of Letters, Concordia University Wisconsin, 2006. % 31
+\\Gold Commemorable Medal, % [sic]
+ State Engineering University of Armenia, 2006.
+\\Gold medal from Yerevan State University, 2006.
+
+\sectionbegin 10. {Ph.D.\ Students\rm, thesis titles, and year of graduation}
+\\Wayne Theodore Wilner, ``Declarative Semantic Definition,'' 1971.
+\\Clark Allan Crane, ``Linear Lists and Priority Queues as
+ Balanced Binary Trees,'' 1972.
+\\Isu Fang, ``FOLDS, A Declarative Formal Language Definition System,'' 1972.
+\\Michael Lawrence Fredman, ``Growth Properties of a Class of
+ Recursively Defined Func\-tions,'' 1972.
+\\Vaughan Ronald Pratt, ``Shellsort and Sorting Networks,'' 1972.
+\\Richard Lee Sites, ``Proving that Computer Programs Terminate
+ Cleanly,'' 1974.
+\\Gary Don Knott, ``Deletion in Binary Storage Trees,'' 1975.
+\\Edwin Hallowell Satterthwaite, Jr., ``Source Language Debugging
+ Tools,'' 1975.
+\\Robert Sedgewick, ``Quicksort,'' 1975.
+\\Leonidas Ioannis Guibas, ``The Analysis of Hashing Algorithms,'' 1976.
+\\Mark Robbin Brown, ``The Analysis of a Practical and Nearly Optimal
+ Priority Queue,'' 1977.
+\\Richard Eric Sweet (joint supervision with Cordell Green), ``Empirical
+ Estimates of Program Entropy,'' 1977.
+\\John Fredrick Reiser, ``Analysis of Additive Random Number
+ Generators,'' 1977.
+\\Bernard Marcel Mont-Reynaud, ``Hierarchical Properties of Flows, and the
+ Determination of Inner Loops,'' 1977.
+\\Luis Isidoro Trabb Pardo, ``Set Representation and Set Intersection,'' 1978.
+\\Lyle Harold Ramshaw, ``Formalizing the Analysis of Algorithms,'' 1979.
+\\Christopher John Van Wyk, ``A Language for Typesetting Graphics,'' 1980.
+\\Jeffrey Scott Vitter, ``Analysis of Coalesced Hashing,'' 1980.
+\\Michael Frederick Plass, ``Optimal Pagination Techniques for
+ Automatic Typesetting Systems,'' 1981.
+\\Ignacio Andres Zabala Salelles, ``Interacting with Graphic Objects,'' 1982.
+\\Daniel Hill Greene, ``Labelled Formal Languages and Their Uses,'' 1983.
+\\Franklin Mark Liang, ``Word Hy-phen-a-tion by Com-put-er,'' 1983.
+\\Andrei Zary Broder, ``Weighted Random Mappings,'' 1985.
+\\John Douglas Hobby, ``Digitized Brush Trajectories,'' 1985.
+\\Scott Edward Kim, ``Viewpoint: Toward a Computer for Visual Thinkers,'' 1987.
+\\Pang-Chieh Chen, ``Heuristic Sampling in Backtrack Trees,'' 1989.
+\\Ramsey Wadi Haddad, ``Triangularization: A Two-Processor Scheduling
+ Problem,'' 1990.
+\\Tom\'as Feder, ``Stable networks and product graphs,'' 1991.
+
+\sectionbegin 11. {Published biographical data \rm($\ast$
+ means photograph included)}
+\\``What's that about a score card? A computer's the thing,'' {\sl Newsweek\/
+ \bf53},\,1 (January 5, 1959), 63.
+\\\star{\sl IEEE Transactions on Electronic Computers \bf EC-13} (1964), 478.
+\\{\sl Who's Who in Computers and Data Processing}, 1971.
+\\{\sl American Men and Women of Science}, beginning with 12th edition (1972).
+\\\star{\sl Datamation}, vol.~21, no.~1 (January 1975), 11--12.
+\\\star{\sl IEEE Transactions on Software Engineering \bf SE-1} (1975), 3.
+\\{\sl Who's Who in Computer Education and Research}, 1975.
+\\{\sl bit\/ \bf7} (1975), 430--433, 444--447 (Japanese);
+ written by Makoto Arisawa.
+\\\star{\sl Stanford Daily}, Thursday, May 27, 1976.
+\\{\sl Who's Who in America}, 40th edition (1978).
+\\{\sl Dictionary of International Biography \bf 15}, 1979.
+\\{\sl Leaders in Electronics}, McGraw Hill.
+\\\star{\sl Men of Achievement}, 1979.
+\\{\sl International Who's Who in Education}, 1980.   
+\\{\sl Who's Who in Technology Today}, 2nd edition (1980).
+\\{\sl China Computerworld}, no.\ 14 (July 20, 1981), p.\ 15;
+ no.\ 15 (August 5, 1981), p.\ 15; no.\ 16 (August 20, 1981), p.\ 15.
+\\\star{\sl Campus Report}, vol.\ 16, no.\ 17 (Stanford University,
+ January 25, 1984), 5--6; vol.~16, no.~18 (February 1, 1984), 5,~8;
+ written by Donald Stokes.
+\\\star{\sl West\/} (San Jose Mercury News, February 19, 1984), 18--23;
+ written by Jan C. Shaw.
+\\\star{\sl Discover}, vol.\ 9, no.\ 5 (Time Inc., September 1984), 74--76,
+ 78; written by Bruce Schechter.
+\\\star{\sl Computer Language}, vol.\ 1, no.\ 2 (October 1984), 17--19;
+ written by Jan C. Shaw.
+\\\star{\sl Cleveland}, vol.\ 15, no.\ 1 (January 1986), 106--109, 140--144;
+ written by William Marling.
+\\\star{\sl Portraits of Success}, by Carolyn Caddes (Portola Valley:
+ Tioga Press, 1986), 78--79.
+\\\star{\sl Notices of the American Math.~Society}, vol.~34, no.~2 (February
+ 1987), 228.
+\\\star{\sl Portraits in Silicon}, by Robert Slater (Cambridge, Mass.:
+ MIT Press, 1987), 341--351.
+\\D. \'E. Knut i ego ``fabrika knig'', by B. B. Pokhodze\u\i, in the
+ Russian translation of {\sl Mathematics for the Analysis of Algorithms\/}
+ (see under Books), 114--115.
+\\\star{\sl Communications of the ACM\/ \bf30} (1987), 816--819; written
+ by Karen~A. Frenkel.
+\\\star{\sl Peninsula}, vol.\ 3, no.\ 9 (December 1988), 72--74; written
+ by Sherry Posnick-Goodwin.
+  Japanese translation in {\sl Kunusu Sensei no Program-Ron\/} (see
+  under Books), 168--174.
+\\\star{\sl dialog Wissenschaft\/} (Nixdorf Computer AG, January 1989),
+ 6--15; interview by Norbert Ryska and Stuart~E. Savory.
+\\Eulogy: Donald E. Knuth, by G. W. Bond, in Latin with an English paraphrase,
+ {\sl Bulletin of the London Mathematical Society\/ \bf21} (1989), 110--112.
+\\{\sl Japan Society for Software Science and Technology\/ \bf7},\,2 (April
+ 1990), 73--77; written by Makoto Arisawa.
+\\\star{\sl Case Alumnus}, vol.\ 67, no.\ 8 (Spring/Summer 1990), cover and
+ 2--7; written by William Marling.
+\\\star{\sl Byte}, vol.~15, no.~9 (September 1990), 282.
+\\\star{\sl Macworld}, vol.~8, no.~7 (July 1991), 207.
+\\\star{\sl The Rattle of Theta Chi}, vol.~73, no.~1 (Winter 1993), 10--11.
+\\{\sl Information Science Dictionary\/} (Iwanami, Tokyo, 1990), 181.
+\\\star{\sl Computers in Physics\/ \bf9} (1995), 248--249; interview by
+ David~I. Lewin.
+\\\star{\sl IEEE Spectrum\/ \bf32},\,6 (June 1995), 40.
+\\\star{\sl Out Of Their Minds\/} by Dennis Shasha and Cathy Lazere
+ (New York: Copernicus, 1995), 89--101.
+\\{\sl CyberTimes\/} (10 August 1996), {\tt http:/\kern-.1em
+ /www.nytimes.com/web/docsroot/library/cyber/week/0810knuth\kern-1.5pt\null}
+ written by Steve Ditlea.
+\\\star{\sl Lingua Franca\/ \bf6},\,6 (September 1996), 11--13; by
+ Rick Perlstein.
+\\\star{\sl Automatisering Gids\/} (15 Maart 1996), 9.
+\\\star{\sl NRC Handelsblad\/} (28 Maart 1996); written by Dirk van Delft.
+\\\star{\sl De Ingenieur\/} (3 Juli 1996), 27--29; written by H. M. Nieland.
+\\\star{\sl Application Development Trends\/ \bf3},\,10 (October 1996),
+ 17--18; written by Elizabeth~U. Harding.
+\\\star{\sl Computer Abstracts\/ \bf41},\thinspace3/4 (1997), 4--6.
+\\{\sl Computer Software\/ \bf14},\,1 (January 1997), 83--86, by Makoto
+ Arisawa [in Japanese].
+\\{\sl Shi Jie Zhu Ming Ke Xue Jia Zhuan Ji (Biographies of World Famous
+ Scientists)}, Technology Scientists I (Beijing: Science Press, 1997),
+ 117--125, by Dong Yunmei.
+\\\star{\sl Wizards and Their Wonders}, by Christopher Morgan with photographs
+ by Louis Fabian Bachrach (New York: ACM Press, 1997), 118--119.
+\\{\sl Contemporary Authors\/ \bf163} (1998), 244--247.
+% bio in San Jose Mercury-News, 29 Nov 1998, pages 1G, 14G, by Leigh Weimers
+\\\star{\sl Technology Review\/ \bf102},\,5 (September/October 1999), 66--70, 
+ by Steve Ditlea.
+\\\star{\sl Salon.com $>$ Technology\/} (16 September 1999), by Mark Wallace,
+ {\tt http:/\kern-.1em/www.salon.com/tech/feature/\allowbreak1999/09/16/knuth}.
+\par\nobreak
+\\{\sl The International Who's Who}, 64th edition, 2000.
+\\\star{\sl NZZ Folio\/} (February 2002), 35--40, written by Peter Haffner.
+\\{\sl Science \& Spirit\/ \bf13},\thinspace4 (July--August 2002), 13--14,
+ by Laura Sivitz.
+\\\star{\sl Stanford\/ \bf35},\thinspace3 (May--June 2006), 64--69,
+ by Kara Platoni.
+\\\star see also papers Q62 and Q154 listed below.
+\finishpage
+
+%%%%%
+\centerline{\twelvess Publications of Donald E.\ Knuth}
+\vskip 10pt
+\sectionbegin 1. {Books}
+\\{\sl The Art of Computer Programming}, Vol.\ 1: {\sl Fundamental Algorithms}
+ (Reading, Mass.: Addison-Wesley, 1968), $\rm xxii + 634$~pp. Second printing,
+ revised, July 1969.
+\\Second edition, completely revised, December 1973. Second printing, revised,
+ February 1975.
+\\Third edition, completely revised, May 1997, $\rm xx+650$~pp.
+\\Volume 1, Fascicle 1: {\sl {\sltt MMIX:} A RISC Computer for the New
+ Millennium\/} (Upper Saddle River, N.J.: Addison-Wesley, 2005),
+ $\rm v+134$~pp.
+\\Romanian translation, by Adrian Davidoviciu, Adrian Petrescu,
+ Smaranda Dimitriu, and Paul Zamfirescu,
+{\sl Tratat de programarea calculatoarelor}, V.~1: {\sl Algoritmi fundamentali}
+ (Bucharest: Editura tehnic\u a, 1974), 676 pp.
+\\Romanian translation of the second edition,
+ {\sl Arta program\u{a}rii calculatoarelor\/}, V.~1:
+ {\sl Algoritmi fundamentali\/} (Bucharest: Editura Teora),
+ 616~pp.
+\\Romanian translation of Volume 1, Fascicle 1, by Ioan Bledea:
+ {\sl {\sltt MMIX:} Un  calculator RISC pentru noul mileniu\/}
+ (Bucharest: Editura Teora, 2005), $\rm ix+149$~pp. 
+\\Russian translation, by Galina P. Babenko and \t Iu.~M. Ba\t \i akovski\u\i,
+ edited by K. I. Babenko, and V. S. \v Starkman, {\sl Iskusstvo
+ programmirovani\t \i a dl\t \i a \'EVM}, 
+ T. 1: {\sl Osnovnye algoritmy\/} (Moscow: Mir, 1976), 735~pp.
+\\Russian translation of the third edition under direction of
+ \t Iu.~V. Kozachenko, by S. G. Trigub, \t Iu.~G.~Gor\-dienko,
+ and I. V. Krasikov, edited by S. N. Trigub,
+ {\sl Iskusstvo programmirovani\t \i a}, 
+ T. 1: {\sl Osnovnye algo\-ritmy\/} (Moscow: Vil'iams, 2000), 720~pp.
+\\Japanese translation, under direction of Takakazu Simauti, in two volumes: 
+ Chapter 1, by Ken Hirose, {\sl Kihon Samp\=o / Kiso Gainen}
+ (Tokyo: Saiensu-Sha, 1978), $22 + 331$~pp.;
+ Chapter 2, by Nobuo Yoneda and Katsuhiko Kakehi,
+  {\sl Kihon Samp\=o / J\=oh\=o K\=oz\=o}
+ (Tokyo: Saiensu-Sha, 1978), $8 + 373$~pp.
+\\Japanese translation of the third edition, by
+ Takashi Aoki, Kazuhiko Kakehi, Ken-Ichi Suzuki, and Takahiro Nagao, supervised
+ by Makoto Arisawa and Eiiti Wada (Tokyo:\ ASCII Corporation, 2004), 
+ $\rm xxii+632$~pp. 
+\\Japanese translation of Volume 1, Fascicle 1, by Takashi Aoki, supervised
+ by Makoto Arisawa and Eiiti Wada (Tokyo:\ ASCII Corporation, 2006), 
+ $\rm vii+134$~pp. 
+\\Chinese translation, by Guan JiWen and Su Yunlin, {\sl Ji Suan Ji Cheng Xu
+ She Ji Ji Qiao}, 1.\ Juan: {\sl Ji Ben Suan Fa\/} (Beijing: Defense Industry
+ Publishing Co., 1980), $14+573$~pp.
+\\Chinese translation of the third edition, by Su YunLin,
+ {\sl Jisuanji Chengxu Sheji Yishu}, 1.\ Juan: {\sl Jiben Suanfa\/}
+ (Beijing: National Defense Industry Press, 2002), $\rm xx+625$~pp.
+\\Spanish translation, by Michel Antscherl Harlange and
+ Joan Lluis i Biset, under direction of Ram\'on Puig\-janer i Trepat,
+{\sl El Arte de Programar Ordenadores}, V. 1: {\sl Algoritmos Fundamentales\/}
+ (Barcelona: Revert\'e, 1980), $\rm xxiii + 672$~pp.
+\\Indian Student Edition, with an introduction by P.~C.~P. Bhatt
+ (New Delhi: Narosa Publishing House, 1985).
+\\Hungarian translation, under direction of Mikl\'os Simonovits,
+ {\sl A Sz\'am\'\i t\'og\'ep-Programoz\'as M\H uv\'eszete}, V.~1:
+ {\sl Alapvet\H o Algoritmusok\/}
+ (Budapest: M\H uszaki K\"onyvkiad\'o, 1987), 654~pp.
+\\Polish translation of the third edition, by Grzegorz Jakacki,
+ {\sl Sztuka Programowania}, Tom~1: {\sl Algorytmy Podstawowe\/}
+ (Warsaw:\ Wydawnictwa Naukowo-Techniczne, 2002), $\rm xxiv+679$~pp.
+\\Korean translation of the third edition, by Ryu Gwang (Seoul:\ Hanbit Media,
+ 2006), 793~pp.
+\\Czech translation of the third edition (Prague: Fragment), in preparation.
+\\German translation of the third edition (Heidelberg: Springer),
+ in preparation.
+\yyskip
+\\{\sl The Art of Computer Programming}, Vol.\ 2: {\sl Seminumerical
+ Algorithms} (Reading, Mass.: Addison-Wesley, 1969), $\rm xii + 624$~pp.
+ Second printing, revised, November 1971.
+\\Second edition, completely revised, January 1981, $\rm xiv + 689$~pp.
+\\Third edition, completely revised, September 1997, $\rm xiv+762$~pp.
+\\Russian translation, by Galina P. Babenko, \'E.~G. Belaga, and L. V.
+ Ma\u \i orov, edited by K. I. Babenko, 
+ {\sl Iskusstvo programmirovani\t \i a dl\t \i a \'EVM},
+ T. 2: {\sl Poluchislennye algoritmy\/} (Moscow: Mir, 1977), 724 pp.
+\\Russian translation of the third edition under direction of
+ \t Iu.~V. Kozachenko, by L. F. Kozachenko,
+ V. T. Tertyshny{\u\i}, and I. V. Krasikov,
+ edited by S. N. Trigub, {\sl Iskusstvo programmirovani\t \i a}, 
+ T. 2: {\sl Poluchislennye algoritmy\/} (Moscow: Vil'iams, 2000), 832~pp.
+\\Japanese translation, under direction of Takakazu Simauti, in two volumes:
+ Chapter 3, by Masaaki Sibuya, {\sl Jun Suchi Samp\=o / Rans\=u}
+ (Tokyo: Saiensu-Sha, 1982), $\rm ii + 259$~pp.;
+ Chapter 4, by Keisuke Nakagawa, {\sl Jun Suchi Samp\=o / Sanjutsu Enzan\/}
+ (Tokyo: Saiensu-Sha, 1986), $\rm xii + 536$~pp.
+\\Japanese translation of the third edition, by
+ Hiroaki Saito, Takahiro Nagao, Shogo Matsui, Takao Matsui, and
+ Hitoshi Yamaushi, supervised
+ by Makoto Arisawa and Eiiti Wada (Tokyo:\ ASCII Corporation, 2004), 
+ $\rm xvi+725$~pp. 
+\\Romanian translation, by Florian Petrescu, Ioan Georgescu,
+ Rolanda Predescu, and Paul Zamfirescu,
+ {\sl Tratat de programarea calculatoarelor},
+ V.~2: {\sl Algoritmi seminumerici}
+ (Bucharest: Editura tehnic\u a, 1983), 722 pp.
+\\Romanian translation of the second edition,
+ {\sl Arta program\u{a}rii calculatoarelor\/}, V.~2:
+ {\sl Algoritmi seminumerici\/} (Bucharest: Editura Teora),
+ 644~pp.
+\\Spanish translation, in preparation (Barcelona: Revert\'e).
+\\Chinese translation, by Guan JiWen and Su YunLin, {\sl Ji Suan Ji Cheng Xu
+ She Ji Ji Qiao}, 2.\ Juan: {\sl Ban Shu Zhi Suan Fa\/}
+ (Beijing: Defense Industry Publishing Co., 1992), $10+622$~pp.
+\\Chinese translation of the third edition, by Su Yunlin,
+ {\sl Jisuanji Chengxu Sheji Yishu}, 2.\ Juan: {\sl Ban Shuzhi Suanfa\/}
+ (Beijing: National Defense Industry Press, 2002), $\rm xii+760$~pp.
+\\Hungarian translation, under direction of Mikl\'os Simonovits,
+ {\sl A Sz\'am\'\i t\'og\'ep-Programoz\'as M\H uv\'eszete}, V.~2:
+ {\sl Szeminumerikus Algoritmusok\/}
+ (Budapest: M\H uszaki K\"onyvkiad\'o, 1987), 690~pp.
+\\Polish translation of the third edition, by Adam Malinowski,
+ {\sl Sztuka Programowania}, Tom~2: {\sl Algorytmy Seminumeryczne\/}
+ (Warsaw:\ Wydawnictwa Naukowo-Techniczne, 2002), $\rm xviii+820$~pp.
+\\German translation of Chapter~4, by R\"udiger Loos, {\sl Arithmetik\/}
+ (Heidelberg:\  Springer, 2001), $\rm xiii+538$~pp.
+\\Korean translation of the third edition, by Ryu Gwang (Seoul:\ Hanbit Media),
+ in preparation.
+\yyskip
+\\{\sl The Art of Computer Programming}, Vol.\ 3:  {\sl Sorting and Searching}
+ (Reading, Mass.: Addison-Wesley, 1973), $\rm xii + 722$~pp.\
+ + foldout illustration.
+Second printing, revised, March 1975, $\rm xii + 725$~pp.
+\\Second edition, completely revised, February 1998, $\rm xiv + 780$~pp.
+\def\undercomma#1{$\baselineskip100pt\vtop{\halign{\hfil##\hfil\cr
+#1\cr\noalign{\vskip-100pt\vskip.3ex}$\scriptscriptstyle,$\cr}}$}
+\\Romanian translation, by Rodica Boconcios, A. Davidoviciu,
+ P. Dimo, Fl.~Moraru, A. Petrescu, I. Sipo\undercomma{s}, and
+ Smaranda Dimitriu,
+ {\sl Tratat de programarea calculatoarelor},
+ V.~3: {\sl Sortare \undercomma{s}i c\u autare\/}
+ (Bucharest: Editura tehnic\u a, 1976), $\rm xii + 736$~pp.
+\\Romanian translation of the second edition,
+ {\sl Arta program\u{a}rii calculatoarelor\/}, V.~3:
+ {\sl Sortare \undercomma{s}i c\u{a}utare\/} (Bucharest: Editura Teora),
+ 680~pp.
+\\Russian translation, by Nadezhda I. V'\t \i ukova, V. A. Galatenko, and
+ A. B. Khodulev, edited by \t Iu.~M. Ba\t \i akovski\u\i\ and V. S.
+ \v Starkman, {\sl Iskusstvo programmirovani\t\i a dl\t\i a \'EVM},
+ T. 3:  {\sl Sortirovka i poisk\/} (Moscow:  Mir, 1978), 844~pp.
+\\Russian translation of the second edition under direction of
+ \t Iu.~V. Kozachenko, by V. T. Tertyshny{\u\i} and
+ I.~V. Krasikov,  edited by S. N. Trigub,
+ {\sl Iskusstvo  programmirovani\t \i a}, 
+ T. 3: {\sl Sortirovka i poisk\/} (Moscow: Vil'iams, 2000), 824~pp.
+\\Japanese translation of the second edition, by
+ Yuichiro Ishii, Hiroshi Ichiji, Hiroshi Koide,
+ Eiko Takaoka, Kumiko Tanaka, and Takahiro Nagao,
+ supervised by Makoto Arisawa and Eiiti Wada
+ (Tokyo:\ ASCII Corporation, 2006), $\rm xvi+741$~pp. 
+\\Chinese translation, by Guan JiWen and Su YunLin, {\sl Ji Suan Ji Cheng Xu
+ She Ji Ji Qiao}, 3.\ Juan: {\sl Pai Xu He Cha Zhao\/} (Beijing:
+ Defense Industry Publishing Co., 1985), $\rm viii+645$~pp.
+\\Chinese translation of the second edition, by Su Yunlin,
+ {\sl Jisuanji Chengxu Sheji Yishu}, 3.\ Juan: {\sl Paixu Yu Chazhao\/}
+ (Beijing: National Defense Industry Press, 2002), $\rm x+779$~pp.
+\\Spanish translation, by Jaime de Argila y de Chopitea and
+ Ram\'on Puigjaner Trepat, under direction of Ram\'on Puig\-janer Trepat,
+ {\sl El Arte de Programar Ordenadores}, V. 3: {\sl Clasificaci\'on
+ y B\'usqueda\/} (Barcelona: Revert\'e, 1980), $\rm xxiii + 672$~pp.
+\\Hungarian translation, under direction of Mikl\'os Simonovits,
+ {\sl A Sz\'am\'\i t\'og\'ep-Programoz\'as M\H uv\'eszete}, V.~3:
+ {\sl Keres\'es \'es Rendez\'es\/}
+ (Budapest: M\H uszaki K\"onyvkiad\'o, 1988), 761~pp.
+\\Polish translation of the second edition, by Krzysztof Diks and Adam
+ Malinowski,
+ {\sl Sztuka Programowania}, Tom~3: {\sl Sortowanie i Wyszukiwanie\/}
+ (Warsaw:\ Wydawnictwa Naukowo-Techniczne, 2002), $\rm xviii+838$~pp.
+\\Korean translation of the second edition, by Ryu Gwang (Seoul:\ Hanbit Media),
+ in preparation.
+\yyskip
+\\{\sl The Art of Computer Programming}, Vol.\ 4:
+ {\sl Combinatorial Algorithms}
+ (Reading, Mass.: Addison-Wesley), in preparation.
+\\Volume 4, Fascicle 2: {\sl Generating All Tuples and Permutations\/}
+ (Upper Saddle River, N.J.: Addison-Wesley, 2005), $\rm v+127$~pp.
+\\Volume 4, Fascicle 3: {\sl Generating All Combinations and Partitions\/}
+ (Upper Saddle River, N.J.: Addison-Wesley, 2005), $\rm v+150$~pp.
+\\Volume 4, Fascicle 4: {\sl Generating All Trees; History of Combinatorial
+ Generation\/} (Upper Saddle River, N.J.: Addison-Wesley, 2006),
+ $\rm vi+120$~pp.
+\\Romanian translation of Volume 4, Fascicle 2, by Cora Radulian:
+ {\sl Generarea tuturor tuplurilor s\llap{\lower.1ex\hbox{,}}i
+ permut\u{a}rilor\/} (Bucharest: Editura Teora, 2005), $\rm vii+144$~pp. 
+\\Japanese translation of Volume 4, Fascicle 2, by Hiroshi Koide, supervised
+ by Makoto Arisawa and Eiiti Wada (Tokyo:\ ASCII Corporation, 2006), 
+ $\rm viii+129$~pp. 
+\yyskip
+\\{\sl MIX} (Addison-Wesley, 1971), 48 pp.
+\yyskip
+\\{\sl Surreal Numbers} (Reading, Mass.: Addison-Wesley, 1974), $\rm vi
+ + 119$~pp.
+\\Czech translation, by Helena Ne\v set\v rilov\'a, {\sl Nadre\'aln\'a
+ \v c\' \i sla}, in {\sl Pokroky Matematiky, Fyziky a Astronomie \bf 23}
+ (1978), 66--76, 130--139, 187--196, 246--261.
+\\German translation, by Brigitte and Karl Kunisch, {\sl Insel der Zahlen\/}
+ (Braunschweig: Friedr.\ Vieweg \&\ Sohn, 1979), 124 pp.
+\\Japanese translation by Junji Koda, {\sl Chogen Jis Su\/}
+ (Tokyo: Kaimei Sha Ltd., 1978), 179 pp. 
+\\Another Japanese translation by Junji Koda, {\sl Chogen Jis Su\/},
+ published in eight monthly installments
+ in {\sl Basic S\=ugaku}, August 1978 through March 1979.)
+\\Japanese translation by Shunsuke Matsuura, {\sl Shifuku no Cogen Jis Su\/},
+ illustrated by Yusuke Saito (Tokyo: Kashiwa Shobo, 2005), 174~pp.
+\\Spanish translation, by Lluc Garriga, {\sl N\'umeros Surreales\/} 
+ (Barcelona: Revert\'e, 1979), 101 pp.
+\\Hungarian translation, by J\'anos Vir\'agh and Zolt\'an \'Esik,
+ {\sl Sz\'amok val\'oson innen \'es t\'ul\/} (Budapest: Gondolat, 1987),
+ $136+\rm ii$~pp.
+\\Portuguese translation, by Jorge Nuno Silva, {\sl N\'umeros Surreais\/}
+ (Lisbon: Gradiva, 2002), 113~pp.
+\yyskip
+\\{\sl Mariages Stables et leurs relations avec d'autres probl\`emes
+ combinatoires\/} (Montr\'eal: Les Presses de l'Uni\-ver\-sit\'e de Montr\'eal,
+ 1976), 106 pp.  \'Edition revue et corrig\'ee, 1981. Currently
+ available from Les Publications CRM / Centre de Recherches Math\'ematiques,
+ Universit\'e de Montr\'eal, Montr\'eal, Quebec.
+\\English translation, by Martin Goldstein, {\sl Stable Marriage and its
+ Relation to Other Combinatorial Problems\/} (Providence, R.~I.: American
+ Mathematical Society, 1997), $\rm xiii+74$~pp. (CRM Proceedings \& Lecture
+ Notes, Volume~10.)
+\yyskip
+\\{\sl \TeX\ and \slMF:  New Directions in Typesetting}
+ (Providence, R.I.:  American Mathematical Society,
+ and Bedford, Mass.:  Digital Press, 1979), $\rm xi + 45 + 201 + 105$~pp.
+\yyskip
+\\(with Daniel H. Greene)\xskip
+ {\sl Mathematics for the Analysis of Algorithms\/}
+ (Cambridge, Mass.: Birkh\"auser Boston, 1981), 107 pp.
+ Second edition, 1982, 123 pp.
+ Third edition, 1990, $\rm viii+132$ pp.
+\\Russian translation of the second edition by B. B. Pokhodze\u\i, edited by
+ Yuri~V. Mati\t\i asevich, {\sl Matematicheskie metody analiza algoritmov\/}
+ (Moscow: Mir, 1987), 120~pp.
+\\Japanese translation, in preparation (Kindai Kagaku Sha).
+\yyskip
+\\{\sl The \TeX book\/} (Reading, Mass.: Addison-Wesley, 1984), $\rm x+483$~pp.
+ Second printing, revised, October 1984. Sixth printing, revised,
+ January 1986; also published as {\sl Computers \& Typesetting}, Vol.~A.
+ Twenty-sixth printing, 1996, contains final revisions.
+\\Japanese translation, by Yoshiteru Sagiya and Nobuo Saito,
+ {\sl \TeX bukku, konpyuuta ni yoru sohan sisutemu\/}
+ (Tokyo: ASCII Corporation, 1989), $\rm xix+657$~pp.
+\\Russian translation, by M. V. Lisina, edited by S. V. Klimenko and
+ S. N. Sokolov, {\sl Vse pro \TeX\/}
+ (Protvino, Moscow: AO RD\TeX, 1993), $\rm xvi+575$~pp.
+% AO means Inc; RD\TeX stands for Russian Database \TeX nology
+\\Russian translation, by L. F. Kozachenko, edited by Yu.~V. Kozachenko,
+ {\sl Vse pro \TeX\/} (Moscow: Vil'iams, 2003), 549~pp.
+\\Polish translation, by Piotr Bolek, W{\l}odzimierz Bzyl, and Adam Dawidziuk,
+ {\sl \TeX: Przewodnik u\.zytkownika\/} (Warsaw:\ Wydawnictwa
+ Naukowo-Techniczne, 2005), $\rm xviii+541$~pp.
+\\French translation, by Jean-C\^ome Charpentier, {\sl Le \TeX book:
+ Composition informatique\/} (Paris:\ Vuibert Informatique, 2003), 576~pp.
+\\Polish translation (Warsaw:\ Wydawnictwa
+ Naukowo-Techniczne), in preparation.
+\yyskip
+\\{\sl Computers \& Typesetting}, Vol.~B: {\sl \TeX:\ The Program\/}
+ (Reading, Mass.: Addison-Wesley, 1986), $\rm xvi + 594$~pp.
+ Fifth printing, $\rm xviii + 600$~pp., 1994.
+\yyskip
+\\{\sl The \slMF\kern1ptbook\/} (Reading, Mass.: Addison-Wesley, 1986),
+ $\rm xii+361$~pp.; also published as {\sl Computers \& Typesetting}, Vol.~C.
+\\Japanese translation, by Yoshiteru Sagiya, {\slMF\ \sl bukku}
+ (Tokyo: ASCII Corporation, 1994), $\rm xvi+451$~pp.
+\\Russian translation, by L. F. Kozachenko, edited by Yu.~V. Kozachenko,
+ {\sl Vse pro \TeX\/} (Moscow: Vil'iams, 2003), 549~pp.
+\\Russian translation, {\sl Vse pro \slMF\/} (Moscow: Vil'iams),
+ in preparation.
+\yyskip
+\\{\sl Computers \& Typesetting}, Vol.~D: {\sl \slMF:\ The Program\/}
+ (Reading, Mass.: Addison-Wesley, 1986), $\rm xvi+560$~pp.
+ Third printing, $\rm xviii+566$ pp., 1991.
+\yyskip
+\\{\sl Computers \& Typesetting}, Vol.~E: {\sl Computer Modern Typefaces\/}
+ (Reading, Mass.: Addison-Wesley, 1986), $\rm xvi+588$~pp.
+\yyskip
+\\(with Ronald L. Graham and Oren Patashnik)\xskip {\sl Concrete Mathematics\/}
+ (Reading, Mass.: Addison-Wesley, 1989), $\rm xiii+625$~pp.
+% Second printing, revised, January 1989.
+% Third printing, revised, May 1989.
+% Fourth printing, revised, January 1990.
+% Fifth printing, revised, July 1990.
+% Sixth printing, revised, October 1990.
+% Seventh printing, revised, December 1991.
+% Eighth printing, revised, October 1992.
+ Second Edition, January 1994, $\rm xiii+657$~pp.
+% Second printing, revised, February 1995.
+\\Russian translation by A. B. Khodulev and B. B. Pokhodze\u\i,
+ {\sl Konkretna\t\i a  matematika\/} (Moscow: Mir, 1999), 704~pp.
+\\Chinese translation by Lai FeiPei, {\sl Ju Ti Shu Xue\/}
+ (Taipei: Dong Hua Publishing Co., 1990), $\rm xv+731$~pp.
+\\Chinese translation by Chen YanWen, {\sl Ju Ti Shu Xue\/} (Taipei: Ru Lin
+ Publishing Co., 1991), $\rm xii+695$~pp.
+\\Chinese translation by Zhuang Xingu, {\sl Ju Ti Shu Xue\/} (Xi'an:
+  Xi An Dian Zhi Ke Ji Da Xue Chu Ban She, 1992), $\rm xii+539$~pp.
+\\Chinese translation (Beijing: China Machine Press), in preparation.
+\\Italian translation edited by Giovanni Monegato, {\sl Matematica Discreta\/}
+ (Milan: Editore Ulrico Hoepli, 1992), $\rm xviii+607$ pp.
+\\Japanese translation, by Makoto Arisawa, Michiaki Yasumura, Tatsuya Hagino,
+ and Kiyoshi Ishihata, {\sl Kompyuta no S\=ugaku\/}
+ (Tokyo: Kyoritsu-Shuppan, 1993), $\rm xvi+606$ pp.
+\\Portuguese translation, by Val\'eria de Magalh\~aes Iorio,
+ {\sl Matem\'atica Concreta\/}  (Rio de Janeiro: Livros T\'ecnicos e
+ Cient{\'\i}ficos Editora, 1995), $\rm xii+477$ pp.
+\\Polish translation, by Piotr Chrz\og{a}stowski, A.~Czumaj, L.~G\og{a}sieniec, and
+ M.~Raczunas, {\sl Matematyka Kon\-kretna\/}
+ (Warszawa: Polskie Wydawnictwa Nauk\-owe, 1996), 718 pp.
+\\Hungarian translation, by S\'andor Fridli, J\'anos Gonda, Attila Kov\'acs,
+ L\'aszl\'o Lakatos, and Csab\'an\'e L\'ang, {\sl Konkr\'et Matematika\/}
+ (M\H{u}szaki K\"onyvkiad\'o, 1998), $\rm xvi+647$~pp.
+\\Spanish translation (Addison-Wesley Spain and Universidad Autonoma de
+ Madrid), in preparation.
+\\French translation, by Alain Denise, {\sl Math\'ematiques concr\`etes\/}
+(Paris:\ International Thompson Publishing, 1998; later acquired by
+  Vuibert Informatique), $\rm xiv+688$~pp.
+\\Croatian translation (Zagreb: Golden Marketing), in preparation.
+
+\yyskip
+\\(with Tracy L. Larrabee and Paul M. Roberts)\xskip {\sl Mathematical
+ Writing\/} (Washington, D.C.: Mathematical Association of America, 1989),
+ $\rm ii+115$~pp.
+\\Japanese translation, by Makoto Arisawa, with additional illustrations
+ and notes by the translator, {\sl Kunusu Sensei no Dokyumento Sampo\/}
+ (Tokyo: Kyoritsu-Shuppan, 1989), $\rm x+194$~pp.
+\yyskip
+\\{\sl 3:16 Bible Texts Illuminated\/} (Madison, Wisconsin: A-R Editions,
+ 1990), $\rm iii+268$~pp.
+ Second printing, revised, January 1992.
+\yyskip
+\\{\sl Kunusu Sensei no Program-Ron\/} [Professor Knuth's Programming
+ Discipline], anthology edited by Makoto Arisawa (Tokyo: Kyoritsu-Shuppan,
+ 1991), $\rm v+199$~pp.
+\yyskip
+\\{\sl Literate Programming\/} (Stanford, California:
+ Center for the Study of Language and Information, 1992), $\rm xvi+368$~pp.
+ (CSLI Lecture Notes, no.~27.)
+\\Japanese translation, by Makoto Arisawa, {\sl Bungeiteki Programming\/}
+ (Tokyo: ASCII Corporation, 1994), 463~pp.
+\yyskip
+\\{\sl Axioms and Hulls\/} (Heidelberg: Springer-Verlag, 1992),
+ $\rm ix+109$~pp. (Lecture Notes in Computer Science, no.~606.)
+%\\Chinese translation, by Su Yunlin (Jiang Xi Science and Technology Press),
+% in preparation.
+\yyskip
+\\{\sl The Stanford GraphBase\/}: A Platform for Combinatorial Computing.
+ (New York: ACM Press, 1993), $\rm viii+576$~pp.
+\yyskip
+\\(with Silvio Levy)\xskip {\sl The CWEB System of Structured Documentation}.
+ (Reading, Massachusetts: Addison-Wesley, 1993), $\rm iv+227$~pp.
+\\Version 3.6, with hypertext support (Reading, Massachusetts: Addison-Wesley,
+ 2001), $\rm ii+237$~pp.
+\yyskip
+\\{\sl Selected Papers on Computer Science\/} (Stanford, California:
+ Center for the Study of Language and Information, 1996), $\rm xii+274$~pp.
+ (CSLI Lecture Notes, no.~59.) Co-published with Cambridge University Press.
+\yyskip
+\\{\sl Digital Typography\/} (Stanford, California:
+ Center for the Study of Language and Information, 1999), $\rm xvi+685$~pp.
+ (CSLI Lecture Notes, no.~78.)
+\\Russian translation by Roman Kuznets, Olga Makhovaia, Nikolai Tretiakov,
+ and Yurii Tiumentsev, edited by Irina Makhovaia,
+ {\sl Comp'{\t\i}uterna{\t\i}a Tipografi{\t\i}a\/} (Moscow: Mir, 2003), 669~pp.
+\yyskip
+\\{\sl MMIXware\/} (Heidelberg: Springer-Verlag, 1999),
+ $\rm vii+550$~pp. (Lecture Notes in Computer Science, no.~1750.)\par
+\yyskip
+\\Japanese translation, by Takizawa Toru, (SiB\thinspace access Co., 2002),
+ $\rm viii+550$~pp.
+\yyskip
+\\{\sl Selected Papers on Analysis of Algorithms\/} (Stanford, California:
+ Center for the Study of Language and Information, 2000), $\rm xvi+621$~pp.
+ (CSLI Lecture Notes, no.~102.) Printings made after 2006 have
+ $\rm xvi+622$~pp., because the index has gotten longer.
+\yyskip
+\\{\sl Things a Computer Scientist Rarely Talks About\/} (Stanford, California:
+ Center for the Study of Language and Information, 2001), $\rm xi+257$~pp.
+ (CSLI Lecture Notes, no.~136.)
+\\Japanese translation by Tooru Takizawa, Yuko Makino, and Noboru Tomizawa,
+ {\sl Computer kagakusha ga mettan\={\i} Katarana\={\i} Koto\/}
+ (Tokyo: SiBaccess Co., Ltd., 2003), $\rm x+260$~pp.
+\yyskip
+\\{\sl Selected Papers on Computer Languages\/} (Stanford, California:
+ Center for the Study of Language and Information, 2003), $\rm xvi+594$~pp.
+\yyskip
+\\{\sl Selected Papers on Discrete Mathematics\/} (Stanford, California:
+ Center for the Study of Language and Information, 2003), $\rm xvi+812$~pp.
+\yyskip
+\\{\sl Selected Papers on Design of Algorithms\/} (Stanford, California:
+ Center for the Study of Language and Information), in preparation.
+\yyskip
+\\{\sl Selected Papers on Fun and Games\/} (Stanford, California:
+ Center for the Study of Language and Information), in preparation.
+
+\vskip 20pt
+\sectionbegin 2. {Videos and Audiotapes}
+\\{\sl Problem Solving with Donald Knuth}. {\sl The Stanford Video Journal},
+ Vol.~1 (Stanford, California: Stanford Instructional Television Network,
+ 1985). Twenty 75-minute tapes.
+\\``The Literate Mathematician,'' in BBC Radio~5's series {\sl Maths
+ Miscellany}, produced by John Jaworski and Giselle Corbett
+ (first broadcast February 21, 1993), 30~min. Cassettes available from
+ BBC OUPC, Walton Hall, Milton Keynes, MK7 6BH, England.
+\\``Computer Musings: The associative law, or The anatomy of
+ rotations in binary trees,'' {\sl The Distinguished Lecture Series\/ \bf7}
+ (Stanford, CA: University Video Communications, 1993), 68~min.
+\\``Graph drawing from a user's perspective,'' opening lecture at the
+ conference on Graph Drawing at MSRI, Berkeley, 18 September 1996.
+ {\tt http:/\kern-.1em/www.msri.org/publications/ln/msri/1996/graph/knuth/1/}
+\\``Some research problems for combinatorialists,'' lecture
+ at MSRI, Berkeley, 27 January 1997.
+ {\tt http:/\kern-.1em/www.\allowbreak msri.org/publications/ln/msri/1997/%
+ non\char`\_workshop/knuth/1/}
+\\{\sl Donald Knuth: God and Computers}, seven public lectures delivered at MIT
+ in the fall of 1999. {\tt http:/\kern-.1em
+ /\allowbreak technetcast.ddj.com/tnc\_program.html?program\_id=50}
+\\{\sl Donald Knuth: MMIX, A RISC Computer for the New Millennium}, a
+ lecture to the Boston chapter of ACM on 15 December 1999.
+ {\tt http:/\kern-.1em/technetcast.ddj.com/\allowbreak
+ tnc\_play\_stream.html?stream\_id=199}
+\\{\sl All Questions Answered}, talk at Oslo Instute for Informatics,
+ 30 August 2002.
+ {\tt http:/\kern-.1em/www.ifi.uio.no/\allowbreak foredrag/knuth-2002.html}
+\\{\sl Bottom-Up Education; or, The Search for Intelligent Life
+ in the University}, keynote speech at ITiCSE 2003, Thessaloniki, 2 July 2003.
+ {\tt http:/\kern-.1em/iticse2003.uom.gr/}.
+\\``Donald Knuth: Founding Artist of Computer Science,'' profile/interview
+ on National Public Radio by David Kestenbaum,
+ {\sl Morning Edition\/} (14 March 2005).
+ {\tt http:/\kern-.1em/www.npr.org/templates/story/story.php?\allowbreak
+ storyId=4532247}.
+
+\finishpage
+
+%%%%%
+\sectionbegin 3. {Papers \rm($\ast$ means written by coauthor)}
+\p  P1.  The potrzebie system of weights and measures.  {\sl MAD Magazine\/
+ \bf 33} (June 1957), 36--37.  (Illustrated by Wallace Wood.)  Reprinted 
+ in {\sl Like, MAD\/} (New York:  Signet Pocket Books No.~S1838, 1960), 
+ 139--145. Page 36 reprinted in {\sl Completely MAD\/} by Maria Reidelbach
+ (Boston, Mass.: Little, Brown, 1991), 191.
+\p P2.  RUNCIBLE --- Algebraic translation on a limited computer.
+ {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 2},\,11 (November 1959), 18--21.  
+ Reprinted with amendments as Chapter~21 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P3.  An imaginary number system.  {\sl Communications of the
+ ACM\/ \bf 3} (April 1960), 245--247.  Errata, {\sl Communications of the 
+ ACM\/ \bf 4} (August 1961), 355.
+ Reprinted as Chapter~18 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p *P4.  (with R. C. Bose, I. M. Chakravarti)\xskip  On methods of constructing
+ sets of mutually orthogonal latin squares using a computer.  Part I:
+ {\sl Technometrics\/ \bf 2} (1960), 507--516.  Part II:  {\sl Technometrics\/
+ \bf 3} (1961), 111--117.  
+\p P5.  Minimizing drum latency time.  {\sl Journal of the 
+ ACM\/ \bf 8} (April 1961), 119--150.  
+\p P6.  (with Jack N. Merner)\xskip  ALGOL 60 {\it Confidential\/}.
+ {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 4} (June 1961), 268--272.  
+ Reprinted as Chapter~4 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P7.  (with G. A. Bachelor, J. R. H. Dempster, J. Speroni)\xskip  SMALGOL-61.
+ {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 4} (November 1961), 499--502.  
+ Reprinted as Chapter~5 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P8.  Euler's constant to 1271 places.
+ {\sl Math\-e\-ma\-tics of Compu\-ta\-tion\/ \bf 16} (1962), 275--281.  
+\p P9.  Evaluation of polynomials by computer. 
+ {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 5} (December 1962), 595--599.  
+\p P10.  A history of writing compilers.  {\sl Computers and Automation\/
+ \bf 11},\,12 (December 1962), 8--18.  Reprinted in {\sl Compiler Techniques},
+ Bary W. Pollack, ed., (Prince\-ton:  Auerbach, 1972), 38--56.  % Bary: sic
+ Reprinted as Chapter~20 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P11.  Computer-drawn flowcharts.  {\sl Commun\-i\-ca\-tions of the
+ ACM\/ \bf 6} (September 1963), 555--563.
+ Reprinted as Chapter~22 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P12.  Length of strings for a merge sort.  {\sl Commun\-i\-ca\-tions of the
+ ACM\/ \bf 6} (November 1963), 685--688.  
+ Reprinted with additional material as Chapter~14 of {\sl Selected Papers
+ on Analysis of Algorithms\/} (see under Books).
+\p P13.  Transcendental numbers based on the
+ Fibonacci sequence.  {\sl Fibonacci Quarterly\/ \bf 2} (1964), 43--44. 
+\p P14.  Billiard balls in an equilateral triangle.  {\sl Recreational
+ Mathematics Magazine\/ \bf 14} (January--February 1964), 20--23. 
+\p P15.  (with L.~L. Bumgarner, D.~E. Hamilton, P.~Z. Ingerman, M.~P. Lietzke,
+ J.~N. Merner, D.~T. Ross)\xskip  A proposal for 
+ input-output conventions in ALGOL 60.  {\sl Commun\-i\-ca\-tions of
+ the ACM\/ \bf 7} (May 1964), 273--283.  Russian translation by M. I. Ageev
+ in {\sl Sovremennoe Programmirovanie\/ \bf1} (Moscow: Soviet Radio, 1966),
+ 73--107.
+ Reprinted as Chapter~7 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P16.  (with J. L. McNeley)\xskip  SOL --- A symbolic language for
+ general-purpose systems simulation. 
+ {\sl IEEE Transactions on Electronic Computers\/
+ \bf EC-13} (1964), 401--408.
+ Reprinted as Chapter~9 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P17.  (with J. L. McNeley)\xskip  A formal definition of SOL\null.
+ {\sl IEEE Transactions on Electronic Computers\/ \bf EC-13} (1964), 409--414.
+ Reprinted as Chapter~10 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P18.  Representing numbers using only one 4.  {\sl Mathematics Magazine\/
+ \bf 37} (1964), 308--310.  
+\p P19.  (with Marshall Hall, Jr.)\xskip  Combinatorial analysis
+ and computers.  {\sl American Mathematical Monthly\/ \bf72}, part~2,
+ {\sl Computers and Computing}, Slaught Memorial Papers No.~10 (February 1965),
+ 21--28.
+ Reprinted as Chapter~1 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P20.  (with J. D. Alanen)\xskip  Tables of finite fields. 
+ {\sl Sankhy\=a}, series A, {\bf 26} (1964), 305--328.  
+ Reprinted as Chapter~19 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P21.  Finite semifields and projective planes.  {\sl Journal of Algebra\/
+ \bf 2} (1965), 182--217. Reprinted in {\sl Neofields and Combinatorial
+ Designs}, ed.~by D. Frank Hsu, {\sl Advances in Discrete Mathematics and
+ Computer Science\/ \bf 1} (Nonantum, Massachusetts: Hadronic Press, 1984),
+ 57--92.
+ Reprinted as Chapter~20 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P22.  A class of projective planes.  {\sl Transactions of the American
+ Mathematical Society\/ \bf 115} (1965), 541--549.  
+ Reprinted as Chapter~21 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P23.  On the translation of languages from left to right.
+ {\sl Information and Control\/ \bf 8} (1965), 607--639.
+ Russian translation by A. A. Muchnik in
+ {\sl \t Iazyki i Avtomaty}, ed.\ by A. N. Maslov and \'E. D. Stotski\u\i\
+ (Moscow: Mir, 1975), 9--42.
+ Reprinted in {\sl Great Papers in Computer Science}, edited by Phillip
+ Laplante (St.~Paul, Minnesota: West Publishing, 1996), 150--173.
+ Reprinted as Chapter~15 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P24.  Construction of a random sequence.  {\sl BIT\/ \bf 5} (1965),
+ 246--250.  
+ Reprinted as Chapter~17 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P25.  An almost linear recurrence.  {\sl Fibonacci Quarterly\/ \bf 4}
+ (1966), 117--128.  
+ Reprinted as Chapter~37 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P26.  Oriented subtrees of an arc digraph.  {\sl Journal of
+ Combinatorial Theory\/ \bf 3} (1967), 309--314. 
+ Reprinted as Chapter~12 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P27.  (with Thomas J. Buckholtz)\xskip  Computation of tangent, Euler, and
+ Bernoulli numbers.
+ {\sl Mathematics of Computation\/ \bf 21} (1967), 663--688.
+\p P28.  (with Richard H. Bigelow)\xskip  Programming languages for automata.
+ {\sl Journal of the ACM\/ \bf 14} (October 1967), 615--635.  
+ Reprinted as Chapter~12 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P29.  The remaining trouble spots in ALGOL 60.
+ {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 10} (October 1967), 611--618.  
+ Reprinted in E. Horowitz, {\sl Programming Languages: A Grand Tour\/}
+ (Computer Science Press, 1982), 61--68.
+ Reprinted as Chapter~8 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P30.  A characterization of parenthesis languages.
+  {\sl Information and Control\/ \bf 11} (1967), 269--289.  
+ Reprinted as Chapter~13 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P31.  Very magic squares.  {\sl American Mathematical
+ Monthly\/ \bf 75} (March 1968), 260--264.  
+\p P32.  Semantics of context-free languages.  {\sl Mathematical
+ Systems Theory\/ \bf 2} (1968), 127--145.  Errata, 
+ {\sl Mathematical Systems Theory\/ \bf 5} (1971), 95--96.  
+ Reprinted as Chapter~17 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P33.  Another enumeration of trees.  {\sl Canadian Journal
+ of Mathematics\/ \bf 20} (1968), 1077--1086.  
+ Reprinted as Chapter~13 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P34.  (with Peter B. Bendix)\xskip  Simple word problems in
+ universal algebras.  In {\sl Compu\-ta\-tional Problems in Abstract
+ Algebra}, J. Leech, ed.\ (Oxford:  Pergamon, 1970), 263--297.
+ Reprinted in {\sl Automation of Reasoning}, edited by J\"org~H.
+ Siekmann and Graham Wrightson, {\bf2} (Springer, 1983), 342--376.
+\p P35.  The Gamov-Stern elevator problem.  {\sl Journal of Recreational 
+ Mathematics\/ \bf 2} (1969), 131--137.  
+\p P36.  Notes on central groupoids.  {\sl Journal of Combinatorial
+ Theory\/ \bf 8} (1970), 376--390.  
+ Reprinted as Chapter~22 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P37.  (with Chandler Davis)\xskip  Number representations and dragon
+ curves.  {\sl Journal of Recrea\-tional Mathematics\/ \bf 3} (1970),
+ 66--81, 133--149.  
+\p P38.  Permutations, matrices, and generalized Young tableaux. 
+ {\sl Pacific Journal of Mathematics\/ \bf 34} (1970), 709--727.
+ Reprinted as Chapter~31 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P39.  A note on solid partitions.  {\sl Mathematics of Computation\/
+ \bf 24} (1970), 955--961.  
+ Reprinted as Chapter~33 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P40.  Von Neumann's first computer program.  {\sl Computing
+ Surveys\/ \bf 2} (December 1970), 247--260.  Reprinted in {\sl Papers
+ of John von Neumann on Computing and Computer Theory}, ed.~by
+ William Aspray and Arthur Burks (Cambridge, Mass.: MIT Press, 1987), 83--96.
+ Reprinted with corrections as Chapter~12 of {\sl Selected Papers on
+ Computer Science\/} (see under Books).
+\p P41.  Optimum binary search trees.  {\sl Acta Informatica\/ \bf 1}
+ (1971), 14--25.  Corrigenda, p.\ 270.
+\p P42.  (with R. W. Floyd)\xskip Notes on avoiding `go to' statements.
+ {\sl Information Processing Letters\/ \bf 1} (1971), 23--31.  Errata, p.\ 177.
+ Reprinted in {\sl Writings of the Revolution}, E. Yourdon, ed.\ 
+ (New York: Yourdon Press, 1982), 153--162.
+ Reprinted as Chapter~23 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P43.  Subspaces, subsets, and partitions.  {\sl Journal of
+ Combinatorial Theory\/} (A) {\bf 10} (1971), 178--180.  
+ Reprinted as Chapter~35 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P44.  The analysis of algorithms. {\sl Actes du Congr\`es
+ International des Math\'e\-ma\-ticiens\/} 1970, {\bf 3} (Paris:
+ Gau\-thier-Villars, 1971), 269--274.  
+ Reprinted as Chapter~3 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P45.  Examples of formal semantics.  In {\sl Symposium on Semantics of
+ Algorithmic Languages}, E. Engeler, ed., {\sl Lecture Notes 
+ in Mathematics\/ \bf 188} (Berlin: Springer, 1971), 212--235.  
+ Reprinted as Chapter~18 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P46.  Mathematical analysis of algorithms.  {\sl Proceedings of
+ IFIP Congress 1971}, {\bf 1} (Amsterdam: North-Holland, 1972), 19--27.
+ Reprinted as Chapter~1 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P47.  An empirical study of FORTRAN programs.  {\sl Software---Practice
+ and Experience\/ \bf 1} (1971), 105--133.  
+ Reprinted as Chapter~24 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P48.  Top-down syntax analysis.  {\sl Acta Informatica\/ \bf 1}
+ (1971), 79--110.  Russian translation by Nadezhda I. V'\t\i ukova in
+ {\sl Kiberneticheski\u\i\ Sbornik\/ \bf 15} (1978), 101--142.
+ Reprinted as Chapter~14 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P49.  (with Edward A. Bender)\xskip  Enumeration of plane partitions.
+  {\sl Journal of Combinatorial Theory\/} (A) {\bf 13} (1972), 40--54.  
+ Reprinted as Chapter~32 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P50.  (with R. L. Graham and T. S. Motzkin)\xskip  Complements and
+ transitive closures.  {\sl Discrete Mathematics\/ \bf 2} (1972), 17--29.  
+ Reprinted as Chapter~25 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P51.  (with N. G. de Bruijn and S. O. Rice)\xskip  The average height
+ of planted plane trees.  In {\sl Graph Theory and Computing}, R. C. Read,
+ ed.\ (Academic Press, 1972), 15--22.  
+ Reprinted as Chapter~15 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P52.  (with E. B. Kaehler)\xskip  An experiment in optimal sorting.
+ {\sl Information Processing Letters\/ \bf 1} (1972), 173--176.
+ Reprinted as Chapter~30 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P53.  Ancient Babylonian algorithms.  {\sl Commun\-i\-ca\-tions of the
+ ACM\/ \bf 15} (July 1972), 671--677.
+ Errata, {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 19} (February 1976), 108.  
+ Reprinted with corrections and additions as Chapter~11 of {\sl Selected
+ Papers on Computer Science\/} (see under Books).
+\p P54.  George Forsythe and the development of Computer Science. 
+ {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 15} (August 1972), 721--726.
+ Reprinted with revisions as Chapter~16 of {\sl Selected Papers on
+ Computer Science\/} (see under Books); in the first two printings
+ it was, however, called Chapter~14.
+\p P55.  (with Robert W. Floyd)\xskip  The Bose--Nelson sorting problem.
+ In {\sl A Survey of Combinatorial Theory}, Jagdish N. Srivastava, ed.\
+ (Amsterdam: North-Holland, 1973), 163--172.
+\p P56. The dangers of computer science theory. In {\sl Logic, Methodology,
+ and Philosophy of Science\/ \bf 4}, ed.\ by P. Suppes et al.\ (North-Holland,
+ 1973), 189--195.
+ Reprinted as Chapter~2 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P57.  Permutations with nonnegative partial sums.  {\sl Discrete
+ Mathematics\/ \bf 5} (1973), 367--371.  
+ Reprinted as Chapter~28 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P58.  The triel:  A new solution.  {\sl Journal of Recreational
+ Mathe\-ma\-tics\/ \bf 6} (1973), 1--7.  
+\p P59.  (with Jill Knuth)\xskip  Mathematics and Art:  The dragon curve
+ in ceramic tile.  {\sl Journal of Recreational Mathematics\/ \bf 6} (1973),
+ 165--167.  
+\p P60.  (with Francis R. Stevenson)\xskip  Optimal measurement points for
+ program frequency counts.  {\sl BIT\/ \bf 13} (1973), 313--322.  
+ Reprinted as Chapter~5 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P61.  Wheels within wheels. {\sl Journal of Combinatorial Theory\/} (B)
+ {\bf 16} (1974), 42--46.  
+ Reprinted as Chapter~24 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P62.  The asymptotic number of geometries.  {\sl Journal of
+ Combinatorial Theory\/} (A) {\bf 16} (1974), 398--400.  
+ Reprinted as Chapter~27 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P63.  Computer Science and its relation to Mathematics. {\sl American
+ Mathematical Monthly\/ \bf 81} (April 1974), 323--343. A~shorter form of
+ this article appeared in {\sl American Scientist\/ \bf 61} (1973), 707--713;
+ reprinted in {\sl Computers and People\/ \bf 23},\,9 (September 1974), 8--11;
+ and in {\sl Mathematics: People, Problems, Results}, ed.\ by Douglas M.
+ Campbell and John C. Higgins, vol.~3 (Belmont, Calif.:  Wadsworth, 1984),
+ 37--47.  Hungarian translation in {\sl Matematikai Lapok\/ \bf 24} (1973,
+ published 1975), 345--363.  Slovenian translation in {\sl Obzornik za
+ Matematiko in Fiziko\/ \bf22} (1975), 129--138, 161--167. Slovak translation
+ (abridged) in {\sl Pokroky Matematiky, Fiziky a Astronomie\/ \bf21} (1976),
+ 88--96.  Russian translation by Natal'\t\i a G. Gurevich in
+ {\sl Sovremennye Problemy Matematiki\/ \bf11},\,12 (Moscow: Znanie, 1977),
+ 4--32. Reprinted in part in {\sl A Century of Mathematics Through the
+ Eyes of the M{\eightsl ONTHLY}}, edited by John Ewing (Mathematical
+ Association of America, 1994), 285--288.
+ Reprinted with corrections as Chapter~1 of {\sl Selected Papers on
+ Computer Science\/} (see under Books).
+\p P64.  (with O. Amble)\xskip  Ordered hash tables.
+ {\sl The Computer Journal\/ \bf 17} (May 1974), 135--142.  
+ Reprinted as Chapter~7 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P65.  (with Jayme L. Szwarcfiter)\xskip  A structured program to
+ generate all topological sorting arrangements.  {\sl Information
+ Processing Letters\/ \bf 2} (1974), 153--157; erratum, {\bf3} (1974), 64.
+ Reprinted with revisions
+ as Chapter~3 of {\sl Literate Programming\/} (see under Books).
+\p P66.  (with Michael L. Fredman)\xskip  Recurrence relations based
+ on minimization.  {\sl Journal of Mathematical Analysis and Applications\/
+ \bf 48} (1974), 534--559.  
+ Reprinted as Chapter~38 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P67.  Structured programming with {\bf go to} statements. 
+ {\sl Computing Surveys\/ \bf 6} (December 1974), 261--301.  Reprinted
+ with revisions in {\sl Current Trends in Programming Methodology},
+ Raymond T. Yeh, ed., {\bf 1} (Englewood Cliffs, N.J.:  Prentice-Hall,
+ 1977), 140--194; {\sl Classics in Software Engineering}, Edward Nash
+ Yourdon, ed.\ (New York: Yourdon Press, 1979), 259--321. Reprinted with
+ ``final'' revisions as Chapter~2 of {\sl Literate Programming\/}
+ (see under Books).
+\p P68.  Computer programming as an art.  {\sl Communications of the ACM\/
+ \bf 17} (December 1974), 667--673.  French translation, with three
+ supplementary paragraphs, in {\sl L'Informatique Nouvelle}, No.\ 64
+ (June 1975), 20--27.  Japanese translation by Makoto Arisawa
+ in {\sl bit\/ \bf 7} (1975), 434--444; reprinted in
+ {\sl Kunusu Sensei no Program-Ron\/} (see under Books), 2--19.
+ English version reprinted
+ with the supplementary paragraphs in {\sl ACM Turing Award
+ Lectures: The First Twenty Years} (New York: ACM Press, 1987), 33--46;
+ reprinted with corrections as Chapter~1 of {\sl Literate Programming\/} (see
+ under Books).
+ Russian translation by V. V. Martyn\t{\i}uk in {\sl Lektsii laureatov
+ premii T'\t{\i}uringa\/} (Moscow: Mir, 1993), 48--64.
+\p P69.  Estimating the efficiency of backtrack programs.
+ {\sl Mathematics of Compu\-ta\-tion\/ \bf 29} (1975), 121--136.  
+ Reprinted as Chapter~6 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P70.  (with Ronald W. Moore)\xskip An analysis of alpha-beta pruning. 
+ {\sl Artificial Intelligence\/ \bf 6} (1975), 293--326.  
+ Reprinted as Chapter~9 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P71.  (with James H. Morris, Jr.  and Vaughan R. Pratt)\xskip  Fast pattern
+ matching in 
+ strings.  {\sl SIAM Journal on Computing\/ \bf 6} (1977), 323--350. Errata,
+ see W. Rytter, {\sl SIAM Journal on Computing\/ \bf 9} (1980), 509--512.
+ Reprinted in {\sl Computer Algorithms: String Pattern Matching Strategies},
+ ed.~by Jun-ichi Aoe (Los Alamitos, California: IEEE Computer Society Press,
+ 1994), 8--35.
+\p P72.  Random matroids.  {\sl Discrete Mathematics\/ \bf 12} (1975),
+ 341--358.  
+ Reprinted as Chapter~26 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P73. (with John F. Reiser)\xskip  Evading the drift in floating-point
+ addition. {\sl Information Processing Letters\/ \bf 3} (1975), 84--87.
+ Errata, p.\ 164.
+\p P74.  (with Gururaj S. Rao)\xskip  Activity in an interleaved memory.
+ {\sl IEEE Transactions on Computers\/ \bf C-24} (1975), 943--944.  
+ Reprinted as Chapter~8 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P75.  Notes on generalized Dedekind sums.  {\sl Acta Arithmetica\/
+ \bf 33} (1977), 297--325.
+ Reprinted as Chapter~10 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P76.  (with Andrew C. Yao)\xskip  Analysis of the subtractive algorithm
+ for greatest common divisors.  {\sl Proceedings of the National Academy
+ of Sciences\/ \bf 72} (1975), 4720--4722.  
+ Reprinted with additional material as Chapter~13 of {\sl Selected Papers
+ on Analysis of Algorithms\/} (see under Books).
+\p P77.  (with M. R. Garey, R. L. Graham, D. Johnson)\xskip  Complexity
+ results for bandwidth minimization.  {\sl SIAM Journal on Applied
+ Mathematics\/ \bf 34} (1978), 477--495.
+ Reprinted with additional material as Chapter~32 of {\sl Selected Papers
+ on Analysis of Algorithms\/} (see under Books).
+\p P78.  (with Luis Trabb Pardo)\xskip  Analysis of a simple factorization
+ algorithm.  {\sl Theoretical Computer Science\/ \bf 3} (1976), 321--348.  
+ Reprinted with additional material as Chapter~20 of {\sl Selected Papers
+ on Analysis of Algorithms\/} (see under Books).
+\p P79.  Algorithms.  {\sl Scientific American\/ \bf236},\,4 (April 1977),
+ 63--66, 69--72, 77--78, 80.
+ Also {\sl Scientific American Offprints}, number 360, 14 pp.
+ Farsi translation by B. Parhami in {\sl Bulletin of the
+  Iranian Mathematical Society\/ \bf 8} (1978), 122L--76L.  
+ Reprinted with corrections as Chapter~3 of {\sl Selected Papers on
+ Computer Science\/} (see under Books).
+\p P80.  (with Andrew C. Yao)\xskip  The complexity of nonuniform random
+ number generation.  In {\sl Algorithms and Complexity},
+ J. F. Traub, ed.\ (New York:  Academic Press, 1976), 357--428.
+ Russian translation by B. B. Pokhodze\u\i\ in {\sl Kiberneticheski\u\i\
+ Sbornik\/ \bf 19} (1983), 97--158.
+ Reprinted with additional material as Chapter~34 of {\sl Selected Papers
+ on Analysis of Algorithms\/} (see under Books).
+\p P81.  The computer as Master Mind.
+ {\sl Journal of Recreational Mathematics\/ \bf 9} (1976), 1--6.  
+\p P82.  Mathematics and Computer Science:  Coping with finiteness. 
+ {\sl Science\/ \bf 194} (December 17, 1976), 1235--1242.  Reprinted
+ with corrections in {\sl Electronics, the Continuing Revolution}, 
+ edited by Philip H. Abelson and Allen L. Hammond, AAAS publication {\bf 77-4}
+ (Washington, D.C.:\ American Association for the Advancement of Science,
+ 1977), 189--196; 
+ and in {\sl Mathematics: People, Problems, Results}, ed.\ by Douglas M.
+ Campbell and John C. Higgins, vol.~2 (Belmont, Calif.:  Wadsworth, 1984),
+ 209--222. Bulgarian translation by G. Chobanov and Z. Dokova in
+ {\sl Fiziko-Matematichesko Spisanie\/ \bf 21} (Sofia, 1978), 58--74.
+ German translation by Arthur Engel in {\sl Der Mathematik-Unterricht\/
+ \bf 25},\,6 (1979), 5--26.
+ Reprinted with corrections as Chapter~2 of {\sl Selected Papers on
+ Computer Science\/} (see under Books).
+\p P83.  (with Luis Trabb Pardo)\xskip  The early development of programming
+ languages.  {\sl Encyclopedia of Computer Science and Technology},
+ Jack Belzer, Albert G. Holzman, and Allen Kent, eds., {\bf 7}
+ (New York: Marcel Dekker, Inc., 1977), 419--493.  
+ Reprinted in {\sl A History of Computing in the Twentieth Century},
+ N. Metropolis, J. Howlett, and G.-C. Rota, eds.\ (New York:
+ Academic Press, 1980), 197--273.
+ Reprinted with amendments as Chapter~1 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P84.  (with Arne T. Jonassen)\xskip  A trivial algorithm whose analysis
+ isn't.
+ {\sl Journal of Computer and System Sciences\/ \bf 16} (1978), 301--322.
+ Reprinted as Chapter~18 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P85.  A generalization of Dijkstra's algorithm.  {\sl Information
+ Processing Letters\/ \bf 6} (1977), 1--5.  
+\p P86.  Evaluation of Porter's constant.  {\sl Computers 
+ and Mathematics with Applications\/ \bf 2} (1976), 137--139.  
+ Reprinted with additional material as Chapter~12 of {\sl Selected Papers on
+ Analysis of Algorithms\/} (see under Books). 
+\p P87.  (with Michael S. Paterson)\xskip  Identities from partition
+ involutions. {\sl Fibonacci Quarterly\/ \bf 16} (June 1978), 198--212.
+ Reprinted as Chapter~34 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P88.  (with Arnold Sch\"onhage)\xskip  The expected linearity of a simple
+ equivalence algorithm.  {\sl Theoretical Computer Science\/ \bf 6}
+ (1978), 281--315.  
+ Reprinted with additional material as Chapter~21 of {\sl Selected Papers
+ on Analysis of Algorithms\/} (see under Books).
+\p P89.  Deletions that preserve randomness.  {\sl IEEE Transactions on
+ Software Engineering\/ \bf SE-3} (1977), 351--359.  
+ Reprinted as Chapter~19 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P90.  The average time for carry propagation. {\sl Indagationes 
+ Mathematic\ae\ \bf 40} (1978), 238--242.
+ Reprinted as Chapter~26 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P91.  Mathematical typography.  {\sl Bulletin of the American
+ Mathematical Society\/} (new series) {\bf 1} (March 1979), 337--372.
+ Reprinted with corrections as part 1 of {\sl \TeX\ and \slMF\/}
+ (see under Books). Also reprinted in {\sl Dr.\ Dobb's Journal of Computer
+ Calisthenics \&\ Orthodontia\/ \bf 5},\,3 (March 1980), 5--20.
+ Reprinted as Chapter~2 of {\sl Digital Typography\/} (see under Books).
+\p P92.  (with A. V. Anisimov)\xskip  Inhomogeneous sorting.
+ {\sl International Journal of Computer and Information Sciences\/ \bf 8}
+ (1979), 255--260.  Russian translation in {\sl Programmirovanie\/ \bf 5},\,1
+ (1979), 11--14. English retranslation in {\sl Programming and Computer
+ Software\/ \bf 5} (1979), 7--10.
+\p P93.  Lexicographic permutations with restrictions.  {\sl Discrete Applied
+ Mathematics\/ \bf 1} (1979), 117--125.
+\p P94.  Algorithms in modern mathematics and computer science.  {\sl Lecture
+ Notes in Computer Science\/ \bf 122} (1981), 82--99.
+ Russian translation by G.~S. Tse\u\i tin
+ in {\sl Algoritmy v Sovremennoi Matematike i Ee
+ Pri\-lozheni\t{\i}akh}, Chast'~I (Novosibirsk: Akademi\t{\i}a Nauk SSSR,
+ Sibirskoe Otdelenie, Vychislitel'ny\u\i\ Tsentr, 1982), 64--98.
+ Revised version entitled ``Algorithmic thinking and mathematical thinking,''
+ {\sl American Mathematical Monthly\/ \bf 92} (1985), 170--181.
+ Reprinted with corrections as Chapter~4 of {\sl Selected Papers on
+ Computer Science\/} (see under Books).
+\p P95.  Supernatural numbers.  {\sl The Mathematical Gardner}, D. A. Klarner,
+ ed.\ (Belmont, California: Wads\-worth International, 1981), 310--325;
+ reprinted with new title {\sl Mathematical Recreations\/} (Dover, 1998).
+ Russian translation by \t Iu.~A. Danilov in {\sl Matematicheski\u\i\
+ tsvetnik}, edited by I.~M. \t Iaglom (Moscow: Mir, 1983),
+ 388--408. Japanese translation in {\sl Kunusu Sensei no Program-Ron\/}
+ (see under Books), 22--43.
+\p P96. The letter S. {\sl The Mathematical Intelligencer\/ \bf 2} (1980),
+ 114--122.
+ Reprinted with corrections as Chapter~13 of {\sl Digital Typography\/}
+ (see under Books).
+\p P97. Deciphering a linear congruential encryption. {\sl IEEE Transactions
+ on Information Theory\/ \bf IT-31} (1985), 49--52.
+\p P98. (with Michael F. Plass)\xskip Breaking paragraphs into lines.
+ {\sl Software---Practice and Experience\/ \bf 11} (1981), 1119--1184. 
+ Reprinted with corrections as Chapter~3 of {\sl Digital Typography\/}
+ (see under Books).
+\p P99. Verification of link-level protocols. {\sl BIT\/ \bf 21} (1981),
+ 31--36.
+\p P100. The concept of a meta-font.  {\sl Visible Language\/ \bf 16} (1982),
+ 3--27. French translation by M. R. Delorme in
+ {\sl Communication et Langages\/} no.~55, (1983), 40--53; reprinted in
+ {\sl Typographie et Informatique}, proceedings of INRIA conference held
+ 21--25 January 1985, organized by Jacques Andr\'e and Patrick Sallio
+ (Rennes, France: INRIA/IRISA -- CCETT, 1985), 119--132.
+ Reprinted as Chapter~15 of {\sl Digital Typography\/} (see under Books).
+\p P101. Huffman's algorithm via algebra. {\sl Journal of Combinatorial
+ Theory\/} (A) {\bf 32} (1982), 216--224.
+ Russian translation by B. B. Pokhodze\u\i\
+ in {\sl Kiberneticheski\u\i\ Sbornik\/ \bf 22} (1985), 159--169.
+ Reprinted as Chapter~23 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P102. A permanent inequality. {\sl American Mathematical Monthly\/ \bf 88}
+ (1981), 731--740, 798.
+ Reprinted as Chapter~6 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P103. Dynamic Huffman coding. {\sl Journal of Algorithms\/ \bf 6} (1985),
+ 163--180.
+\p P104. An analysis of optimum caching. {\sl Journal of Algorithms\/ \bf 6}
+ (1985), 181--199.
+ Reprinted as Chapter~17 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P105. (with David R. Fuchs)\xskip Optimal prepaging and font caching.
+ {\sl ACM Transactions on Programming Languages and Systems\/
+ \bf 7} (1985), 62--79.
+\p P106. The distribution of continued fraction approximations. {\sl Journal
+ of Number Theory\/ \bf 19} (1984), 443--448.
+ Reprinted as Chapter~11 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P107. An algorithm for Brownian zeroes. {\sl Computing\/ \bf 33} (1984),
+ 89--94.
+\p *P108. (with Michael F. Plass)\xskip Choosing better line breaks.
+ In {\sl Document Preparation Systems}, Nievergelt et al., eds.\ (Amsterdam:
+ North-Holland, 1982), 221--242.
+\p P109. Literate programming. {\sl The Computer Journal\/ \bf 27} (1984),
+ 97--111. Reprinted with corrections as Chapter~4 of {\sl Literate
+ Programming\/} (see under Books).
+ Japanese translation by Toshiaki Kurokawa in {\sl bit\/ \bf 17} (1985),
+ 426--450; reprinted in {\sl Kunusu Sensei no Program-Ron\/}
+ (see under Books), 82--128.
+\p P110. Lessons learned from \MF. {\sl Visible Language\/ \bf 19} (1985),
+ 35--53.
+ Reprinted with corrections as Chapter~16 of {\sl Digital Typography\/}
+ (see under Books).
+\p P111. The toilet paper problem. {\sl American Mathematical Monthly\/
+ \bf 91} (1984), 465--470.
+ Reprinted with additional material as Chapter~16 of {\sl Selected Papers
+ on Analysis of Algorithms\/} (see under Books).
+\p P112. The IBM 650: An appreciation from the field. {\sl Annals
+ of the History of Computing\/ \bf 8} (1986), 50--55.
+ Reprinted with corrections as Chapter~13 of {\sl Selected Papers on
+ Computer Science\/} (see under Books).
+\p P113. Semi-optimal bases for linear dependencies. {\sl Linear
+ and Multilinear Algebra\/ \bf 17} (1985), 1--4.
+\p P114. Efficient balanced codes. {\sl IEEE Transactions
+ on Information Theory\/ \bf IT-32} (1986), 51--53.
+ Reprinted in Mario Blaum, {\sl Codes for Detecting and Correcting
+ Unidirectional Errors\/} (Los Alamitos, California:\ IEEE Computer
+ Society Press, 1993).
+ Reprinted as Chapter~29 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P115. (with Huang Bing-Chao)\xskip A one-way, stackless quicksort
+ algorithm. {\sl BIT\/ \bf 26} (1986), 127--130.
+\p P116. Digital halftones by dot diffusion. {\sl ACM Transactions on
+ Graphics\/ \bf 6} (1987), 245--273.
+ Reprinted with revisions as Chapter~22 of {\sl Digital Typography\/}
+ (see under Books).
+\p P117. Fibonacci multiplication. {\sl Applied Mathematics Letters\/ \bf1}
+ (1988), 57--60.
+\p *P118. (with Christos H. Papadimitriou and John N. Tsitsiklis)\xskip A note
+ on strategy elimination in bimatrix games. {\sl Operations Research Letters\/
+ \bf7} (1988), 103--107. Errata, see Gilboa et al., {\sl Operations
+ Research Letters\/ \bf9} (1990), 85--89.
+\p P119. A Fibonacci-like sequence of composite numbers. {\sl Mathematics
+ Magazine\/ \bf63} (1990), 21--25.
+\p P120. (with Boris Pittel)\xskip A recurrence related to trees.
+ {\sl Proceedings of the American Mathematical Society\/ \bf105} (1989),
+ 335--349.
+ Reprinted as Chapter~39 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P121. (with Herbert S. Wilf)\xskip The power of a prime that divides a
+ generalized binomial coefficient. {\sl Journal f\"ur die reine und angewandte
+ Mathematik\/ \bf396} (1989), 212--219.
+ Reprinted as Chapter~36 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P122. (with Philippe Flajolet and Boris Pittel)\xskip The first cycles in
+ an evolving graph. {\sl Discrete Mathematics\/ \bf75} (1989), 167--215.
+ This volume is also published as {\sl Combinatorics 1988}, Proceedings
+ of the Cambridge Conference in Honour of Paul Erd\H os, edited
+ by B\'ela Bollob\'as (North-Holland, 1989).
+ Reprinted as Chapter~40 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P123. Efficient representation of perm groups. {\sl Combinatorica \bf11}
+ (1991), 33--43.
+\p P124. The errors of \TeX. {\sl Software---Practice
+ and Experience\/ \bf19} (1989), 607--685. Reprinted with additions
+ and corrections as Chapters 10 and~11 of {\sl Literate Programming\/}
+ (see under Books).
+\p P125. (with Hermann Zapf)\xskip AMS Euler---A new typeface for mathematics.
+ {\sl Scholarly Publishing\/ \bf20} (1989), 131--157. Abridged version
+ in {\sl ABC--XYZapf}, edited by John Dreyfus and Knut Erichson
+ (London: Wynkyn de Worde Society, 1989), 171--179.
+ Reprinted with corrections as Chapter~17 of {\sl Digital Typography\/}
+ (see under Books).
+\p P126. (with Robert W. Floyd)\xskip Addition machines. {\sl SIAM Journal on
+ Computing\/ \bf19} (1990), 329--340.
+\p P127. (with Rajeev Motwani and Boris Pittel)\xskip Stable husbands. {\sl
+ Random Structures \& Algorithms\/ \bf1} (1990), 1--14.
+ Reprinted as Chapter~24 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p *P128. (with Richard Garfield and Herbert S. Wilf)\xskip A bijection for
+ ordered factorizations. {\sl Journal of Combinatorial Theory\/} (A)
+ {\bf 54} (1990), 317--318.
+\p *P129. (with Herbert S. Wilf)\xskip A short proof of Darboux's lemma.
+ {\sl Applied Mathematics Letters\/ \bf2} (1989), 139--140.
+\p *P130. (with Leonidas J. Guibas and Micha Sharir)\xskip Randomized
+ incremental construction of Delaunay and Voronoi diagrams.
+ {\sl Algorithmica\/ \bf7} (1992), 381--413.
+ Abbreviated version in {\sl Automata, Languages and Programming},
+ edited by M.~S. Paterson, {\sl Lecture Notes in Computer Science\/ \bf443}
+ (1990), 414--431.
+\p *P131. (with Lee Sallows, Martin Gardner, Richard K. Guy)\xskip Serial
+ isogons of 90 degrees. {\sl Mathematics Magazine\/ \bf64} (1991), 315--324.
+\p P132. (with Arvind Raghunathan)\xskip The problem of compatible
+ representatives.
+ {\sl SIAM Journal on Discrete Mathematics\/ \bf5} (1992), 422--427.
+ Reprinted as Chapter~33 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P133. A simple program whose proof isn't. {\sl Beauty is Our Business},
+ edited by W. H. J. Feijen et al., a festschrift for Edsger Dijkstra
+ (Springer, 1990), 233--242.
+\p P134. Nested satisfiability. {\sl Acta Informatica \bf28} (1990), 1--6.
+\p P135. Textbook examples of recursion. {\sl Artificial
+ Intelligence and Mathematical Theory of Computation}, papers in honor
+ of John McCarthy, edited by Vladimir Lifschitz
+ (Academic Press, 1991), 207--229.
+ Reprinted with additional material as Chapter~22 of {\sl Selected Papers
+ on Analysis of Algorithms\/} (see under Books).
+\p P136. A note on digitized angles. {\sl Electronic Publishing---Origination,
+ Dissemination, and Design\/ \bf3} (1990), 99--104.
+ Reprinted as Chapter~23 of {\sl Digital Typography\/} (see under Books).
+\p P137. Two notes on notation. {\sl American Mathematical
+ Monthly\/ \bf99} (1992), 403--422; {\bf 102} (1995), 562.
+ Reprinted as Chapter~2 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P138. Theory and practice. {\sl Theoretical Computer Science\/ \bf90}
+ (1991), 1--15. Also published in {\sl Images of Programming}, dedicated to
+ the memory of A.~P. Ershov, edited by
+ D. Bj\o rner and V. Kotov (Amsterdam: North-Holland, 1991), 1--15.
+ Reprinted with corrections as Chapter~9 of {\sl Selected Papers on
+ Computer Science\/} (see under Books).
+\p P139. Context-free multilanguages. {\sl Theoretical
+ Studies in Computer Science}, edited by Jeffrey D. Ullman, a festschrift
+ for Seymour Ginsburg (Academic Press, 1992), 1--13.
+ Reprinted as Chapter~16 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p P140. (with Svante Janson, Tomasz \L uczak, Boris Pittel)\xskip The birth
+ of the giant component. {\sl Random Structures \& Algorithms\/ \bf4}
+ (1993), 233--358.
+ Reprinted as Chapter~41 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P141. Convolution polynomials. {\sl Mathematica Journal\/ \bf2},\,4 (Fall
+ 1992), 67--78.
+ Reprinted as Chapter~15 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P142. Johann Faulhaber and sums of powers. {\sl Mathematics of
+ Computation\/ \bf 61} (1993), 277--294.
+ Reprinted as Chapter~4 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P143. Bracket notation for the `coefficient-of' operator. {\sl A
+ Classical Mind}, essays in honour of C. A. R. Hoare, edited by A. W. Roscoe
+ (Prentice-Hall, 1994), 247--258.
+ Reprinted as Chapter~3 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P144. Mini-indexes for literate programs. {\sl Software---Concepts
+ and Tools\/ \bf15} (1994), 2--11.
+ Reprinted as Chapter~11 of {\sl Digital Typography\/} (see under Books).
+\p P145. Two-way rounding. {\sl SIAM Journal on Discrete Mathematics\/ \bf8},
+ (1995), 281--290.
+\p P146. (with Inger Johanne H{\aa}land)\xskip Polynomials involving the floor
+ function. {\sl Mathematica Scandinavica\/ \bf76} (1995), 194--200.
+ Reprinted as Chapter~16 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P147. Leaper graphs. {\sl The Mathematical Gazette\/ \bf78} (1994),
+ 274--297.
+\p P148. The sandwich theorem. {\sl Electronic Journal of Combinatorics\/
+ \bf1} (1994), article 1, 48~pp.
+ Reprinted as Chapter~8 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P149. An exact analysis of stable allocation. {\sl Journal of Algorithms\/
+ \bf20} (1996), 431--442.
+ Reprinted as Chapter~23 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P150. Aztec diamonds, checkerboard graphs, and spanning trees. {\sl Journal
+ of Algebraic Combinatorics\/ \bf6} (1997), 253--257.
+ Reprinted as Chapter~10 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P151. Irredundant intervals. {\sl ACM Journal of Experimental
+ Algorithmics\/ \bf1} (1996), article~1, 19~pp.
+\p *P152. (with David J. Jeffrey, Robert M. Corless, David E. G. Hare)\xskip
+ Sur l'inversion de $y^\alpha e^y$ au moyen de nombres de Stirling associ\'es.
+ {\sl Comptes Rendus de l'Acad\'emie des Sciences\/}, s\'erie~I, {\bf320}
+ (1995), 1449--1452.
+\p P153. Partitioned tensor products and their spectra. {\sl Journal of
+ Algebraic Combinatorics\/ \bf6} (1997), 259--267.
+ Reprinted as Chapter~11 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P154. The Knowlton--Graham partition problem. {\sl Journal of Combinatorial
+ Theory\/} (A) {\bf73} (1996), 185--189.
+ Reprinted as Chapter~30 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p *P155. (with R. M. Corless, G. H. Gonnet, D. E. G. Hare, and D. J.
+ Jeffrey)\xskip On the Lambert $W$ function. {\sl Advances in Computational
+ Mathematics\/ \bf5} (1996), 329--359.
+\p P156. Overlapping Pfaffians. {\sl Electronic Journal of Combinatorics\/
+ \bf3},\,2 (1996), paper R5, 13~pp. Reprinted in {\sl The Foata Festschrift},
+ ed.~by Jacques D\'esarm\'enien, Adalbert Kerber, and Volker Strehl (Gap:
+ Imprimerie Louis-Jean, 1996), 151--163.
+ Reprinted as Chapter~7 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p P157. (with Svante Janson)\xskip Shellsort with three increments.
+ {\sl Random Structures \& Algorithms\/ \bf10} (1997), 125--142.
+ Reprinted as Chapter~25 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P158. Linear probing and graphs. {\sl Algorithmica\/ \bf22} (1998),
+ 561--568.
+ Reprinted as Chapter~27 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p P159. Dancing links. {\sl Millennial Perspectives in Computer Science},
+ edited by Jim Davies, Bill Roscoe, and Jim Woodcock (Houndmills, Basingstoke,
+ Hampshire:\ Palgrave, 2000), 187--214.
+\p P160. (with Frank Ruskey)\xskip Efficient coroutine generation of
+ constrained Gray sequences. {\sl From Object-Orientation to Formal Methods:
+ Dedicated to the Memory of Ole-Johan Dahl}, edited by O.~Owe, S.~Krogdahl,
+ and T.~Lyche, {\sl Lecture Notes in Computer Science\/ \bf2635} (Heidelberg:
+ Springer-Verlag, 2004), 183--204.
+ Reprinted as Chapter~25 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\finishpage
+%%%%%
+\sectionbegin 4.  {Other Publications \rm(unrefereed contributions)
+ ($\ast$ means written by coauthor or editor)}
+\p *Q1.  (with J. D. Alanen)\xskip  A table of minimum functions for
+ generating Galois fields GF$(p^n)$.  {\sl Sankhy\=a}, series~A,
+ {\bf 23} (1961), 128.  
+\p Q2.  Backus' language.  {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 5}
+ (April 1962), 185.
+\p Q3.  The calculation of Easter.  {\sl Commun\-i\-ca\-tions of the ACM\/
+ \bf 5} (April 1962), 209--210.  
+\p Q4.  Non-Desarguesian planes of order $2^{2m+1}$.  {\sl Notices of the
+ American Mathematical Society\/ \bf 9} (June 1962), 218.  
+\p Q5.  History of writing compilers.  Digest of Technical Papers,
+ {\sl ACM 62 National Conference\/} (September 1962), 43, 126.  
+\p Q6.  Evaluation of polynomials by computer.
+ {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 6} (February 1963), 51.  
+\p Q7.  Review of {\sl Computer Applications in the Behavioral Sciences}. 
+ {\sl Computing Reviews\/ \bf 4} (May--June 1963), 120--122.  
+\p Q8.  Letters on merging.  {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 6}
+ (October 1963), 585--587.  
+\p Q9.  Addition chains and the evaluation of $n$th powers. 
+ {\sl Notices of the American Mathematical Society\/ \bf 11} (February 1964),
+ 230--231.  
+\p Q10.  Non-Desarguesian planes of order $2^{2m+1}$.  {\sl Notices of the
+ American Mathematical Society\/ \bf 11} (June 1964), 445--446.
+\p Q11.  Backus Normal Form vs.\ Backus Naur Form.  {\sl Commun\-i\-ca\-tions
+ of the ACM\/ \bf 7} (December 1964), 735--736.  
+ Reprinted as Chapter~2 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p Q12.  Man or boy?  {\sl Algol Bulletin\/ \bf 17} (Amsterdam: Mathematisch
+ Centrum, July 1964) 7; {\bf 19} (January 1965), 8--9.  
+ Reprinted as Chapter~6 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p Q13.  Teaching ALGOL 60.  {\sl Algol Bulletin\/ \bf 19}
+ (Amsterdam: Mathematisch Centrum, January 1965), 4--6.  
+ Reprinted as Chapter~3 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p Q14.  A list of the remaining trouble spots in ALGOL 60.  {\sl Algol
+ Bulletin\/ \bf 19} (Amsterdam: Mathematisch Centrum, January 1965), 29--38. 
+\p Q15.  Comments concerning PL/I language specifications as published
+ in the IBM Manual (Form C28-6571-1).  {\sl PL/I Bulletin\/ \bf 1}
+ (January 1966), 5--14.  
+\p Q16.  Problem 5264, the triangle inequality and the parallelogram
+ law.  {\sl American Mathematical Monthly\/ \bf 72} (1965), 193;
+ solutions in {\bf 73} (1966), 211--212.
+\p Q17.  Additional comments on a problem in concurrent programming control.
+ {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 9} (May 1966), 321--322;
+ errata p.\ 878.  Reprinted in
+ {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 26} (January 1983), 22.
+\p Q18.  Algorithm and program; information and data. 
+ {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 9} (September 1966), 654.  
+ Reprinted in {\sl Selected Papers on Computer Science\/}
+ (see under Books), 1--2.
+\p Q19.  (with R. W. Floyd)\xskip  Improved constructions for the
+ Bose-Nelson sorting problem.  {\sl Notices of the American
+ Mathematical Society\/ \bf 14} (February 1967), 283.  
+\p Q20.  What is an algorithm?  {\sl Datamation\/ \bf 13},\,10
+ (October 1967), 30--32.  
+\p Q21. Comments on programming languages. {\sl Simulation Programming
+ Languages}, edited by J.~N. Buxton (North-Holland, 1968), passim.
+\p Q22.  Evolution of number systems.  {\sl Datamation\/ \bf 15}
+ (February 1969), 93--97; (April 1969), 307, 309; (May 1969), 229. 
+ Reprinted with corrections in Elias M. Awad,
+ {\sl Automatic Data Processing} (Prentice-Hall, 1970), 353--357.  
+\p Q23.  Uncrossed knight's tours.  {\sl Journal of Recreational
+ Mathematics\/ \bf 2} (1969), 155-157.
+\p Q24.  (with Edward A. Bender)\xskip  Constructive enumeration of plane 
+ partitions.  {\sl Notices of the American Mathematical Society\/ \bf 16}
+ (June 1969), 659.  
+\p Q25.  Discussion of Mr. Riordan's paper ``Abel identities and inverse 
+ relations''.  In {\sl Combinatorial Mathematics and Its Applications}, 
+ R. C. Bose and T. A. Dowling, eds., University of North Carolina Monograph
+ Series in Probability and Statistics {\bf 4} (Chapel Hill, North Carolina,
+ 1969), 91--94.
+ Reprinted as Chapter~14 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p Q26.  Review of {\sl Game Playing with Computers}, by Donald D. Spencer.
+ {\sl Journal of Recreational Mathematics\/ \bf 2} (1969), 237--238.  
+\p Q27.  Review of {\sl Introduction to Combinatorial Mathematics},
+ by C. L. Liu.  {\sl IEEE Transactions on Information Theory\/ \bf IT-17}
+ (1971), 119--120.  
+\p Q28.  (with Michael L. Fredman)\xskip  Recurrence relations based on
+ minimization.  {\sl Notices of the American Mathematical Society\/
+ \bf 18} (October 1971), 960.  
+\p Q29.  (with Ronald L. Rivest)\xskip Bibliography on computer sorting. 
+ {\sl Computing Reviews\/ \bf 13} (June 1972), 283--289.
+\p Q30.  Sequences with precisely $k+1$ $k$-blocks; Schr\"oder's problem;
+ groups.  Solutions to Problems E2307, E2315, E2328.
+ {\sl American Mathematical Monthly\/ \bf 79} (1972), 773--774,
+ 910, 1138--1139.
+\p Q31.  The history of sorting.  {\sl Datamation\/ \bf 18} (December 1972),
+ 64, 69--70.  
+\p Q32.  S\o king etter noe i en EDB-maskin.  (Norwegian)
+ {\sl Forskningsnytt\/ \bf 18},\,4 (Norges Almenvitenskapelige
+ Forskningsr{\aa}d, 1973), 39--42.  
+\p Q33.  A terminological proposal.  {\sl SIGACT News\/ \bf 6},\,1
+ (January 1974), 12--18.  
+ Reprinted as Chapter~28 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p Q34. Letter to the editor. {\sl Fibonacci Quarterly\/ \bf12} (1974),
+ 46, 79, 82.
+\p Q35.  Review of {\sl The Origins of Digital Computers}, by Brian Randell.
+ {\sl Historia Mathematica\/ \bf 1} (1974), 204--207.
+\p Q36.  Postscript about NP-hard problems.  {\sl SIGACT News\/ \bf 6},\,2
+ (April 1974), 15--16.  
+ Reprinted as Chapter~29 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p Q37. Elementary Problem E2492 (binomial coefficients and mods).
+ {\sl American Mathematical Monthly\/ \bf 81} (1974), 902;
+ solution in {\bf 82} (1975), 855.
+\p Q38. Problem 6049 (cyclic permutation generators).
+ {\sl American Mathematical Monthly\/ \bf 82} (1975), 856;
+ solution in {\bf 84} (1977), 397.
+\p Q39. Problem 6050 (random maximization).
+ {\sl American Mathematical Monthly\/ \bf 82} (1975), 856;
+ solution in {\bf 85} (1978), 686--688.
+\p Q40.  (with Charles T. Zahn Jr.)\xskip  Ill-chosen use of
+ ``event''.  {\sl Commun\-i\-ca\-tions of the ACM\/ \bf 18} (June 1975), 360.  
+\p Q41. Son of Seminumerical Algorithms.  {\sl SIGSAM Bulletin\/ \bf 9},\,4
+ (November 1975), 10--11.  
+\p Q42. Elementary Problem E2613 (compact sets).
+ {\sl American Mathematical Monthly\/ \bf 83} (1976), 656;
+ solution in {\bf 84} (1977), 827--828.
+\p Q43.  Big Omicron and Big Omega and Big Theta.  {\sl SIGACT News\/
+ \bf 8},\,2 (April--June 1976), 18--24.  
+ Reprinted as Chapter~4 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p Q44.  Felix vs.\ Rover.  {\sl Journal of Recreational Mathematics\/
+ \bf 9} (1976), 59--60.  
+\p Q45. Elementary Problem E2636 (diphages and triphages).
+ {\sl American Mathematical Monthly\/ \bf 84} (1977), 134;
+ solution in {\bf 85} (1978), 385--386.
+\p Q46.  Are toy problems useful?  {\sl Popular Computing\/ \bf 5},\,1
+ (January 1977), 1, 3--10; {\bf5},\,2 (February 1977), 3--7.  
+ Reprinted with corrections as Chapter~10 of {\sl Selected Papers on
+ Computer Science\/} (see under Books).
+\p Q47.  BCS examination.  {\sl The Computer Bulletin\/ \bf 2},\,9
+ (September 1976), 29.  
+\p Q48.  The complexity of songs.  {\sl SIGACT News\/ \bf 9},\,2 
+ (Summer 1977), 17--24. Reprinted in {\sl Communications of the ACM\/
+ \bf 27} (April 1984), 344--346; errata (June 1984), 593.
+ Reprinted in {\sl Metafolkloristica}, edited by Franz Kinder and
+ Boaz the Clown (Salt Lake City, Utah 84158-8183: Frank and Boaz, P.O. Box
+ 58183), 63--65. Reprinted in {\sl Humour the Computer}, edited by
+ Andrew Davison (Cambridge, Massachusetts: MIT Press, 1995), 139--145.
+\p Q49.  Solution to Problem 76-17, Conway's ``topswaps'' shuffle.  {\sl SIAM
+ Review\/ \bf 19} (October 1977), 739--741.  
+\p Q50.  Organ duets.  {\sl Music\/ \bf 12},\,1 (January 1978), 6.
+\p Q51.  Lewis Carroll's
+ {\sc WORD}-{\sc WARD}-{\sc WARE}-{\sc DARE}-{\sc DAME}-{\sc GAME},
+ {\sl GAMES\/ \bf 2},\,4 (July 1978), 22--23.  
+\p Q52.  {\sc BLOOD}, {\sc SWEAT}, and {\sc TEARS}.  {\sl GAMES\/
+ \bf 2},\,4 (July 1978), 49.
+\p Q53.  Computer-assisted indexing.  {\sl The Indexer\/ \bf 11} (April 1979),
+ 135.
+\p Q54.  Disappearances (poem).  {\sl The Mathematical Gardner},
+ D. A. Klarner, ed.\ (Belmont, California: Wads\-worth International, 1981),
+ 264; reprinted with new title {\sl Mathematical Recreations\/} (Dover, 1998).
+ Reprinted in {\sl Mathematics: A Human Endeavor} by Harold~R. Jacobs,
+ third edition (San Francisco: Freeman, 1994), 53.
+ Reprinted in {\sl Kunusu Sensei no Program-Ron\/} (see under Books),
+ 192--193.
+ Russian translation in {\sl Matematicheski\u\i\ tsvetnik\/} (Mir, 1983), 329.
+\p *Q55. Donald E. Knuth speaks out (interview by David H. Ahl). {\sl Creative
+ Computing\/ \bf 6},\,1 (January 1980), 72--75.
+\p Q56. Problem 80-6, random 2D trees.
+ {\sl Journal of Algorithms\/ \bf 1} (1980), 109;
+ solution in {\bf 3} (1982), 368--371.
+\p Q57. Problem 80-11, inorder depth versus preorder depth.
+ {\sl Journal of Algorithms\/ \bf 1} (1980), 210.
+\p Q58. (with Christos H. Papadimitriou)\xskip Duality in addition chains.
+ {\sl Bulletin of the EATCS\/ \bf 13} (February 1981), 2--4.
+ Reprinted as Chapter~31 of {\sl Selected Papers on Analysis of Algorithms\/}
+ (see under Books).
+\p Q59. Letter to the editor re bubble sort.
+ {\sl Popular Computing\/ \bf 9},\,1 (January 1981), 7.
+\p Q60. Penny flipping. {\sl Popular Computing\/ \bf 9},\,4 (April 1981),
+ 10, 12.
+\p Q61. Problem 81-10, optimum caching with two page frames.
+ {\sl Journal of Algorithms\/ \bf 2} (1981), 315.
+\p *Q62. A conversation with Don Knuth (interview by Donald J. Albers and Lynn
+ Arthur Steen). {\sl Two-Year College Mathematics Journal\/ \bf 13}
+ (1982), 2--18, 128--141.
+ Reprinted in {\sl Annals of the History of Computing\/ \bf 4} (1982),
+ 257--274. Reprinted in {\sl Mathematical People}, ed.~by Donald~J. Albers
+ and G. L. Alexanderson (Boston: Birkh\"auser Boston, 1985), 182--203.
+ Japanese translation by Nobuko Kishi in {\sl bit\/ \bf16} (1985), 370--377,
+ 506--512, 902--906, 1020--1025;  reprinted in {\sl Kunusu Sensei
+ no Program-Ron\/} (see under Books), 130--167.
+\p Q63. (with A. P. Ershov)\xskip Editors' foreword to the proceedings of a
+ conference on ``Algorithms in Modern Mathematics and Computer Science,''
+ Urgench, Uzbek SSR, September 16--22, 1979. {\sl Lecture Notes in Computer
+ Science\/ \bf 122} (1981), iii--v.
+ Russian translation in {\sl Algoritmy v sovremenno\u\i\ matematike i e\"e
+ prilozheni\t{\i}akh}, Chast'~I (Novosibirsk: Akademi\t{\i}a Nauk SSSR,
+ Sibirskoe Otdelenie, Vychislitel'ny\u\i\ Tsentr, 1982), 4--7.
+\p Q64. Problem 82-3, late binding trees.
+ {\sl Journal of Algorithms\/ \bf 3} (1982), 178--180;
+ solution in {\bf 4} (1983), 385--393.
+\p Q65. (with R. L. Graham)\xskip Elementary problem E2982, a double infinite
+ sum for $\vert x\vert$. {\sl American Mathematical Monthly\/ \bf 90} (1983),
+ 54; solution in {\bf 96} (1989), 525--526.
+\p Q66. Fixed-point glue setting: An example of {\tt WEB}. {\sl TUGboat\/
+ \bf 3},\,1 (March 1982), 10--27. Errata, {\sl TUGboat\/ \bf12},\,2
+ (June 1991), 313.
+\p Q67. A reply from the author. {\sl Visible Language\/ \bf 16} (1982),
+ 358--359.
+ [A response to 16 reviews of paper P100; the reviews appear on pp.\ 308--358.]
+ Also {\sl Visible Language\/ \bf 17} (1983), 417. Reprinted in the
+ addendum to Chapter~15 of {\sl Digital Typography\/} (see under Books).
+\p Q68.  Review of {\sl History of Binary and other Nondecimal Numeration},
+ by Anton Glaser. {\sl Historia Mathematica\/ \bf 10} (1983), 236--243.  
+ Partially reprinted as Chapter~5 of {\sl Selected Papers on
+ Discrete Mathematics\/} (see under Books).
+\p Q69. \TeX\ incunabula. {\sl TUGboat\/ \bf 5},\,1 (May 1984), 4--11.
+ Reprinted as Chapter~26 of {\sl Digital Typography\/} (see under Books).
+\p Q70. My first experience with Indian scripts. {\sl CALTIS-84}, a
+ conference on calligraphy, lettering, typography of Indic scripts
+ (New Delhi: February 11--13, 1984), 49.
+ Reprinted as Chapter~14 of {\sl Digital Typography\/} (see under Books).
+\p Q71. Solution to Problem 83-3, a binomial double sum involving max.
+ {\sl SIAM Review\/ \bf 26} (1984), 123--124.
+\p Q72. Letter to the editor: Comments on quality in publishing.
+ {\sl TUGboat\/ \bf 5},\,1 (May 1984), 67.
+\p Q73. FORTRAN implementations (letter). {\sl Annals of the History of
+ Computing\/ \bf 6} (October 1984), 402--403.
+\p Q74. A course on \MF\ programming. {\sl TUGboat\/ \bf 5},\,2
+ (November 1984), 105--118.
+ Reprinted as Chapter~19 of {\sl Digital Typography\/} (see under Books).
+\p Q75. Recipes and fractions. {\sl TUGboat\/ \bf 6},\,1 (March, 1985), 36--38.
+ Reprinted as Chapter~5 of {\sl Digital Typography\/} (see under Books).
+\p *Q76. (with Niklaus Wirth)\xskip Programming philosophy (interviews by Ken
+ Takara). {\sl Computer Language\/ \bf 2},\,5 (May 1985), cover, 25--35.
+\p Q77. Problem 1234: Sorted integers. {\sl Mathematics Magazine\/ \bf59}
+ (1986), 44; solution in {\bf 60} (1987), 46--48.
+\p *Q78. (with Jon Bentley)\xskip Programming Pearls:
+ A {\tt WEB} program for sampling. {\sl Communications of the ACM\/ \bf 29},\,5
+ (May 1986), 364--369. Reprinted as Chapter~5 of {\sl Literate Programming\/}
+ (see under Books).
+\p *Q79. (with Jon Bentley and M. Douglas McIlroy)\xskip Programming Pearls:
+ A {\tt WEB} program for common words. {\sl Communications of the ACM\/
+ \bf29},\,6 (June 1986), 471--483. Reprinted as Chapter~6 of
+ {\sl Literate Programming\/} (see under Books).
+\p Q80. Solution to problem 6480, A Catalonian sum.
+ {\sl American Mathematical Monthly\/ \bf93} (1986), 220.
+\p Q81. Problem 86-2, a random knockout tournament (with solution).
+ {\sl SIAM Review \bf29} (1987), 127--129.
+\p Q82. Theory and practice. {\sl Bulletin of the EATCS\/ \bf27}
+ (October 1985), 14--21.
+ Greek translation by N.~Kasi\-m\'atis in {\sl Mathimatik{\'\i}
+ Epithe\'orisi\/}
+ (Bulletin of Greek Mathematical Society) te\'ukhos 30 (1986), 3--15.
+ Reprinted with corrections as Chapter~7 of {\sl Selected Papers on
+ Computer Science\/} (see under Books).
+\p Q83. Problem E3106, A curious sum for Euler's totient function.
+ {\sl American Mathematical Monthly\/ \bf92} (1985), 590; solution in
+ {\bf94} (1987), 795--797.
+\p Q84. Foreword to {\sl The Kermit File Transfer Protocol\/} by
+ Frank da Cruz (Bedford, Mass.: Digital Press, 1987), p.~xi.
+\p *Q85. (interview by G. Michael Vose and Gregg Williams) Text
+ Processing: Computer Science considerations. {\sl Byte\/ \bf 11},\,2
+ (February 1986),  169--172.
+\p Q86. Remarks to celebrate the publication of {\sl Computers \&
+ Typesetting}. {\sl TUGboat\/ \bf7} (1986), 95--98.
+ Re\-printed as Chapter~28 of {\sl Digital Typography\/} (see under Books).
+\p Q87. Solution to problem E3061, Empty cells.
+ {\sl American Mathematical Monthly\/ \bf94} (1987), 189.
+\p Q88. (with Pierre MacKay)\xskip Mixing right-to-left texts with
+ left-to-right texts. {\sl TUGboat \bf 8} (1987), 14--25.
+ Reprinted as Chapter~4 of {\sl Digital Typography\/} (see under Books).
+\p Q89. Solution to problem E3062, A versatile identity.
+ {\sl American Mathematical Monthly\/ \bf94} (1987), 376--377.
+\p Q90. The \TeX\ logo in various fonts. {\sl TUGboat\/ \bf 7} (1986), 101.
+ Reprinted as Chapter~6 of {\sl Digital Typography\/} (see under Books).
+\p Q91. Macros for Jill. {\sl TUGboat\/ \bf8} (1987), 309--314.
+ Reprinted as Chapter~8 of {\sl Digital Typography\/} (see under Books).
+\p Q92. Problem for a Saturday morning. {\sl TUGboat\/ \bf 8} (1987), 73, 210.
+ Reprinted as Chapter~9 of {\sl Digital Typography\/} (see under Books).
+\p Q93. Fonts for digital halftones. {\sl TUGboat\/ \bf8} (1987), 135--160.
+ Reprinted with revisions as Chapter~21 of {\sl Digital Typography\/}
+ (see under Books).
+\p Q94. A punk meta-font. {\sl TUGboat\/ \bf9} (1988), 152--168.
+ Reprinted as Chapter~20 of {\sl Digital Typography\/} (see under Books).
+\p Q95. Response to the Steele Prize. {\sl Notices of the Amer.\ Math.\ Soc.\
+ \bf34} (1987), 227--228.
+\p Q96. Exercises for {\sl \TeX: The Program}. {\sl TUGboat\/ \bf11}
+ (1990), 165--170, 499--511.
+ Reprinted as Chapter~10 of {\sl Digital Typography\/} (see under Books).
+\p Q97. The difference between art and science. {\sl Reader's Digest\/}
+ (July 1987), 24.
+\p Q98. Printing out selected pages. {\sl TUGboat\/ \bf8} (1987), 217.
+ Reprinted as Chapter~7 of {\sl Digital Typography\/} (see under Books).
+\p Q99. N-ciphered texts. {\sl Word Ways\/ \bf20} (1987), 173--174, 191--192.
+\p Q100. Solution to problem E3166, A polynomial identity.
+ {\sl American Mathematical Monthly\/ \bf95} (1988), 662--663.
+\p Q101. Problem 1280: A sum of floors. {\sl Mathematics Magazine\/ \bf60}
+  (1987), 329; solution in {\bf61} (1988), 319--320.
+\p Q102. Algorithmic themes. {\sl A Century of Mathematics in America},
+  Peter~L. Duren, ed., {\bf1} (Providence, R.I.:
+  American Mathematical Society, 1988), 439--445.
+ Reprinted with corrections as Chapter~5 of {\sl Selected Papers on
+ Computer Science\/} (see under Books).
+\p Q103. Introduction to {\sl Mathematical Circus\/} by Martin Gardner,
+ MAA Spectrum edition (Washington, D.C.: Mathematical Association of
+ America, 1992), xi--xii.
+\p Q104. Notes on the errors of \TeX. {\sl TUGboat\/ \bf10} (1989), 529--531.
+ Revised version, entitled ``Learning from our errors,'' in
+ {\sl Software Development and Reality Construction}, edited by
+ Christiane Floyd, Heinz Z\"ullighoven, Reinhard Budde, and Reinhard
+ Keil-Slawik (Berlin: Springer-Verlag, 1992), 28--30.
+\p Q105. (with Barry Hayes and Carlos Subi)\xskip Elementary problem E3267,
+ a solitaire game.
+ {\sl American Mathematical Monthly\/ \bf 95} (1988), 456--457;
+ solution in {\bf100} (1993), 292--294.
+\p Q106. (with Ilan Vardi)\xskip Advanced problem 6581, the asymptotic
+ expansion of the middle binomial coefficient.
+ {\sl American Mathematical Monthly\/ \bf95} (1988), 774. Solution,
+ {\sl American Mathematical Monthly\/ \bf97} (1990), 629--630.
+\p Q107. Typesetting Concrete Mathematics. {\sl TUGboat\/ \bf10} (1989),
+ 31--36; errata, p.~342.
+ Reprinted as Chapter~18 of {\sl Digital Typography\/} (see under Books).
+\p *Q108. (with Jill C. Knuth)\xskip \TeX. {\sl Encyclopedia of Computer
+ Science}, third edition, edited by Anthony Ralston
+ and Edwin~D. Reilly (New York: Van Nostrand Reinhold, 1993), 1353--1355.
+ Fourth edition, edited by Anthony Ralston, Edwin~D. Reilly, and David
+ Hemmendinger (London:\ Nature Publishing Group, 2000), 1756--1759.
+ {\sl Concise Encyclopedia of Computer Science}, edited by Edwin~D.
+ Reilly (Chichester:\ John Wiley \& Sons, 2004), 749--751.
+\p *Q109. (with Jill C. Knuth)\xskip \MF. {\sl Encyclopedia of Computer
+ Science}, third edition, edited by Anthony Ralston
+ and Edwin~D. Reilly (New York: Van Nostrand Reinhold, 1993), 869--870.
+ Fourth edition, edited by Anthony Ralston, Edwin~D. Reilly, and David
+ Hemmendinger (London:\ Nature Publishing Group, 2000), 1154--1155.
+\p Q110. Elementary problem E3335, a deranged recurrence.
+ {\sl American Mathematical Monthly\/ \bf 96} (1989), 525;
+ solution in {\bf97} (1990), 927.
+\p Q111. Solution to problem 6575, an identity involving sums and
+ products. {\sl American Mathematical Monthly\/ \bf 97} (1990), 256.
+\p Q112. The new versions of \TeX\ and \MF. {\sl TUGboat\/ \bf10} (1989),
+ 325--328. Erratum, {\sl TUGboat\/ \bf11} (1990), 12. Reprinted in
+ {\sl Die \TeX nische Kom\"odie\/ \bf2},\,1 (March 1990), 16--22.
+ French translation by Alain Cousquer, ``\TeX\ 3.0 ou le \TeX\ nouveau
+ va arriver,'' {\sl Cahiers GUTenberg}, N$\,^\circ$~4 (December 1989), 39--45.
+ Reprinted as Chapter~29 of {\sl Digital Typography\/} (see under Books).
+\p Q113. Virtual fonts: More fun for Grand Wizards. {\sl TUGboat\/ \bf11}
+ (1990), 13--23.
+ Reprinted as Chapter~12 of {\sl Digital Typography\/} (see under Books).
+\p Q114. The genesis of attribute grammars. {\sl Lecture Notes in Computer
+ Science \bf461} (1990), 1--12. % WAGA conference proceedings, Paris 1990
+ Reprinted as Chapter~19 of {\sl Selected Papers on
+ Computer Languages\/} (see under Books).
+\p Q115. Memories of Andrei Ershov. {\sl Programmirovanie\/ \bf 16},\,1
+ (1990), 113--114.
+ Russian translation in {\sl Andre{\u\i} Petrovich Ershov -- ycheny{\\u\i}
+ i chelobek\/} (Novosibirsk: Siberian branch, Russian Academy of Science,
+ 2006), 263--265. (Several letters from Knuth to Ershov and vice-versa, from
+ 1970, 1976, 1977, and 1978, are also translated in this volume.)
+\p Q116. Solution to Problem 79-5, Asymptotic behavior of a sequence.
+ {\sl SIAM Review\/ \bf22} (1980), 101--102.
+\p Q117. Arthur Lee Samuel. {\sl TUGboat \bf11} (1990), 497--498.
+\p Q118. The future of \TeX\ and \MF. {\sl TUGboat \bf11} (1990), 489.
+ Reprinted in {\sl Nederlandstalige \TeX\ Gebruikersgroep MAPS\/ \bf90.2}
+ (May 1990), 145.
+ Reprinted in {\sl \TeX line\/ \bf12} (London: December 1990), 1.
+ Reprinted in {\sl Die \TeX nische Kom\"odie\/ \bf2},\,4 (December 1990),
+ 23--25.
+ French translation by \'Eric Picheral, ``L'avenir de \TeX\ et de \MF,'' {\sl
+ Cahiers GUTenberg}, N$^\circ$~8 (March 1991), 1--2.
+ Reprinted as Chapter~30 of {\sl Digital Typography\/} (see under Books).
+\p Q119. (with Boris Pittel)\xskip Elementary problem E3411,
+ two sums over compositions.
+ {\sl American Mathematical Monthly\/ \bf 97} (1990), 916--917;
+ solution in {\bf 99} (1992), 578--579.
+\p Q120. Elementary problem E3303, a binary summation.
+ {\sl American Mathematical Monthly\/ \bf 96} (1989), 54.
+ Solution, {\sl American Mathematical Monthly\/ \bf 97} (1990), 348--349.
+\p Q121. Elementary problem E3309, a binomial coefficient inequality.
+ {\sl American Mathematical Monthly\/ \bf 96} (1989), 154;
+ solution in {\bf 97} (1990), 614.
+\p Q122. (with Philippe Flajolet)\xskip Elementary problem E3415,
+ a hypergenerating function. {\sl American Mathematical Monthly\/ \bf 98}
+ (1991), 54; solution in {\bf 100} (1993), 84--85.
+\p Q123. Advanced problem 6649, a generalized gamma function with
+ independent branches.
+ {\sl American Mathematical Monthly\/ \bf 98} (1991), 168;
+ solution in {\bf 101} (1994), 77--78.
+\p Q124. (with John McCarthy)\xskip Elementary problem E3429, small pills.
+ {\sl American Mathematical Monthly\/ \bf 98} (1991), 264;
+ solution in {\bf 99} (1992), 684.
+\p Q125. Elementary problem E3463, points in a circle.
+ {\sl American Mathematical Monthly\/ \bf 98} (1991), 852;
+ solution in {\bf100} (1993), 693--694.
+\p Q126. Computer programming and computer science. {\sl Academic Press
+ Dictionary of Science and Technology\/} (Harcourt Brace Jovanovich, 1992),
+ 490. Reprinted with corrections in {\sl Selected Papers on Computer Science\/}
+ (see under Books), 2--3.
+\p Q127. (with Lee Sallows)\xskip Problem 1296, Universal magic squares.
+ {\sl Journal of Recreational Mathematics\/ \bf 16} (1984), 138;
+ solution in {\bf17} (1985), 145--146.
+\p Q128. Introduction to {\sl New Book of Puzzles\/} by Jerry Slocum and
+ Jack Botermans (New York: W.~H. Freeman, 1992), 6--7.
+\p Q129. An interview with Donald Knuth (by Roswitha Graham and Barbara
+ Beeton). {\sl TUGboat\/ \bf13} (1992), 419--425.
+\p Q130. Icons for \TeX\ and \MF. {\sl TUGboat\/ \bf14} (1993), 387--389.
+ Reprinted as Chapter~27 of {\sl Digital Typography\/} (see under Books).
+\p Q131. $5\times5\times5$ word cubes by computer. {\sl Word Ways\/ \bf26}
+ (1993), 95--97.
+\p Q132. The Stanford GraphBase: A platform for combinatorial algorithms.
+ {\sl Proceedings of the Fourth Annual ACM--SIAM Symposium on Discrete
+ Algorithms\/} (1993), 41--43.
+\p Q133. This Week's Citation Classic: Artistic programming. {\sl
+ Current Contents}, Physical, Chemical \& Earth Sciences {\bf33},\,34
+ (August 23, 1993), 8; also {\sl
+ Current Contents}, Engineering, Technology \& Applied Sciences {\bf24},\,34
+ (August 23, 1993), 8.
+ Reprinted as Chapter~14 of {\sl Selected Papers on
+ Computer Science\/} (see under Books); in the first two printings
+ it was, however, called Chapter~15.
+\p Q134. (with John Hershberger) Problem 85-3, on merging sequences.
+ {\sl Journal of Algorithms\/ \bf 6} (1985), 284.
+\p Q135. Problem 90-1, reversing the transformation from sequential
+ representation to short codes for adjacency lists for undirected graphs.
+ {\sl Journal of Algorithms\/ \bf12} (1991), 183.
+\p Q136. Problem 10280, a random binary operation.
+ {\sl American Mathematical Monthly\/ \bf100} (1993), 76;
+ solution in {\bf102} (1995), 561--562.
+\p Q137. Problem 10298, a divisibility property of Stirling numbers.
+ {\sl American Mathematical Monthly\/ \bf100} (1993), 400;
+ solution in {\bf103} (1996), 80--81.
+\p Q138. Problem 10401, a knight's surprise.
+ {\sl American Mathematical Monthly\/ \bf101} (1994), 682--683;
+ solution in {\bf104} (1997), 669.
+\p *Q139. ETAOIN SHRDLU non-crashing sets. {\sl Word Ways \bf27} (1994), 138.
+\p Q140. Speech upon receiving honorary degree from St.~Petersburg University.
+ {\sl Programming and Computer Software\/ \bf20} (1994), 290.
+ Russian translation by B. B. Pokhodze\u\i, {\sl Programmirovanie\/
+ \bf 20},\,6 (1994), 89--91.
+ Reprinted as Chapter~15 of {\sl Selected Papers on
+ Computer Science\/} (see under Books), but not in the first two printings
+ of that volume.
+\p Q141. Foreword to {\sl An Introduction to the Analysis of Algorithms\/} by
+ Robert Sedgewick and Philippe Flajolet (Reading, Mass.: Addison-Wesley,
+ 1995), v.
+\p Q142. The Chinese domino challenge. {\sl Math Horizons\/} (April 1995),
+ 8--9.
+\p *Q143. (with Nob Yoshigahara) Pentagon puzzle (Japanese). {\sl Quark Visual
+ Science Magazine}, No.~156 (Tokyo: Kodansha, June 1995), 127.
+\p Q144. Predictions for the year 2000, on programming. {\sl Byte\/
+ \bf20},\thinspace9 (September 1995), 110.
+\p Q145. Foreword to $A=B$ by Marko Petkov\v{s}ek, Herbert S. Wilf, and
+ Doron Zeilberger (A K Peters, 1996), ix.
+\p Q146. Open letter to coordinators of \TeX\ implementations, 13 October 1981.
+ {\sl TUGboat\/ \bf2},\,3 (November 1981), 5--6.
+\p Q147. A note on hyphenation. {\sl TUGboat\/ \bf4} (1983), 64.
+\p Q148. It happened. {\sl TUGboat\/ \bf8} (1987), 6.
+\p Q149. The initial reception of {\sl Concrete Mathematics}.
+ {\sl SIGACT News\/  \bf20},\,1 (Winter 1989), 48.
+\p Q150. The Samson-Mueller (Davis-Putnam) algorithm. {\sl SIGACT News\/
+ \bf9},\,1 (January--March 1977), 8--9.
+\p Q151. Problem 10470, minimal covers.
+ {\sl American Mathematical Monthly\/ \bf102} (1995), 655;
+ solution in {\bf105} (1998), 771--773.
+\p Q152. Problem 1479, a recursive optimization.
+ {\sl Mathematics Magazine\/ \bf68} (1995), 306;
+ solution in {\bf69} (1996), 306.
+\p Q153. TUG'95 Questions and answers with Prof.~Donald E. Knuth (edited by
+ Christina Thiele) {\sl TUGboat\/ \bf17} (1996), 7--22.
+ Reprinted in {\sl GUST\/ \bf8} (1997), 9--23.
+ Reprinted as Chapter~31 of {\sl Digital Typography\/} (see under Books).
+\p Q154. An interview with Donald Knuth (by Jack Woehr). {\sl Dr.\
+ Dobb's Journal\/ \bf21},\,4 (April 1996), 16--18, 20, 22.
+\p Q155. Knuth meets NTG members (edited by Christina Thiele) {\sl MAPS:
+ Minutes and APpendiceS\/ \bf16} (Nederlandstalige \TeX\ Gebruikersgroep,
+ 1996), 38--49. Reprinted in {\sl TUGboat\/ \bf17} (1996), 342--355.
+ Reprinted as Chapter~33 of {\sl Digital Typography\/} (see under Books).
+\p Q156. Questions and answers at Charles University (edited by Barbara Beeton
+ and Christina Thiele). {\sl TUGboat\/ \bf17} (1996), 355--367.
+ Reprinted as Chapter~32 of {\sl Digital Typography\/} (see under Books).
+\p Q157. Problem 10546, binomial coefficient parity.
+ {\sl American Mathematical Monthly\/ \bf103} (1996), 695;
+ solution in {\bf105} (1998), 867--868.
+\p Q158. Problem 10568, subtracting square roots repeatedly.
+ {\sl American Mathematical Monthly\/ \bf104} (1997), 68;
+ solution in {\bf106} (1999), 167.
+\p Q159. Problem 10576, a card-matching game.
+ {\sl American Mathematical Monthly\/ \bf104} (1997), 169;
+ solution in {\bf106} (1999), 168--169.
+\p Q160. Problem 97-6, A sum over binary sequences. {\sl SIAM Review\/ \bf39}
+ (1997), 317; solution in {\bf40} (1998), 372--374.
+\p Q161. Crystallization of algorithms: The Art of Computer Programming.
+ [Interview by Makoto Nagao; in Japanese.] {\sl Computer Today\/} no.~77
+ (January 1997), 46--51.
+\p Q162. Concerns about American technology policy. [Interview by Hisayasu
+ Yoshizawa; in Japanese.] {\sl Nikkei Electronics\/} no.~683 (24 February
+ 1997), 145--148.
+\p Q163. Dr.~Knuth meets Mitsumasa Anno. [Discussion between Mitsumasa Anno,
+ Donald E. Knuth, and Akihiro Nozaki; in Japanese.] {\sl Sugaku Seminar\/
+ \bf36},\,3 (March 1997), 40--44.
+\p Q164. Roundtable discussion with Prof.~Knuth. [Discussion between
+ Makoto Arisawa, Toshiaki Kurokawa, Nobuko Kishi, and Donald E. Knuth,
+ with additional comments by Jill C. Knuth; in Japanese.]
+ {\sl bit\/ \bf29},\,4 (April 1997), 46--51.
+\p Q165. Opinion: Harmony between theory and practice. [In Japanese.]
+ {\sl bit\/ \bf29},\,5 (May 1997), 3.
+\p*Q166. (with R. M. Corless and D. J. Jeffrey)\xskip A sequence of series
+ for the Lambert $W$ function. {\sl Proceedings of the International
+ Symposium on Symbolic and Algebraic Computation ISSAC '97\/} (ACM Press,
+ 1997), 197--204.
+\p Q167. Problem 1534, sums of ceilings of floors.
+ {\sl Mathematics Magazine\/ \bf70} (1997), 381;
+ solution in {\bf71} (1998), 390--391.
+\p Q168. Problem 1539, a sharp tail inequality.
+ {\sl Mathematics Magazine\/ \bf71} (1998), 66;
+ solution in {\bf72} (1999), 65--66.
+\p Q169. Problem 10593, matrices related to universal hashing.
+ {\sl American Mathematical Monthly\/ \bf104} (1997), 456;
+ solution in {\bf106} (1999), 473--474.
+\p Q170. Problem 10609, a partial Abelian sum.
+ {\sl American Mathematical Monthly\/ \bf104} (1997), 664;
+ solution in {\bf106} (1999), 690--691.
+\p Q171. Teach calculus with Big $O$ (letter to the editor).
+ {\sl Notices of the American Mathematical Society\/ \bf45},\thinspace6
+ (June/July 1998), 687--688. % online search for Bachmann will find it!
+\p Q172. Biblical ladders. {\sl The Mathematician and
+ Pied Puzzler\/} (Wellesley, Mass.:\ A K Peters, 1999), 29--34.
+\p Q173. An interview with Donald Knuth: ``A little bit of your soul in it,''
+ (interview by John Boe), {\sl Writing on the Edge\/} {\bf9} (1998), 10--25.
+\p Q174. Solution to problem 10424, a sum of Ira Gessel. {\sl American
+ Mathematical Monthly\/ \bf104} (1997), 467.
+\p Q175. Letter to the editor: Teach calculus with Big $O$.
+ {\sl Notices of the American Mathematical Society\/ \bf45} (1998), 687--688.
+\p Q176. Solution to problem 97-19, three binomial convolutions. {\sl SIAM
+ Review\/ \bf 40} (1998), 991.
+\p Q177. (with Vaughan Pratt) Problem 10689, an algebraic definition
+ of the real numbers. {\sl American Mathematical Monthly\/ \bf105} (1998), 769;
+ solution in {\bf107} (2000), 755.
+\p Q178. Problem 10691, highly variable lists. %cyclic minimaxing.
+ {\sl American Mathematical Monthly\/ \bf105} (1998), 859;
+ solution in {\bf110} (2003), 59--60.
+\p Q179. (with P. Spirakis, C. Papadimitriou, and others) HERCMA 2001 ---
+ Round table discussion. In {\sl Hellenic European Research on Computer
+ Mathematics and Its Applications (HERCMA 2001)}, edited by Elias~A.
+ Lipitakis (Athens:\ LEA, 2002), 910--923.
+\p Q180. Problem 10720, exploring all binary mazes.
+ {\sl American Mathematical Monthly\/ \bf106} (1999), 264;
+ solution in {\bf110} (2003), 60--61.
+\p Q181. Problem 10726, explosive growth.
+ {\sl American Mathematical Monthly\/ \bf106} (1999), 362;
+ solution in {\bf107} (2000), 469--470.
+\p Q182. (with Robert W. Floyd) Problem H-94, golden hashing.
+ {\sl Fibonacci Quarterly\/ \bf4} (1966), 258. % added for completeness!
+\p Q183. Problem 10832, the reciprocals of Stirling's errors,
+ {\sl American Mathematical Monthly\/ \bf107} (2000), 863;
+ solution in {\bf108} (2001), 877--878.
+\p Q184. Interview: Donald E. Knuth (by Raph Levien). {\sl TUGboat\/ \bf21}
+ (2000), 103--110. Reprinted from the original online version,
+ {\tt http:/\kern-.1em/www.advogato.org/ article/28.html}.
+\p Q185. Problem 10858, Fibonacci sequences with complex twists.
+ {\sl American Mathematical Monthly\/ \bf108} (2001), 271;
+ solution in {\bf111} (2004), 166--167, 922.
+\p Q186. Problem 1621, Fibonacci numbers from binomial coefficients.
+ {\sl Mathematics Magazine\/ \bf74} (2001), 154;
+ solution in {\bf75} (2002), 149--150.
+\p Q187. Problem 10871, balanced neighborhood squares.
+ {\sl American Mathematical Monthly\/ \bf108} (2001), 372;
+ solution in {\bf100} (2003), 161--162.
+\p Q188. Problem 10875, animals in a cage.
+ {\sl American Mathematical Monthly\/ \bf108} (2001), 469;
+ solution in {\bf110} (2003), 243--245.
+\p Q189. All questions answered (edited by Allyn Jackson). [Transcript
+ of a lecture at the Technical University of Munich, 5~October 2001.]
+ {\sl Notices of the American Mathematical Society\/ \bf49},\,3 (March
+ 2002), 318--324. Reprinted in {\sl Mathematics Newsletter\/ \bf12}
+ (Ramanujan Mathematical Society, 2002), 33--42.
+\p Q190. Problem 10906, recounting the rationals.
+ {\sl American Mathematical Monthly\/ \bf108} (2001), 872;
+ solution in {\bf110} (2003), 642--643.
+\p Q191. (with O. P. Lossers) Solution to problem 10757, generalized quotients
+ of continued fractions. {\sl American Mathematical Monthly\/ \bf108}
+ (2001), 875.
+\p Q192. Problem 10913, related transpositions with different periods,
+ {\sl American Mathematical Monthly\/ \bf108} (2001), 977;
+ solution in {\bf110} (2003), 844--845.
+\p Q193. Knuth comments on code. {\sl Byte\/
+ \bf21},\thinspace9 (September 1996), 40.
+\p Q194. Der Perfektionist (interview by Harald B\"ogeholz and Andreas
+ Stiller). {\sl c't magazin f\"ur computer technik 2002},\,5
+ (25 February--10 March 2002), 190--193.
+\p Q195. `Geleitwort' to {\sl Das {\sltt MMIX\/}-Buch\/} by
+ Heidi Anlauff, Axel B\"ottcher, and Martin Ruckert
+ (Berlin: Springer, 2002), v--vi.
+\p Q196. U.K. TUG, Oxford, Sunday, 12 September 1999, question \& answer
+ session with Donald Knuth. {\sl TUGboat\/ \bf22} (2001), 15--19.
+\p Q197. All questions answered. [Transcript
+ of a lecture at the University of Oslo, 30 August 2002.]
+ {\sl TUGboat\/ \bf23} (2002), 249--261.
+\p Q198. Solution to problem 10825, A Fibonacci--Lucas extremum.
+ {\sl American Mathematical Monthly\/ \bf109} (2002), 762--763.
+\p Q199. Problem 10985, Some Bernstein polynomials.
+ {\sl American Mathematical Monthly\/ \bf110} (2003), 58;
+ solution in {\bf111} (2004), 447, 922.
+\p Q200. Problem 11021, a modular triple.
+ {\sl American Mathematical Monthly\/ \bf110} (2003), 542, 963;
+ solution in {\bf112} (2005), 279--280.
+\p Q201. Robert W Floyd, in memoriam. {\sl SIGACT News\/ \bf34},\thinspace4
+ (December 2003), 3--13. Reprinted in {\sl IEEE Annals of the History of
+ Computing\/ \bf26},\thinspace2 (April--June 2004), 75--83.
+\p Q202. (with David S. Johnson and Zvi Galil) Changes at the {\sl Journal
+ of Algorithms}. {\sl SIGACT News\/ \bf35},\thinspace1 (March 2004), 85.
+\p Q203. Problem 11078, cube-free sums.
+ {\sl American Mathematical Monthly\/ \bf111} (2004), 361;
+ solution in {\bf113} (2006), 368--369.
+\p Q204. Three Catalan bijections. {\sl Institut Mittag-Leffler Reports},
+ No.~04, 2004/2005, Spring (2005), 19pp.
+\p Q205. Problem 11142, Largest weighted Stirling numbers.
+ {\sl American Mathematical Monthly\/ \bf112} (2005), 273--274;
+ solution to appear.
+\p Q205. Problem 11151, Affinity groups at a roundtable.
+ {\sl American Mathematical Monthly\/ \bf112} (2005), 367;
+ solution to appear.
+\p Q206. Interview with Donald E. Knuth (by Gianluca Pignalberi).
+ {\sl Free Software Magazine}, Issue~7 (August 2005), 13--15.
+ Reprinted in {\sl TUGboat\/ \bf26} (2005), 183--185.
+ Italian translation in {\sl Ars{\TeX}nica\/ \bf1} (2006), 5--7.
+\p Q207. Problem 1721, Fibonacci graphs. {\sl Mathematics Magazine\/ \bf78}
+ (2005), 239; solution in {\bf79} (2006), 219--220.
+\p Q208. Searching graphs (a brainteaser). {\sl ACM Transactions on
+ Algorithms\/ \bf1} (2005), 158---159; solution in {\bf2} (2006), 132--133.
+\p Q209. $\hbox{\tt KNIFE}+\hbox{\tt FORK}+\hbox{\tt SPOON}+\hbox{\tt SOUP}=
+ \hbox{\tt SUPPER}$. {\sl Journal of Recreational Mathematics\/ \bf33}
+ (2004--2005), 67.
+\p Q210. \TeX's infinite glue is projective. {\sl TUGboat\/ \bf27} (2006),
+ to appear.
+\p Q211. Problem 11243, Perfect parity patterns.
+ {\sl American Mathematical Monthly\/ \bf113} (2006), 759;
+ solution to appear.
+\p Q212. Problem 11264, $d$-swaps.
+ {\sl American Mathematical Monthly\/ \bf114} (2007), 77;
+ solution to appear.
+
+
+\finishpage
+
+%%%%%
+\sectionbegin 5. {Reports of Limited Circulation \rm
+($\ast$ means notes prepared by auditors of lectures)}
+\p R1.  Tic Tac Toe on the 650.  Case Computing Center
+ (Cleveland, Ohio, 1957), 8 pp.
+\p R2.  Case Soap III\null.  Case Computing Center, ser.\ IV, {\bf 1}
+ (Cleveland, Ohio, February 1958), 28 pp.  
+\p R3.  Runcible I.  Case Computing Center, ser.\ V, {\bf 1}
+ (Cleveland, Ohio, March 1959), 67 pp.  
+\p R4.  (Editor)  {\sl Engineering and Science Review}.  
+ Case Institute of Technology, vol.\ 2, no.\ 1, 3, 4 (1959).  Associate
+ Editor, vol.\  3 (1960).  Article: ``The revolutionary potrzebie''
+ (November 1958), 18--20. Features: ``Th$_5$E$_4$ CH$_3$EmIC$_2$Al$_2$
+ Ca$_3$P\kern-1pt$_4$Er'' (March 1959), p.\ 32;
+ ``The plot thickens,'' (November 1959), p.\ 45;
+ ``Math ace,'' (May 1960), p.\ 24.
+\p R5.  (Editor)  {\sl Case Handbook}.  Case
+ Institute of Technology, 1959.  
+\p R6.  SuperSoap.  Case Computing Center, 
+ ser.\ IV, {\bf 2} (Cleveland, Ohio, August 1959), 55 pp.  
+\p R7.  The internals of Algol 205.  Burroughs Corporation, 1960.  30 pp.  
+\p R8.  Balgol 220 (annotations on listing).  Burroughs Corporation, 1960.  
+\p R9.  $m$th powers of algebraic roots.  California Institute of
+ Technology, Mathematics Department (Pasadena, California, April 1961). 7 pp.  
+\p R10.  Burroughs Algebraic Compiler for the 205.  Burroughs
+ Corporation publication no.\ 205-21003-D (Detroit, Michigan,
+ October 1961), 30 pp.  
+\p R11.  FORTRAN II for the Univac Solid State computers.  UNIVAC
+ Division Sperry Rand (Bluebell, Pennsylvania, October 1962), 85 pp.
+\p R12. (with William C. Lynch)\xskip QADAAD (Quick And Dirty Assembler And
+ Documentor), an assembly system for the Solid State II\null. Internal
+ memorandum, August, 1962.
+\p R13. (with William C. Lynch)\xskip
+ FORTRAN II Routine Block Chart (Annotated).  UNIVAC Division Sperry
+ Rand, publication no.\ UP-3843.1 (Bluebell, Pennsylvania, 1963), 50 pp.  
+\p R14.  A good scrambling function suitable for hardware.  Burroughs
+ Corporation Electrodata Division, Engineering Tech.\ Memo.\ No.\ 234
+ (Pasadena, California, October 1963), 22 pp.  
+\p R15.  Textbook of Combinatorial Mathematics (a partial translation
+ of {\sl Lehrbuch der Combinatorik}, by E. Netto). 
+ Library, California Institute of Technology (1963), approx.\ 150 pp.  
+\p R16.  Finite semifields and projective planes.
+ Ph.D. thesis, California Institute of Technology (Pasadena, California, 1963),
+ 70 pp.
+\p R17.  Computer languages.  California Institute of Technology,
+ Seminar series on computer applications to biology
+ (Pasadena, California, February 1963), 15 pp.;
+ (December 1964), 12 pp.  
+\p R18.  Notes on Chebyshev approximation theory.  California Institute
+ of Tech\-nology, Mathematics Department (Pasadena, California, 1964).  7 pp.
+\p R19.  Lectures in software design.  Burroughs Corporation
+ Electrodata Division (Pasadena, California, 1964), approx.\ 200 pp.  
+\p R20.  Notes on complex variable theory.  California Institute of
+ Technology, Mathematics  Department (Pasadena, California, 1965), 36 pp.
+\p R21.  The Thue-Siegel-Roth theorem.  California Institute of
+ Technology, Mathematics Department (Pasadena, California, 1966).  41 pp.  
+\p R22.  Exploration of the direct product (Kronecker product,
+ tensor product) of matrices:  Results of Math 5B class project.
+ California Institute of Technology, Mathematics Department
+ (Pasadena, California, March 1966), 10 pp.  
+\p R23.  Estimating the running time of BACKTRACK programs. 
+ IDA-CRD Working Paper No.\ 279 (Princeton, New Jersey,
+ November 1969), 42 pp.  
+\p R24.  The Art of Computer Programming --- errata et addenda. 
+ Stanford Computer Science Report 194 (Stanford, California,
+ January 1971), 28 pp.  
+\p R25.  (with R. L. Sites)\xskip  MIX/360 User's Guide.  
+ Stanford Computer Science Report 197 (Stanford, California, March 
+ 1971), 11 pp.  
+\p *R26.  The analysis of algorithms.  In {\sl The Teaching
+ of Programming at University Level}, B. Shaw, ed. (University of
+ Newcastle-Upon-Tyne, 1971), 49--62.  
+\p R27.  (with V. Chv\'atal and D. A. Klarner)\xskip  Selected
+ combinatorial research problems.  Stanford Computer Science
+ Report 292 (Stanford, California, June 1972), 29 pp.  
+\p R28.  Matroid partitioning.  Stanford Computer Science Report 342
+ (Stanford, California, 1973), 12 pp.
+\p *R29.  Selected topics in Computer Science.  Lecture Note Series,
+ Matematisk institutt, Universitetet i~Oslo (Oslo, Norway, 1973),
+ Nr.~1 and Nr.~2. [Notes by Ole Amble, Ole-Johan Dahl, Erik Holb{\ae}k-Hanssen,
+ Arne Jonassen, Torvald Kjeldaas, Stein Krogdahl, \AA mund Lunde,
+ Arne Maus, and Arne Wang. Part~1 contains: analysis of quicksort; dynamic
+ storage allocation; flowcharts and Kirchhoff's first law; theory of matroids;
+ complexity analysis of equivalence algorithms. Part~2 contains: strong
+ components; hard problems; backtracking algorithms; pattern matching in
+ strings; generation of combinatorial patterns.]
+\p R30.  A review of {\sl Structured Programming}.  Stanford Computer
+ Science Report 371 (Stanford, California, June 1973).  
+\p *R31.  ``Stable marriage'' --- problemet og samanhangen med hashing og
+ ``coupon collecting''.  (Norwegian) University of Bergen (Bergen, Norway,
+ June 1973), 20 pp.  
+\p R32.  Sorting and Searching --- errata and addenda.  Stanford Computer
+ Science Report 392 (Stanford, California, October 1973), 35 pp.  
+\p R33.  The State of {\sl The Art of Computer Programming}.  
+ Stanford Computer Science Report 551 (Stanford, California,
+ June 1976), 57 pp.  
+\p *R34.  (with Michael J. Clancy)\xskip A programming and
+ problem-solving seminar.  Stanford Computer Science Report 606
+ (Stanford, California, April 1977), 99 pp.
+\p R35.  Tau Epsilon Chi, a system for technical text.  Stanford Computer
+ Science Report 675 (Stanford, California, September 1978), 198 pp.
+ Reprinted with corrections as part 2 of {\sl \TeX\ and \slMF\/}
+ (see under Books).
+\p *R36.  (with Chris van Wyk)\xskip A programming and problem-solving
+ seminar.  Stanford Computer Science Report 707 (Stanford, California,
+ January 1979), 83 pp.
+\p R37.  The errata of computer programming.  Stanford Computer Science
+ Report 712 (Stanford, California, January 1979), 57 pp. Reprinted in
+ {\sl Dr.~Dobb's Journal of Computer Calisthenics \&\ Orthodontia\/ \bf 5},\,6
+ (June 1980), 27--39.
+\p R38.  \MF, a system for alphabet design.  Stanford Computer Science
+ Report 762 (Stanford, California, September 1979), 105~pp.  Reprinted with
+ corrections as part 3 of {\sl \TeX\ and \slMF\/} (see under Books).
+\p R39.  The Computer Modern family of typefaces.  Stanford Computer Science
+ Report 780 (Stanford, California, January 1980), 406 pp.
+\p *R40. (with Allan A. Miller)\xskip A programming and
+ problem-solving seminar. Stanford Computer Science Report 863
+ (Stanford, California, June 1981), 81 pp.
+\p R41. The last whole errata catalog. Stanford Computer Science Report 868
+ (Stanford, California, July 1981), 41 pp.
+\p R42. The {\tt WEB} system of structured documentation. Stanford Computer
+ Science Report 980 (Stanford, California, September 1983), 206~pp. Most of
+ this report has been reprinted in {\sl Weaving a Program: Literate
+ Programming in {\sltt WEB}\/} by Wayne Sewell (New York: Van Nostrand
+ Reinhold, 1989), 271--434.
+\p R43. (with David R. Fuchs)\xskip \TeX ware. Stanford Computer Science
+ Report 1097 (Stanford, California, April 1986), $10+30+53+53$~pp.
+\p R44. A torture test for \TeX. Stanford Computer Science Report 1027
+ (Stanford, California, November 1984), 142~pp.
+\p *R45. (with Joseph S. Weening)\xskip A programming and problem-solving
+ seminar. Stanford Computer Science Report 989 (Stanford, California,
+ December 1983), ii+91~pp.
+\p *R46. (with John D. Hobby)\xskip A programming and problem-solving seminar.
+ Stanford Computer Science Report 990 (Stanford, California, December 1983),
+ 61~pp.
+\p *R47. (with Ramsey W. Haddad)\xskip A programming and problem-solving
+ seminar. Stanford Computer Science Report 1055 (Stanford, California,
+ June 1985), 103~pp.
+\p R48. A torture test for \MF. Stanford Computer Science Report 1095
+ (Stanford, California, January 1986), 78~pp.
+\p *R49. (with Tomas G. Rokicki)\xskip A programming and problem-solving
+ seminar. Stanford Computer Science Report 1154 (Stanford, California,
+ April 1987), 89~pp.
+\p *R50. (with Tracy L. Larrabee and Paul M. Roberts)\xskip Mathematical
+ writing. Stanford Computer Science Report 1193 (Stanford, California,
+ January 1988), 117~pp. Reprinted with corrections by the Mathematical
+ Association of America (see under Books).
+\p R51. 3\,:\,16, an approach to Bible study. In
+ {\sl A Sixth Conference on Mathematics from a Christian Perspective},
+ edited by Robert L. Brabenec (proceedings of a conference at Calvin College,
+ May 1987, sponsored by the Association of Christians in the Mathematical
+ Sciences), 3--25.
+\p R52. (with Tomas G. Rokicki and Arthur L. Samuel)\xskip \MF\/ware.
+ Stanford Computer Science Report 1255
+ (Stanford, California, April 1989), $30+42+87+48$~pp. Reprinted in
+ {\sl \TeX niques\/ \bf13} (1990).
+\p R53. (with Silvio Levy)\xskip The {\tt CWEB} system of structured
+ documentation. Stanford Computer Science Report 1336 (Stanford, California,
+ October 1990), 200~pp. Also issued as University of Minnesota Supercomputer
+ Institute Research Report UMSI 91/56 (Minneapolis, Minnesota, February 1991).
+\p *R54. (interview translated into French by Philippe Gabrini) La foi d'un
+ scientifique. {\sl La Vie Chr\'etienne}, Journal de l'\'Eglise
+ Presbyt\'erienne au Canada (October--November 1991), 11--12.
+\p *R55. (with Kenneth A. Ross)\xskip A programming and problem-solving
+ seminar. Stanford Computer Science Report 1269 (Stanford, California,
+ July 1989), 87~pp.
+\p R56. Stable husbands (extended abstract).
+ In {\sl 25th International Seminar on the Teaching of Computing Science},
+ B. Randell, ed.~(University of Newcastle-Upon-Tyne, 1992), III.1--III.7.  
+\p R57. The Stanford Graphbase (extended abstract).
+ In {\sl 25th International Seminar on the Teaching of Computing Science},
+ B. Randell, ed.~(University of Newcastle-Upon-Tyne, 1992), III.8--III.14.  
+\p R58. (interview by Dan Doernberg) Donald E. Knuth: Programming for a
+ human being instead of a computer. {\sl New Book Bulletin}, Computer
+ Literacy Bookshops (Spring 1994), 4--5; (Summer 1994), 4--5.
+ [{\tt http:/\kern-.1em/www.clbooks.com/nbb/knuth.html}]
+ Czech translation by Ji\v{r}\'{\i} Zlatu\v{s}ka, {\sl \'UVT MU Zprovodaj\/
+ \bf6},\,1 (1995), 1--4; {\bf6},\,2 (1995), 15--20.
+\p R59. Digital typography. {\sl Kyoto Prizes 1996\/} (Kyoto: Inamori
+ Foundation, 1997),  82--109.
+ Reprinted as Chapter~1 of {\sl Digital Typography\/} (see under Books).
+\p R60. (conducted by Philip L. Frana) An interview with Donald E. Knuth.
+ OH 332 (Minneapolis, Minnesota: Charles Babbage Institute, 8 November 2001),
+ 27pp.
+\finishpage
+\end

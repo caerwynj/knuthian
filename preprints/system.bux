@@ -1,0 +1,26 @@
+@$EOF "<stdio.h>" =$(-1)$@>
+@$FILE "<stdio.h>" \zip@>
+@$fclose "<stdio.h>" \&{int} (\,)@>
+@$fflush "<stdio.h>" \&{int} (\,)@>
+@$fgets "<stdio.h>" \&{char} $*$(\,)@>
+@$fopen "<stdio.h>" \&{FILE} $*$(\,)@>
+@$fprintf "<stdio.h>" \&{int} (\,)@>
+@$fputc "<stdio.h>" \&{int} (\,)@>
+@$fputs "<stdio.h>" \&{int} (\,)@>
+@$getchar "<stdio.h>" =macro (\,)@>
+@$printf "<stdio.h>" \&{int} (\,)@>
+@$putchar "<stdio.h>" =macro (\,)@>
+@$sprintf "<stdio.h>" \&{int} (\,)@>
+@$sscanf "<stdio.h>" \&{int} (\,)@>
+@$stderr "<stdio.h>" \&{FILE} $*$@>
+@$stdin "<stdio.h>" \&{FILE} $*$@>
+@$stdout "<stdio.h>" \&{FILE} $*$@>
+@$strcmp "<string.h>" \&{int} (\,)@>
+@$strcpy "<string.h>" \&{char} $*$(\,)@>
+@$strlen "<string.h>" \&{int} (\,)@>
+@$strncmp "<string.h>" \&{int} (\,)@>
+@$strncpy "<string.h>" \&{char} $*$(\,)@>
+@$islower "<ctype.h>" \&{int} (\,)@>
+@$calloc "<stdlib.h>" \&{void} $*$(\,)@>
+@$free "<stdlib.h>" \&{void} (\,)@>
+@$SYSV "\rm\UNIX/~System~5" \zip@>

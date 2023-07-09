@@ -1,0 +1,17 @@
+
+all:V:
+	echo mk targ.all
+	
+%.all:	%.dvi %.exe
+
+%.dvi:	%.tex
+	os -d `{hp `pwd} tex $stem.tex
+	
+%.tex:	%.w
+	os -d `{hp `pwd} cweave $stem.w
+
+%.c:		%.w
+	os -d `{hp `pwd} ctangle $stem.w
+
+%.exe:	%.c
+	gcc -ansi -o $target $stem.c

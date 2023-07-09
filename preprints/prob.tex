@@ -1,0 +1,114 @@
+\nopagenumbers
+\advance\vsize1in
+\hoffset-.25in
+\vglue.5in
+\line{\bf An integer programming problem\hfill \sl Don Knuth, July 1993\/}
+
+\medskip
+\noindent
+My first ``large'' technical paper [1], written in the spring of 1960
+when I was an undergraduate student at Case Institute of Technology,
+contained an integer programming problem that I couldn't solve.
+Here's what I said on page 141:
+
+{\smallskip\narrower\noindent
+Using the most advanced integer-programming techniques known at the time
+(April 1960), the program ran over 300 iterations and showed no sign whatever
+of being close to a solution; in fact, it seemed to be further away, if
+anything, than when it began. Each iteration took between two and five
+minutes, because the matrix was so large it had to be put into disk storage.
+\smallskip}
+
+[I was using an IBM 650 computer with fewer than 10K bytes of memory; it also
+had a juke-box-like RAMAC ``disk'' from which we could read about 400 bytes
+at a time before seeking another track or another surface! I used Gomory's
+original all-integer algorithm, based on his preprint dated January 29,
+1960; he told me my implementation was probably the first outside of
+Yorktown Heights.]
+
+The problem is to minimize
+$$\displaylines{\qquad 30(50t_{21}+x_2)
++10(50(t_{21}+t_{26}-t_{12})+x_2)
++(50(t_{21}+t_{28}-t_{14})+x_2)\hfill\cr
+\hfill{}+(50(t_{21}+t_{26}-t_{12}+t_{28}-t_{14})+x_2)
++2(50t_{30}+x_2)\qquad\cr}$$
+subject to the following constraints:
+$$\def\\#1#2{\noalign{\vskip-.5\baselineskip
+         \hbox{\hbox to4in{$\hfil#1\le{}$}$#2$}
+         \vskip-.5\baselineskip}}
+\halign{\hskip3em$\hfil#\ge0$\cr
+\\{x_2+2}{2z_1}
+50t_2+x_3-2z_1-24\cr
+\\{x_3+2}{2z_2}
+50(t_3-t_2)+x_4-2z_2-5\cr
+50(t_4-t_3)-x_4-6\cr
+50(t_5-t_4)+x_5-15\cr
+\\{x_5+3}{2z_3}
+50(t_6-t_5)+x_6-2z_3-4\cr
+\\{x_6+2}{2z_4}
+50(t_7-t_6)+x_4-2z_4-12\cr
+\\{x_4}{2z_5+1}
+50(t_8-t_7)+x_7-2z_5-35\cr
+\\{x_7}{2z_6}
+50(t_9-t_8)+x_8-2z_6-3\cr
+50(t_{10}-t_9)+x_6-x_8-10\cr
+\\{x_6}{2z_7+1}
+50(t_{11}-t_{10})+x_3-2z_7-8\cr
+50(t_{12}-t_{11})+x_8-x_3-3\cr
+\\{x_8}{2z_8+1}
+50(t_{13}-t_{12})+x_9-2z_8-7\cr
+50(t_{13}-t_{12})+x_9+w_1-2z_8-21\cr
+\\{x_9+w_1}{2z_9+1}
+50(t_{14}-t_{13})+x_5-2z_9-35\cr
+\\{x_5+2}{2z_{10}}
+50(t_{15}-t_{14})+x_3-2z_{10}-34\cr
+50(t_{16}-t_{15})+x_5-x_3-6\cr
+50(t_{17}-t_{16})+x_9-2z_3-30\cr
+50(t_{18}-t_{17})+x_4-2z_9-8\cr
+50(t_{19}-t_{18})+x_3-2z_5-34\cr
+\\{x_3}{2z_{11}+1}
+50(t_{20}-t_{19})-2z_{11}-9\cr
+50(t_{21}-t_{20})+x_2-9\cr
+50(t_{22}-t_9)+x_3-x_8-9\cr
+50(t_{23}-t_{22})+x_5-2z_{11}-8\cr
+50(t_{24}-t_{23})+x_4-x_5-6\cr
+50(t_{25}-t_{24})+x_6-x_4-6\cr
+50(t_{26}-t_{25})+x_8-x_6-3\cr
+50(t_{27}-t_7)+x_7-2z_5-21\cr
+50(t_{13}-t_{12})+x_9+w_2-2z_8-24\cr
+\\{x_9+w_2}{2z_{12}+1}
+50(t_{28}-t_{27}+t_8-t_{13})+x_5-2z_{12}-35\cr
+50(t_{29}-t_{13})-2z_9-15\cr
+50(t_{30}-t_{29})+x_2-3\cr}
+$$
+in nonnegative integers $(x_2,\ldots,x_9,t_2,\ldots,t_{30},z_1,\ldots,z_{12},
+w_1,w_2)$.
+(See page 139 of [1]; the coefficients $(p_1,\ldots,p_5)$ of the objective
+function on page 140 have been taken from page 131.) The matrix of
+coefficients is available in electronic form in the file {\tt latency.data}.
+
+\medskip
+\item{[1]}Donald E. Knuth, ``Minimizing drum latency time,'' {\sl Journal
+of the ACM\/ \bf 8} (April 1961), 119--150.
+
+\bigskip
+\noindent{\bf Addendum}
+
+My old problem was finally solved in 1995, by Dimitris Alevras at ZIB
+Berlin. He used CPLEX on a SPARCstation 5; that system first found
+an upper bound 29300, then it found the optimum value 22996 at the
+8880th node of a branch-and-bound search. But 732,200 branch-and-bound
+nodes were needed to prove optimality! He reported that the problem
+was ``amazingly sensitive from a numerical point of view''; another run,
+with different CPLEX parameters for branching, sos, clique, and cover
+constraints, needed more than 22,000 nodes just to get the first
+integer solution for an upper bound. ``So there was a lot of luck
+involved!!''
+
+The reason I was unable to find a solution in 1960 now seems perfectly
+clear. But I think the problem remains interesting as a sort of benchmark
+for any new approaches to integer programming.
+
+
+
+\bye

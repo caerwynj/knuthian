@@ -1,0 +1,76 @@
+\magnification\magstephalf
+\baselineskip14pt
+\parskip5pt
+
+\centerline{\bf The Squared Differences of Uniform Deviates}
+\centerline{Donald E. Knuth}
+\bigskip
+Let $U_0,\ldots,U_{n-1}$ be independent random variables uniformly distributed
+in $[0,1)$, and let $D=\sum_{0\leq j<k<n}(U_j-U_k)^2$. Let $\delta=C\bigl((\ln
+n)/n\bigr)^{1/3}$, where $C$ will be chosen later. I~will show that $D={1\over
+12}\,n^2\bigl(1+O(\delta)\bigr)$ with probability $\geq 1-O(n^{-5})$.
+
+The idea is very simple, but the details need to be carefully worked out, so
+I'm jotting the details down here. I~divide the unit interval into $m=1/\delta$
+subintervals of size~$\delta$, and show that each of these intervals has
+between $n\delta(1-\delta)$ and $n\delta(1+\delta)$ elements, with probability
+$\geq 1-O(n^{-5})$.
+
+The probability that there are more than $n\delta(1+\delta)$ elements in a
+particular interval is bounded above by $x^{-n\delta(1+\delta)}(1-\delta+\delta
+x)^n$ for all $x\geq 1$, using the upper tail inequality [{\sl Concrete Math\/}
+exercise 8.12a]. Choosing $x=(1-\delta^2)/(1-\delta-\delta^2)$ gives the upper
+bound $\exp(n\theta)$ where $\theta=(1-\delta-\delta^2)\ln(1-\delta)-
+(\delta+\delta^2)\ln(1+\delta)-(1-\delta-\delta^2)\ln(1-\delta-\delta^2)
+=-{1\over 2} \delta^3-{1\over 3}\delta^4+O(\delta^5)$. (The Taylor coefficients
+through $\delta^{20}$ are all negative, so I~could probably prove $\theta\leq
+-{1\over 2}\delta^3$ with a little thought.) So the probability of this event
+is at most $O(n^{-C^3\!/2})$.
+
+The probability that there are fewer than $n\delta(1-\delta)$ elements in a
+particular interval~is, similarly, at most $x^{-n\delta(1-\delta)}(1-\delta
++\delta x)^n$ for all $x\leq 1$, and I~choose
+$x=(1-\delta)^2\!/(1-\delta+\delta^2)$. This gives the upper bound
+$\exp(n\theta)$ where $\theta =(1-2\delta+2\delta^2)\ln(1-\delta)-
+(1-\delta+\delta^2)\ln(1-\delta+\delta^2)=-{1\over 2}\delta^3-{2\over 3}
+\delta^4+O(\delta^5)$. (Again, all coefficients through $\delta^{20}$ are
+negative.)
+
+Choosing $C$ so that $C^3\!/2\geq 5+{1\over 3}$ will ensure that all $m$
+intervals have the stated number of elements with probabilty $1-O(n^{-5})$. Any
+value $C>2.21$ will work.
+
+What does this tell us about $D$? We have
+$$\eqalign{D&\leq \bigl(n\delta(1+\delta)\bigr)^2\sum_{0\leq j\leq
+k<m}\left({k+1\over m}-{j\over m}\right)^2\cr
+\noalign{\smallskip}
+&={n^2(1+\delta)^2\over m^4}\,\sum_{l=0}^{m+1}\,(m+1-l)\,l^2\cr}$$
+and
+$$\eqalign{D&\geq \bigl(n\delta(1-\delta)\bigr)^2\sum_{0\leq j<
+k<m}\left({k\over m}-{j+1\over m}\right)^2\cr
+\noalign{\smallskip}
+&={n^2(1-\delta)^2\over m^4}\,\sum_{l=0}^{m-1}\,(m-1-l)\,l^2\,.\cr}$$
+So we evaluate
+$$\eqalign{\sum_{l=0}^m\,(m-l)l^2&=2\sum_{l=0}^m{m-l\choose 1}{l\choose 2}
++\sum_{l=0}^m{m-l\choose 1}{l\choose 1}\cr
+\noalign{\smallskip}
+&=2{m+1\choose 4}+{m+1\choose 3}={1\over 12}\,m^4+O(m^3)\,.\cr}$$
+Clearly then $D={1\over 12}\,n^2\bigl(1+O(\delta)\bigr)$.
+
+\bigskip
+\noindent {\bf Application}.\quad
+Let's estimate the expected value of $(U_0-U_1)^4\!/D^2$, conditioned on $D\neq
+0$. Note that this ratio always lies between~0 and~1. In fact, when $D\neq 0$
+ it can't exceed $1/(n-1)^2$, but I~don't need this. We have
+$D=(U_0-U_1)^2+\sum_{k=2}^{n-1}(U_0-U_k)^2+\sum_{k=2}^{n-1}(U_1-U_k)^2+D'$,
+where $D'={1\over 12}\,(n-2)^2\bigl(1+O(\delta)\bigr)$ almost surely, so
+$D=D'+O(n)$ and $D'$ is independent of~$U_0$ and~$U_1$.
+
+The expected value of $(U_0-U_1)^4$ is $\int_0^1\int_0^1(x-y)^4\,dx\,dy
+=\sum_k{4\choose k}\,{1\over (k+1)(5-k)}\,(-1)^k={1\over 15}$. So
+$E\big((U_0-U_1)^4\!/D^2\bigr)={48\over 5}\,n^{-4}\bigl(1+O(\delta)\bigr)
++O(n^{-5})$.
+
+\bye
+
+

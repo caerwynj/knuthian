@@ -1,0 +1,65 @@
+% Written by DVItoMP, Version 0.9 (MiKTeX 2.5)
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y); enddef;
+_n0="cmmi10";
+_s("G",_n0,1.00000,0.0000,0.0000);
+_n1="cmr10";
+_s("=",_n1,1.00000,10.6004,0.0000);
+setbounds _p to (0,0.0000)--(18.3492,0.0000)--
+ (18.3492,6.8078)--(0,6.8078)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y); enddef;
+_n0="cmmi10";
+_s("H",_n0,1.00000,0.0000,0.0000);
+_n1="cmr10";
+_s("=",_n1,1.00000,11.8582,0.0000);
+setbounds _p to (0,0.0000)--(19.6070,0.0000)--
+ (19.6070,6.8078)--(0,6.8078)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y); enddef;
+_n0="cmmi10";
+_s("G",_n0,1.00000,0.0000,0.0000);
+_n2="cmsy10";
+_s(char2,_n2,1.00000,8.9400,0.0000);
+interim linecap:=0;
+vardef _r(expr _a,_w) =
+  addto _p doublepath _a withpen pencircle scaled _w enddef;
+_r((10.0470,-2.2249)..(15.5819,-2.2249), 0.3985);
+_s("H",_n0,1.00000,17.7957,0.0000);
+_n1="cmr10";
+_s("=",_n1,1.00000,29.6539,0.0000);
+setbounds _p to (0,-2.8226)--(37.4027,-2.8226)--
+ (37.4027,6.8078)--(0,6.8078)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y); enddef;
+_n0="cmmi10";
+_s("G",_n0,1.00000,0.0000,0.0000);
+_n3="cmmi7";
+_s("R",_n3,1.00000,7.8331,3.6154);
+_n2="cmsy10";
+_s(char2,_n2,1.00000,15.4756,0.0000);
+interim linecap:=0;
+vardef _r(expr _a,_w) =
+  addto _p doublepath _a withpen pencircle scaled _w enddef;
+_r((16.5826,-2.2249)..(22.1174,-2.2249), 0.3985);
+_s("H",_n0,1.00000,24.3313,0.0000);
+_n1="cmr10";
+_s("=",_n1,1.00000,36.1895,0.0000);
+setbounds _p to (0,-2.8226)--(43.9383,-2.8226)--
+ (43.9383,8.3808)--(0,8.3808)--cycle;
+_p endgroup
+mpxbreak

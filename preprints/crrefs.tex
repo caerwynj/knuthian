@@ -1,0 +1,48 @@
+%
+% Define references here
+%
+\newwrite \reffile 
+\immediate \openout \reffile =\jobname.ref
+\newcount \refnum \refnum =0
+\def \ref #1: #2{\global \advance \refnum by 1 \expandafter \xdef 
+    \csname ref#1\endcsname {\the \refnum }\immediate \write \reffile 
+    {\noexpand \item {[\csname ref#1\endcsname ]}{#2}}}
+%
+% Just follow this style to add more references.  Note that in the body
+% of the paper, the Cayley reference is referred to as \refCayley (i.e.,
+% this expands to the reference number), etc.
+%
+\ref Concrete: {R.L. Graham, D.E. Knuth, O. Patashnik,
+ {\sl Concrete Mathematics}, Addison-Wesley, 1994.}
+%
+\ref AdvCom: {L. Comtet, {\sl Analyse Combinatoire},2, Presses Univ.
+de France, 1970.}
+%
+\ref deB: {N. G. de Bruijn, {\sl Asymptotic Methods in Analysis\/},
+North-Holland, 1961.}
+%
+\ref Cara: {C. Carath\'eodory, {\sl Theory of Functions of a Complex
+Variable}, Chelsea, 1954.}
+%
+\ref Comtet: {L. Comtet, {\sl C. R. Acad. Sc. Paris\/}, 270, 1970, 
+p. 1085--1088.}
+%
+\ref Wpap: {R. M. Corless, G. H. Gonnet, D. E. G. Hare, 
+D. J. Jeffrey and D. E. Knuth, ``The Lambert $W$ Function'',
+Advances in Computational Mathematics, to appear.}
+%
+\ref David: {F.N. David and D.E. Barton, {\sl Combinatorial Chance},
+Hafner, 1962.}
+%
+\ref Niel: {N. Nielsen, {\sl Handbuch der Theorie der Gammafunktion},
+Teubner, 1906.}
+%
+\ref Rior: {J. Riordan, {\sl An Introduction to Combinatorial
+Analysis}, Wiley, 1958.}
+%
+\immediate \closeout \reffile 
+%
+% End of references
+%
+
+

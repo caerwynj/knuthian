@@ -1,0 +1,60 @@
+\magnification\magstep1
+\baselineskip14pt
+\parskip5pt
+\def\disleft#1:#2:#3\par{\par\hangindent#1\noindent
+	 \hbox to #1{#2 \hfill \hskip .1em}\ignorespaces#3\par}
+
+Science is what we understand well enough to explain to a computer. Art is
+everything else we do. 
+During the past several years an important part of mathematics
+has been transformed from an Art to a Science: No longer do we need to get a
+brilliant insight in order to evaluate sums of binomial coefficients, and many
+similar formulas that arise frequently in practice; we can now follow a
+mechanical procedure and discover the answers quite systematically.
+
+I fell in love with these procedures as soon as I~learned them, because they
+worked for me immediately. Not only did they dispose of sums that I~had
+wrestled with long and hard in the past, they also knocked off two new problems
+that I~was working on at the time I~first tried them. The success rate was
+astonishing.
+
+In fact, like a child with a new toy, I~can't resist mentioning how I~used the
+new methods just yesterday. Long ago I~had run into the sum
+$\sum_k{2n-2k\choose n-k}{2k\choose k}$, which takes the values 1, 4, 16, 64
+for $n=0,1,2,3$ so it must be~$4^n$. Eventually I~learned a tricky way to prove
+that it~is, indeed,~$4^n$; but if I~had known the methods in this book I~could
+have proved the identity immediately. Yesterday I~was working on a harder
+problem whose answer was $S_n=\sum_k{2n-2k\choose n-k}{}^2{2k\choose k}{}^2$.
+I~didn't recognize any pattern in the first values 1, 8, 88, 1088, so
+I~computed away with the Gosper-Zeilberger algorithm. In a few minutes
+I~learned that $n^3S_n=16(n-{1\over 2})(2n^2-2n+1)S_{n-1}-256(n-1)^3S_{n-2}$. 
+
+Notice that the algorithm doesn't just verify a conjectured identity ``$A=B$''.
+It also answers the question ``What is~$A$?'', when we haven't been able to
+formulate a decent conjecture. The answer in the example just considered is a
+nonobvious recurrence from which it is possible to rule out any simple form
+for~$S_n$. 
+
+I'm especially pleased to see the appearance of this book, because its authors
+have not only played key roles in the new developments, they also are master
+expositors of mathematics. It is always a treat to read their publications,
+especially when they are discussing really important stuff.
+
+Science advances whenever an Art becomes a Science. And the state of the Art
+advances too, because people always leap into new territory once they have
+understood more about the old. This book will help you reach new frontiers.
+
+\baselineskip10pt
+
+\bigskip
+\disleft 300pt::
+Donald E. Knuth
+\disleft 300pt::
+Stanford University
+\disleft 300pt::
+20 May 1995
+
+\vfill
+\line{pwz.tex\hfill}
+
+\end
